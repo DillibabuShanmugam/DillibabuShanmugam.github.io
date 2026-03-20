@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dillibabu Shanmugam — Hardware Security Researcher | WPI</title>
-    <meta name="description" content="Dillibabu Shanmugam is a hardware security researcher at Worcester Polytechnic Institute (WPI). Research in side-channel analysis, fault injection, lightweight cryptography, and pre-silicon security assessment.">
-    <meta name="keywords" content="Dillibabu Shanmugam, hardware security, side-channel analysis, fault injection, lightweight cryptography, WPI, Worcester Polytechnic Institute, cybersecurity, SCA, DPA, CPA, cryptographic engineering">
+    <title>Dillibabu Shanmugam — Hardware Security Researcher | ASIC Design | WPI</title>
+    <meta name="description" content="Dillibabu Shanmugam is a hardware security researcher at WPI with 17 publications (TCHES, USENIX WOOT, COSADE). Specializing in side-channel analysis, fault injection, ASIC design (TSMC 180nm tape-outs), post-quantum cryptography, and ML-based security verification.">
+    <meta name="keywords" content="Dillibabu Shanmugam, hardware security, side-channel analysis, fault injection, ASIC design, post-quantum cryptography, WPI, Worcester Polytechnic Institute, TCHES, USENIX WOOT, RISC-V, EMFI, ML-DSA, SCA, DPA, CPA, cryptographic engineering">
     <meta name="author" content="Dillibabu Shanmugam">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://scholar.google.com/citations?user=IeeEZO3mmn8C">
     <meta property="og:title" content="Dillibabu Shanmugam — Hardware Security Researcher">
-    <meta property="og:description" content="PhD researcher at WPI specializing in hardware security, side-channel analysis, fault injection, and lightweight cryptography.">
+    <meta property="og:description" content="PhD researcher at WPI with 17 publications. Specializing in hardware security, ASIC design, side-channel analysis, fault injection, and post-quantum cryptography.">
     <meta property="og:type" content="profile">
     <script type="application/ld+json">
     {
@@ -30,9 +30,11 @@
             "https://scholar.google.com/citations?user=IeeEZO3mmn8C",
             "https://dblp.org/pid/150/9439.html",
             "https://dl.acm.org/profile/99658704967",
-            "https://www.researchgate.net/profile/Dillibabu-Shanmugam"
+            "https://www.researchgate.net/profile/Dillibabu-Shanmugam",
+            "https://www.linkedin.com/in/dillibabushanmugam/",
+            "https://github.com/secure-Embedded-Systems/"
         ],
-        "knowsAbout": ["Hardware Security","Side-Channel Analysis","Fault Injection","Lightweight Cryptography","Pre-silicon Leakage Assessment","Differential Power Analysis","Correlation Power Analysis"]
+        "knowsAbout": ["Hardware Security","Side-Channel Analysis","Fault Injection","ASIC Design","Post-Quantum Cryptography","Pre-silicon Leakage Assessment","Differential Power Analysis","Correlation Power Analysis","RISC-V","ML-based Security Verification"]
     }
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -329,7 +331,7 @@
         .kw--hl { border-color: var(--accent-mid); color: var(--accent-bright); background: var(--accent-dim); box-shadow: 0 0 12px #22d3ee08; }
         .research-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 16px;
         }
         .r-card {
@@ -531,7 +533,8 @@
         @media (max-width: 768px) {
             .hero { grid-template-columns: 1fr; }
             .hero-visual { display: none; }
-            .research-grid, .tools-grid { grid-template-columns: 1fr; }
+            .research-grid { grid-template-columns: 1fr 1fr; }
+            .tools-grid { grid-template-columns: 1fr; }
             .pub-row { grid-template-columns: 48px 1fr; }
             .pub-badge { display: none; }
             .stats-strip { gap: 20px; }
@@ -549,6 +552,7 @@
         section:nth-of-type(3) { animation-delay: 0.15s; }
         section:nth-of-type(4) { animation-delay: 0.2s; }
         section:nth-of-type(5) { animation-delay: 0.25s; }
+        section:nth-of-type(6) { animation-delay: 0.3s; }
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: var(--bg); }
         ::-webkit-scrollbar-thumb { background: var(--surface); border-radius: 4px; }
@@ -565,6 +569,7 @@
                 <a href="#research">Research</a>
                 <a href="#publications">Publications</a>
                 <a href="#experience">Experience</a>
+                <a href="#education">Education</a>
                 <a href="#tools">Tools</a>
             </div>
         </div>
@@ -572,29 +577,31 @@
     <div class="container">
         <div class="hero">
             <div>
-                <div class="hero-eyebrow">Hardware Security Researcher</div>
+                <div class="hero-eyebrow">Hardware Security Researcher &middot; ASIC Design</div>
                 <h1>Dillibabu Shanmugam</h1>
                 <p class="hero-sub">
                     PhD Researcher at <a href="https://vernamlab.org/" target="_blank" rel="noopener">Vernam Lab</a>,
                     <a href="https://www.wpi.edu" target="_blank" rel="noopener">Worcester Polytechnic Institute</a>.
-                    Working with Prof. Patrick Schaumont on side-channel analysis, fault injection, and pre-silicon security assessment.
+                    Working with Prof. Patrick Schaumont on side-channel analysis, fault injection, ASIC design, and post-quantum cryptography. Led two ASIC tape-outs in TSMC 180 nm.
                 </p>
                 <div class="stats-strip">
                     <div class="stat-block">
-                        <span class="stat-num">161</span>
-                        <span class="stat-lbl">Citations</span>
-                    </div>
-                    <div class="stat-block">
-                        <span class="stat-num">20+</span>
+                        <span class="stat-num">17</span>
                         <span class="stat-lbl">Publications</span>
                     </div>
                     <div class="stat-block">
-                        <span class="stat-num">11</span>
-                        <span class="stat-lbl">Years Active</span>
+                        <span class="stat-num">2</span>
+                        <span class="stat-lbl">ASIC Tape-outs</span>
+                    </div>
+                    <div class="stat-block">
+                        <span class="stat-num">331</span>
+                        <span class="stat-lbl">EMFI Campaigns</span>
                     </div>
                 </div>
                 <div class="link-pills">
                     <a href="https://scholar.google.com/citations?user=IeeEZO3mmn8C&hl=en" target="_blank" rel="noopener" class="pill pill--accent">Google Scholar</a>
+                    <a href="https://www.linkedin.com/in/dillibabushanmugam/" target="_blank" rel="noopener" class="pill pill--accent">LinkedIn</a>
+                    <a href="https://github.com/secure-Embedded-Systems/" target="_blank" rel="noopener" class="pill">GitHub</a>
                     <a href="https://dblp.org/pid/150/9439.html" target="_blank" rel="noopener" class="pill">DBLP</a>
                     <a href="https://dl.acm.org/profile/99658704967" target="_blank" rel="noopener" class="pill">ACM DL</a>
                     <a href="https://www.researchgate.net/profile/Dillibabu-Shanmugam" target="_blank" rel="noopener" class="pill">ResearchGate</a>
@@ -630,18 +637,21 @@
                 <div class="section-line"></div>
             </div>
             <div class="about-text">
-                <p>My research focuses on <strong>hardware security</strong>, spanning side-channel analysis, fault injection attacks and countermeasures, pre-silicon security assessment, and lightweight cryptographic implementations.</p>
-                <p>I bridge the gap between theoretical fault models and practical hardware behavior, developing tools and methodologies for detecting, characterizing, and mitigating hardware-level vulnerabilities in embedded systems and processors. I also work on <strong>deep learning approaches</strong> for security assessment of micro-architectural states.</p>
+                <p>Hardware security researcher with <strong>17 peer-reviewed publications</strong> (TCHES, USENIX WOOT, COSADE) and <strong>14+ years</strong> of combined industry and research experience. Led two <strong>ASIC tape-outs</strong> (TSMC 180 nm) and specialized in side-channel analysis (power, EM), fault injection (EMFI, laser, clock glitch), post-quantum cryptography (ML-DSA-87), and ML-based security verification.</p>
+                <p>I bridge the gap between theoretical fault models and practical hardware behavior, developing tools and methodologies for detecting, characterizing, and mitigating hardware-level vulnerabilities in embedded systems and RISC-V processors. I also work on <strong>deep learning approaches</strong> (CNN/GNN achieving 92% accuracy) for security assessment of micro-architectural states.</p>
             </div>
             <div class="keywords">
                 <span class="kw kw--hl">Hardware Security</span>
+                <span class="kw kw--hl">ASIC Design</span>
                 <span class="kw">Side-Channel Analysis</span>
-                <span class="kw">Fault Injection</span>
-                <span class="kw">Lightweight Cryptography</span>
+                <span class="kw">Fault Injection (EMFI, Laser, Glitch)</span>
+                <span class="kw">Post-Quantum Cryptography</span>
+                <span class="kw">RISC-V</span>
                 <span class="kw">Pre-silicon Leakage Assessment</span>
-                <span class="kw">DPA / CPA</span>
-                <span class="kw">Embedded Systems Security</span>
-                <span class="kw">Deep Learning for Security</span>
+                <span class="kw">DPA / CPA / TVLA</span>
+                <span class="kw">Lightweight Cryptography</span>
+                <span class="kw">ML for Security</span>
+                <span class="kw">RTL-to-GDSII</span>
             </div>
         </section>
         <section id="research">
@@ -661,7 +671,7 @@
                         <line x1="23" y1="7" x2="27" y2="11" stroke="#fb7185" stroke-width="1" opacity="0.4" stroke-dasharray="2 2"/>
                     </svg></span>
                     <h3>Fault Injection &amp; Analysis</h3>
-                    <p>Guided hardware fault injection, fault root cause detection, and bridging the simulation-to-practice gap in fault attacks on processors.</p>
+                    <p>331 EMFI campaigns on RISC-V SoC. Direction-aware PDN loop models for fault susceptibility. EMFI, laser, and clock glitch attacks.</p>
                 </div>
                 <div class="r-card">
                     <span class="r-card-icon"><svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -716,7 +726,7 @@
                         <rect x="14" y="14" width="8" height="8" rx="1.5" stroke="#22d3ee" stroke-width="0.8" opacity="0.3" stroke-dasharray="2 1"/>
                     </svg></span>
                     <h3>ML for Hardware Security</h3>
-                    <p>Deep learning detection of faulty micro-architecture states and patterns from scan-chain data for automated security assessment.</p>
+                    <p>CNN/GNN-based fault detection achieving 92% accuracy. Transfer learning reducing SCA traces by 2.8&times; and test time by 30%.</p>
                 </div>
                 <div class="r-card">
                     <span class="r-card-icon"><svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -732,6 +742,40 @@
                     <h3>Security Tools &amp; Frameworks</h3>
                     <p>Co-developer of SCAPEgoat, FaultDetective, and GlitchGl&uuml;ck toolchains for side-channel and fault security evaluation.</p>
                 </div>
+                <div class="r-card">
+                    <span class="r-card-icon"><svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="6" y="6" width="24" height="24" rx="2" stroke="#22d3ee" stroke-width="1.5" opacity="0.6"/>
+                        <rect x="10" y="10" width="6" height="6" rx="1" fill="#22d3ee" opacity="0.5"/>
+                        <rect x="20" y="10" width="6" height="6" rx="1" fill="#a78bfa" opacity="0.5"/>
+                        <rect x="10" y="20" width="6" height="6" rx="1" fill="#a78bfa" opacity="0.4"/>
+                        <rect x="20" y="20" width="6" height="6" rx="1" fill="#22d3ee" opacity="0.5"/>
+                        <line x1="18" y1="2" x2="18" y2="6" stroke="#67e8f9" stroke-width="1.2" opacity="0.5"/>
+                        <line x1="18" y1="30" x2="18" y2="34" stroke="#67e8f9" stroke-width="1.2" opacity="0.5"/>
+                        <line x1="2" y1="18" x2="6" y2="18" stroke="#67e8f9" stroke-width="1.2" opacity="0.5"/>
+                        <line x1="30" y1="18" x2="34" y2="18" stroke="#67e8f9" stroke-width="1.2" opacity="0.5"/>
+                        <line x1="10" y1="2" x2="10" y2="6" stroke="#67e8f9" stroke-width="0.8" opacity="0.3"/>
+                        <line x1="26" y1="2" x2="26" y2="6" stroke="#67e8f9" stroke-width="0.8" opacity="0.3"/>
+                    </svg></span>
+                    <h3>ASIC Design</h3>
+                    <p>Full RTL-to-GDSII flow. Led 2 tape-outs (CAPRI1, CAPRI6) in TSMC 180 nm using Cadence, Synopsys, and OpenROAD.</p>
+                </div>
+                <div class="r-card">
+                    <span class="r-card-icon"><svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="18" cy="18" r="12" stroke="#a78bfa" stroke-width="1.2" opacity="0.4"/>
+                        <circle cx="18" cy="18" r="7" stroke="#22d3ee" stroke-width="1.2" opacity="0.5"/>
+                        <circle cx="18" cy="18" r="2.5" fill="#22d3ee" opacity="0.6"/>
+                        <path d="M8 8L13 13" stroke="#a78bfa" stroke-width="1" opacity="0.4"/>
+                        <path d="M28 8L23 13" stroke="#a78bfa" stroke-width="1" opacity="0.4"/>
+                        <path d="M8 28L13 23" stroke="#a78bfa" stroke-width="1" opacity="0.4"/>
+                        <path d="M28 28L23 23" stroke="#a78bfa" stroke-width="1" opacity="0.4"/>
+                        <circle cx="7" cy="7" r="2" stroke="#a78bfa" stroke-width="1" opacity="0.5"/>
+                        <circle cx="29" cy="7" r="2" stroke="#a78bfa" stroke-width="1" opacity="0.5"/>
+                        <circle cx="7" cy="29" r="2" stroke="#a78bfa" stroke-width="1" opacity="0.5"/>
+                        <circle cx="29" cy="29" r="2" stroke="#a78bfa" stroke-width="1" opacity="0.5"/>
+                    </svg></span>
+                    <h3>Post-Quantum Cryptography</h3>
+                    <p>First pre-silicon SCA methodology for ML-DSA-87 (FIPS 204): CPA with MTD=6 traces, template attacks with top-10 key recovery in 50 traces.</p>
+                </div>
             </div>
         </section>
         <section id="publications">
@@ -740,6 +784,15 @@
                 <div class="section-line"></div>
             </div>
             <div class="pub-table">
+                <div class="pub-row">
+                    <span class="pub-yr">2026</span>
+                    <div>
+                        <div class="pub-title">Hierarchical EMFI Analysis on a RISC-V SoC</div>
+                        <div class="pub-authors"><span class="me">D. Shanmugam</span>, Z. Liu, P. Schaumont</div>
+                        <span class="pub-venue">European Test Symposium 2026</span>
+                    </div>
+                    <span class="pub-badge">Accepted</span>
+                </div>
                 <div class="pub-row">
                     <span class="pub-yr">2025</span>
                     <div>
@@ -795,11 +848,47 @@
                     <span class="pub-badge"></span>
                 </div>
                 <div class="pub-row">
+                    <span class="pub-yr">2023</span>
+                    <div>
+                        <div class="pub-title"><a href="https://doi.org/10.1109/TQE.2023.3326093" target="_blank" rel="noopener">Scalable QKD Postprocessing System with Reconfigurable Hardware Accelerator</a></div>
+                        <div class="pub-authors">N. Venkatachalam, F. P. Shingala, S. C, H. P. S, <span class="me">D. Shanmugam</span>, P. Chandravanshi, R. P. Singh</div>
+                        <span class="pub-venue">IEEE Trans. Quantum Eng. 2023</span>
+                    </div>
+                    <span class="pub-badge"></span>
+                </div>
+                <div class="pub-row">
                     <span class="pub-yr">2022</span>
                     <div>
                         <div class="pub-title"><a href="https://doi.org/10.1504/ijics.2022.125276" target="_blank" rel="noopener">Robust Message Authentication in the Context of Quantum Key Distribution</a></div>
                         <div class="pub-authors"><span class="me">D. Shanmugam</span>, J. Rangasamy</div>
                         <span class="pub-venue">IJICS 18(3/4)</span>
+                    </div>
+                    <span class="pub-badge"></span>
+                </div>
+                <div class="pub-row">
+                    <span class="pub-yr">2020</span>
+                    <div>
+                        <div class="pub-title"><a href="https://doi.org/10.1109/iSES50453.2020.00032" target="_blank" rel="noopener">Implementation Vulnerability Analysis: A Case Study on ChaCha of SPHINCS</a></div>
+                        <div class="pub-authors">V. Satheesh, <span class="me">D. Shanmugam</span></div>
+                        <span class="pub-venue">IEEE iSES 2020</span>
+                    </div>
+                    <span class="pub-badge"></span>
+                </div>
+                <div class="pub-row">
+                    <span class="pub-yr">2019</span>
+                    <div>
+                        <div class="pub-title"><a href="https://doi.org/10.1109/CCST.2019.8888402" target="_blank" rel="noopener">Denial of Service Detection System on Various Platforms</a></div>
+                        <div class="pub-authors"><span class="me">D. Shanmugam</span>, S. Annadurai, R. Vijayasarathy, T. V. Prasad</div>
+                        <span class="pub-venue">IEEE ICCST 2019</span>
+                    </div>
+                    <span class="pub-badge"></span>
+                </div>
+                <div class="pub-row">
+                    <span class="pub-yr">2018</span>
+                    <div>
+                        <div class="pub-title"><a href="https://doi.org/10.1109/iSES.2018.00062" target="_blank" rel="noopener">Crypto Primitives IPCore Implementation Susceptibility in Cyber Physical System</a></div>
+                        <div class="pub-authors"><span class="me">D. Shanmugam</span>, S. Annadurai</div>
+                        <span class="pub-venue">IEEE iSES 2018</span>
                     </div>
                     <span class="pub-badge"></span>
                 </div>
@@ -820,6 +909,15 @@
                         <span class="pub-venue">SPACE 2016</span>
                     </div>
                     <span class="pub-badge">ePrint 2016/630</span>
+                </div>
+                <div class="pub-row">
+                    <span class="pub-yr">2015</span>
+                    <div>
+                        <div class="pub-title"><a href="https://doi.org/10.1145/2732198.2732207" target="_blank" rel="noopener">Vulnerability Analysis of PRINCE and RECTANGLE Using CPA</a></div>
+                        <div class="pub-authors">R. Selvam, <span class="me">D. Shanmugam</span>, S. Annadurai</div>
+                        <span class="pub-venue">ACM CPSS@AsiaCCS 2015</span>
+                    </div>
+                    <span class="pub-badge"></span>
                 </div>
                 <div class="pub-row">
                     <span class="pub-yr">2015</span>
@@ -852,14 +950,42 @@
             </div>
             <ul class="exp-list">
                 <li class="exp-item">
-                    <div class="exp-role">PhD Researcher</div>
+                    <div class="exp-role">Research Assistant</div>
                     <div class="exp-org">Worcester Polytechnic Institute &mdash; Vernam Lab</div>
-                    <div class="exp-details">Advisor: Prof. Patrick Schaumont &middot; Hardware Security, Fault Injection, Side-Channel Analysis</div>
+                    <div class="exp-details">Aug 2021 &ndash; Dec 2026 &middot; Advisor: Prof. Patrick Schaumont &middot; 17 papers, 2 ASIC tape-outs (TSMC 180 nm), 331 EMFI campaigns, pre-silicon SCA for ML-DSA-87</div>
                 </li>
                 <li class="exp-item">
-                    <div class="exp-role">Researcher</div>
-                    <div class="exp-org">Society for Electronic Transactions and Security (SETS)</div>
-                    <div class="exp-details">Chennai, India &middot; Lightweight Cryptography &amp; Side-Channel Analysis</div>
+                    <div class="exp-role">Research Intern</div>
+                    <div class="exp-org">IIT Madras, India</div>
+                    <div class="exp-details">May 2024 &ndash; Aug 2024 &middot; Hardened cryptographic IP cores against fault attacks using formal verification and layout-aware sensors</div>
+                </li>
+                <li class="exp-item">
+                    <div class="exp-role">Security Research Intern</div>
+                    <div class="exp-org">Riscure, San Francisco, USA</div>
+                    <div class="exp-details">May 2023 &ndash; Aug 2023 &middot; Pre-silicon side-channel analysis on RISC-V ASIC, EM leakage identification in AES IP at layout level</div>
+                </li>
+                <li class="exp-item">
+                    <div class="exp-role">Researcher (14 years)</div>
+                    <div class="exp-org">Society for Electronic Transactions and Security (SETS), India</div>
+                    <div class="exp-details">Feb 2007 &ndash; Aug 2021 &middot; DPA/CPA on AES, RSA, SHA-3, lightweight ciphers &middot; Hardware countermeasures (masking, shuffling, redundancy) &middot; 10 publications</div>
+                </li>
+            </ul>
+        </section>
+        <section id="education">
+            <div class="section-header">
+                <span class="section-tag">Education</span>
+                <div class="section-line"></div>
+            </div>
+            <ul class="exp-list">
+                <li class="exp-item">
+                    <div class="exp-role">Ph.D., Electrical and Computer Engineering</div>
+                    <div class="exp-org">Worcester Polytechnic Institute, MA, USA</div>
+                    <div class="exp-details">Aug 2021 &ndash; Dec 2026 &middot; Advisor: Prof. Patrick Schaumont &middot; Focus: Hardware security, SCA, fault injection, ASIC design, ML for vulnerability analysis</div>
+                </li>
+                <li class="exp-item">
+                    <div class="exp-role">B.E., Electronics and Communication Engineering</div>
+                    <div class="exp-org">Anna University, India</div>
+                    <div class="exp-details">Jun 2001 &ndash; May 2005</div>
                 </li>
             </ul>
         </section>
@@ -871,15 +997,23 @@
             <div class="tools-grid">
                 <div class="tool-card">
                     <div class="tool-name">SCAPEgoat</div>
-                    <div class="tool-desc">Python-based side-channel analysis library with standardized file formats, capture interfaces, and metric computation modules.</div>
+                    <div class="tool-desc">Automated Python framework coordinating Spider-XYZ EMFI stage, oscilloscope, and DUT for fault campaigns. Side-channel analysis library.</div>
                 </div>
                 <div class="tool-card">
                     <div class="tool-name">&mu;Scan</div>
-                    <div class="tool-desc">Deep learning framework for detecting faulty micro-architecture states from scan-chain data in embedded processors.</div>
+                    <div class="tool-desc">CNN/GNN-based fault detection framework achieving 92% accuracy detecting anomalous CPU micro-architectural states from scan-chain data.</div>
                 </div>
                 <div class="tool-card">
                     <div class="tool-name">GlitchGl&uuml;ck</div>
                     <div class="tool-desc">Guided hardware fault injection methodology using Dynamic State Transition Graphs for systematic vulnerability discovery.</div>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-name">FaultDetective</div>
+                    <div class="tool-desc">Explainable fault analysis from the design layout to software. Maps fault susceptibility across the physical layout of RISC-V processors.</div>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-name">CAPRI6</div>
+                    <div class="tool-desc">6-core lockstep openMSP430 SoC with full scan-chain for cycle-accurate fault root-cause analysis. Custom ASIC in TSMC 180 nm.</div>
                 </div>
             </div>
         </section>
@@ -890,6 +1024,8 @@
                 <div class="footer-left">&copy; 2026 Dillibabu Shanmugam</div>
                 <div class="footer-right">
                     <a href="mailto:dshanmugam@wpi.edu">Email</a>
+                    <a href="https://www.linkedin.com/in/dillibabushanmugam/" target="_blank" rel="noopener">LinkedIn</a>
+                    <a href="https://github.com/secure-Embedded-Systems/" target="_blank" rel="noopener">GitHub</a>
                     <a href="https://scholar.google.com/citations?user=IeeEZO3mmn8C&hl=en" target="_blank" rel="noopener">Scholar</a>
                     <a href="https://dblp.org/pid/150/9439.html" target="_blank" rel="noopener">DBLP</a>
                     <a href="https://www.researchgate.net/profile/Dillibabu-Shanmugam" target="_blank" rel="noopener">ResearchGate</a>
