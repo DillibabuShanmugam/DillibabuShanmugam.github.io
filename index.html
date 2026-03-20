@@ -271,12 +271,19 @@
             position: relative;
             overflow: hidden;
         }
-        .hero-visual svg { width: 120px; height: 120px; opacity: 0.6; }
+        .hero-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+        }
         .hero-visual::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, #22d3ee18, #a78bfa10 50%, transparent 70%);
+            border-radius: 16px;
+            background: linear-gradient(135deg, #22d3ee12, transparent 50%);
+            pointer-events: none;
         }
         section { padding: 64px 0; }
         .section-header {
@@ -359,8 +366,8 @@
             box-shadow: 0 8px 40px #22d3ee08, 0 2px 12px #00000040;
         }
         .r-card:hover::before { opacity: 1; }
-        .r-card-icon { margin-bottom: 14px; display: block; width: 36px; height: 36px; }
-        .r-card-icon svg { width: 36px; height: 36px; }
+        .r-card-icon { margin-bottom: 16px; display: flex; align-items: center; justify-content: center; width: 52px; height: 52px; border-radius: 12px; background: linear-gradient(135deg, var(--accent-dim), var(--violet-dim)); border: 1px solid var(--border); }
+        .r-card-icon svg { width: 32px; height: 32px; }
         .r-card h3 {
             font-size: 0.95rem;
             font-weight: 600;
@@ -582,7 +589,7 @@
                 <p class="hero-sub">
                     PhD Researcher at <a href="https://vernamlab.org/" target="_blank" rel="noopener">Vernam Lab</a>,
                     <a href="https://www.wpi.edu" target="_blank" rel="noopener">Worcester Polytechnic Institute</a>.
-                    Working with Prof. Patrick Schaumont on side-channel analysis, fault injection, ASIC design, and post-quantum cryptography. Led two ASIC tape-outs in TSMC 180 nm.
+                    Working with Prof. Patrick Schaumont on side-channel analysis, fault injection, ASIC design, and post-quantum cryptography. Led two ASIC tape-outs in TSMC 180nm.
                 </p>
                 <div class="stats-strip">
                     <div class="stat-block">
@@ -592,10 +599,6 @@
                     <div class="stat-block">
                         <span class="stat-num">2</span>
                         <span class="stat-lbl">ASIC Tape-outs</span>
-                    </div>
-                    <div class="stat-block">
-                        <span class="stat-num">331</span>
-                        <span class="stat-lbl">EMFI Campaigns</span>
                     </div>
                 </div>
                 <div class="link-pills">
@@ -609,26 +612,7 @@
                 </div>
             </div>
             <div class="hero-visual">
-                <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#22d3ee"/>
-                            <stop offset="100%" stop-color="#a78bfa"/>
-                        </linearGradient>
-                    </defs>
-                    <rect x="10" y="10" width="40" height="40" rx="4" stroke="#22d3ee" stroke-width="1.5" opacity="0.6"/>
-                    <rect x="70" y="10" width="40" height="40" rx="4" stroke="#a78bfa" stroke-width="1.5" opacity="0.5"/>
-                    <rect x="10" y="70" width="40" height="40" rx="4" stroke="#a78bfa" stroke-width="1.5" opacity="0.4"/>
-                    <rect x="70" y="70" width="40" height="40" rx="4" stroke="#22d3ee" stroke-width="1.5" opacity="0.6"/>
-                    <line x1="50" y1="30" x2="70" y2="30" stroke="url(#g1)" stroke-width="1" opacity="0.5"/>
-                    <line x1="50" y1="90" x2="70" y2="90" stroke="url(#g1)" stroke-width="1" opacity="0.5"/>
-                    <line x1="30" y1="50" x2="30" y2="70" stroke="url(#g1)" stroke-width="1" opacity="0.5"/>
-                    <line x1="90" y1="50" x2="90" y2="70" stroke="url(#g1)" stroke-width="1" opacity="0.5"/>
-                    <circle cx="60" cy="60" r="10" stroke="url(#g1)" stroke-width="1.5" opacity="0.8"/>
-                    <circle cx="60" cy="60" r="3.5" fill="#22d3ee" opacity="0.9">
-                        <animate attributeName="opacity" values="0.9;0.4;0.9" dur="3s" repeatCount="indefinite"/>
-                    </circle>
-                </svg>
+                <img src="photo.png" alt="Dillibabu Shanmugam" />
             </div>
         </div>
         <section id="about">
@@ -637,7 +621,7 @@
                 <div class="section-line"></div>
             </div>
             <div class="about-text">
-                <p>Hardware security researcher with <strong>17 peer-reviewed publications</strong> (TCHES, USENIX WOOT, COSADE) and <strong>14+ years</strong> of combined industry and research experience. Led two <strong>ASIC tape-outs</strong> (TSMC 180 nm) and specialized in side-channel analysis (power, EM), fault injection (EMFI, laser, clock glitch), post-quantum cryptography (ML-DSA-87), and ML-based security verification.</p>
+                <p>Hardware security researcher with <strong>17 peer-reviewed publications</strong> (TCHES, USENIX WOOT, COSADE) and <strong>14+ years</strong> of combined industry and research experience. Led two <strong>ASIC tape-outs</strong> (TSMC 180nm) and specialized in side-channel analysis (power, EM), fault injection (EMFI, laser, clock glitch), post-quantum cryptography (ML-DSA-87), and ML-based security verification.</p>
                 <p>I bridge the gap between theoretical fault models and practical hardware behavior, developing tools and methodologies for detecting, characterizing, and mitigating hardware-level vulnerabilities in embedded systems and RISC-V processors. I also work on <strong>deep learning approaches</strong> (CNN/GNN achieving 92% accuracy) for security assessment of micro-architectural states.</p>
             </div>
             <div class="keywords">
@@ -757,7 +741,7 @@
                         <line x1="26" y1="2" x2="26" y2="6" stroke="#67e8f9" stroke-width="0.8" opacity="0.3"/>
                     </svg></span>
                     <h3>ASIC Design</h3>
-                    <p>Full RTL-to-GDSII flow. Led 2 tape-outs (CAPRI1, CAPRI6) in TSMC 180 nm using Cadence, Synopsys, and OpenROAD.</p>
+                    <p>Full RTL-to-GDSII flow. Led 2 tape-outs (CAPRI1, CAPRI6) in TSMC 180nm using Cadence, Synopsys, and OpenROAD.</p>
                 </div>
                 <div class="r-card">
                     <span class="r-card-icon"><svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -784,6 +768,15 @@
                 <div class="section-line"></div>
             </div>
             <div class="pub-table">
+                <div class="pub-row">
+                    <span class="pub-yr">2026</span>
+                    <div>
+                        <div class="pub-title">Fault Analysis of Microscaling Formats on a RISC-V SoC</div>
+                        <div class="pub-authors"><span class="me">D. Shanmugam</span>, P. Schaumont</div>
+                        <span class="pub-venue">Submitted</span>
+                    </div>
+                    <span class="pub-badge">Under Review</span>
+                </div>
                 <div class="pub-row">
                     <span class="pub-yr">2026</span>
                     <div>
@@ -952,7 +945,7 @@
                 <li class="exp-item">
                     <div class="exp-role">Research Assistant</div>
                     <div class="exp-org">Worcester Polytechnic Institute &mdash; Vernam Lab</div>
-                    <div class="exp-details">Aug 2021 &ndash; Dec 2026 &middot; Advisor: Prof. Patrick Schaumont &middot; 17 papers, 2 ASIC tape-outs (TSMC 180 nm), 331 EMFI campaigns, pre-silicon SCA for ML-DSA-87</div>
+                    <div class="exp-details">Aug 2021 &ndash; Dec 2026 &middot; Advisor: Prof. Patrick Schaumont &middot; 17 papers, 2 ASIC tape-outs (TSMC 180nm), 331 EMFI campaigns, pre-silicon SCA for ML-DSA-87</div>
                 </li>
                 <li class="exp-item">
                     <div class="exp-role">Research Intern</div>
@@ -1013,7 +1006,7 @@
                 </div>
                 <div class="tool-card">
                     <div class="tool-name">CAPRI6</div>
-                    <div class="tool-desc">6-core lockstep openMSP430 SoC with full scan-chain for cycle-accurate fault root-cause analysis. Custom ASIC in TSMC 180 nm.</div>
+                    <div class="tool-desc">6-core lockstep openMSP430 SoC with full scan-chain for cycle-accurate fault root-cause analysis. Custom ASIC in TSMC 180nm.</div>
                 </div>
             </div>
         </section>
