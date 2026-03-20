@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dillibabu Shanmugam — Hardware Security Researcher | WPI</title>
+    <meta name="description" content="Dillibabu Shanmugam is a hardware security researcher at Worcester Polytechnic Institute (WPI). Research in side-channel analysis, fault injection, lightweight cryptography, and pre-silicon security assessment.">
+    <meta name="keywords" content="Dillibabu Shanmugam, hardware security, side-channel analysis, fault injection, lightweight cryptography, WPI, Worcester Polytechnic Institute, cybersecurity, SCA, DPA, CPA, cryptographic engineering">
+    <meta name="author" content="Dillibabu Shanmugam">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://scholar.google.com/citations?user=IeeEZO3mmn8C">
+    <meta property="og:title" content="Dillibabu Shanmugam — Hardware Security Researcher">
+    <meta property="og:description" content="PhD researcher at WPI specializing in hardware security, side-channel analysis, fault injection, and lightweight cryptography.">
+    <meta property="og:type" content="profile">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Dillibabu Shanmugam",
+        "givenName": "Dillibabu",
+        "familyName": "Shanmugam",
+        "jobTitle": "PhD Researcher",
+        "affiliation": {
+            "@type": "Organization",
+            "name": "Worcester Polytechnic Institute",
+            "url": "https://www.wpi.edu"
+        },
+        "url": "https://scholar.google.com/citations?user=IeeEZO3mmn8C",
+        "sameAs": [
+            "https://scholar.google.com/citations?user=IeeEZO3mmn8C",
+            "https://dblp.org/pid/150/9439.html",
+            "https://dl.acm.org/profile/99658704967",
+            "https://www.researchgate.net/profile/Dillibabu-Shanmugam"
+        ],
+        "knowsAbout": ["Hardware Security","Side-Channel Analysis","Fault Injection","Lightweight Cryptography","Pre-silicon Leakage Assessment","Differential Power Analysis","Correlation Power Analysis"]
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0c12;
+            --bg-elevated: #0e1118;
+            --bg-card: #11141c;
+            --bg-card-hover: #171c26;
+            --surface: #1a1f2e;
+            --border: #1e2536;
+            --border-hover: #2d3650;
+            --text: #e4e7ef;
+            --text-secondary: #9da5ba;
+            --text-dim: #5a6378;
+            --accent: #818cf8;
+            --accent-dim: #818cf814;
+            --accent-mid: #818cf835;
+            --accent-glow: #818cf820;
+            --accent-bright: #a5b4fc;
+            --warm: #f0b45a;
+            --warm-dim: #f0b45a18;
+            --emerald: #34d399;
+            --emerald-dim: #34d39918;
+            --rose: #fb7185;
+            --rose-dim: #fb718518;
+            --blue: #60a5fa;
+            --blue-dim: #60a5fa18;
+            --red: #f87171;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Sora', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(var(--border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            background-size: 60px 60px;
+            opacity: 0.25;
+            pointer-events: none;
+            z-index: 0;
+        }
+        body::after {
+            content: '';
+            position: fixed;
+            top: -200px;
+            right: -200px;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, #818cf818 0%, #34d39910 40%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .page { position: relative; z-index: 1; }
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: #0b0e14dd;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 32px;
+        }
+        .nav-inner {
+            max-width: 1080px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 56px;
+        }
+        .nav-name {
+            font-family: 'Sora', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--accent);
+        }
+        .nav-links { display: flex; gap: 8px; }
+        .nav-links a {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+        .nav-links a:hover {
+            color: var(--text);
+            background: var(--surface);
+        }
+        .container {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+        .hero {
+            padding: 80px 0 64px;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 48px;
+            align-items: end;
+            border-bottom: 1px solid var(--border);
+        }
+        .hero-eyebrow {
+            font-family: 'Sora', sans-serif;
+            font-size: 11px;
+            font-weight: 400;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .hero-eyebrow::before {
+            content: '';
+            width: 24px;
+            height: 1px;
+            background: var(--accent);
+        }
+        .hero h1 {
+            font-family: 'Sora', sans-serif;
+            font-size: clamp(2.8rem, 5.5vw, 4.2rem);
+            font-weight: 700;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            margin-bottom: 16px;
+            color: #fff;
+        }
+        .hero-sub {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            max-width: 540px;
+            margin-bottom: 28px;
+            line-height: 1.7;
+        }
+        .hero-sub a {
+            color: var(--text);
+            text-decoration: none;
+            border-bottom: 1px dashed var(--text-dim);
+            transition: all 0.2s;
+        }
+        .hero-sub a:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+        .stats-strip {
+            display: flex;
+            gap: 32px;
+            margin-bottom: 28px;
+        }
+        .stat-block { display: flex; flex-direction: column; }
+        .stat-num {
+            font-family: 'Sora', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1;
+        }
+        .stat-lbl {
+            font-family: 'Sora', sans-serif;
+            font-size: 9px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--text-dim);
+            margin-top: 6px;
+        }
+        .link-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+        .pill {
+            font-family: 'Sora', sans-serif;
+            font-size: 11px;
+            font-weight: 400;
+            padding: 7px 16px;
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.25s;
+            background: transparent;
+        }
+        .pill:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: var(--accent-dim);
+            box-shadow: 0 0 20px var(--accent-dim);
+        }
+        .pill--accent {
+            border-color: var(--accent-mid);
+            color: var(--accent);
+            background: var(--accent-dim);
+        }
+        .hero-visual {
+            width: 200px;
+            height: 200px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-visual svg { width: 120px; height: 120px; opacity: 0.6; }
+        .hero-visual::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #818cf820, #34d39910 50%, transparent 70%);
+        }
+        section { padding: 64px 0; }
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 36px;
+        }
+        .section-tag {
+            font-family: 'Sora', sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent);
+            background: var(--accent-dim);
+            padding: 5px 14px;
+            border-radius: 100px;
+            border: 1px solid var(--accent-mid);
+        }
+        .section-line {
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+        .about-text {
+            max-width: 680px;
+            font-size: 1.02rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+        .about-text strong { color: var(--text); font-weight: 600; }
+        .about-text p + p { margin-top: 16px; }
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 28px;
+        }
+        .kw {
+            font-family: 'Sora', sans-serif;
+            font-size: 10px;
+            letter-spacing: 0.5px;
+            padding: 5px 14px;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            background: var(--bg-card);
+            transition: all 0.2s;
+        }
+        .kw:hover { border-color: var(--border-hover); color: var(--text); }
+        .kw--hl { border-color: var(--accent-mid); color: var(--accent); background: var(--accent-dim); }
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+        .r-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 28px 24px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .r-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent), var(--emerald), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .r-card:hover {
+            border-color: var(--border-hover);
+            background: var(--bg-card-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px #00000050;
+        }
+        .r-card:hover::before { opacity: 1; }
+        .r-card-icon { font-size: 20px; margin-bottom: 14px; display: block; }
+        .r-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+        .r-card p {
+            font-size: 0.84rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .pub-table { width: 100%; }
+        .pub-row {
+            display: grid;
+            grid-template-columns: 60px 1fr auto;
+            gap: 20px;
+            padding: 22px 0;
+            border-bottom: 1px solid var(--border);
+            align-items: start;
+            transition: all 0.2s;
+        }
+        .pub-row:last-child { border-bottom: none; }
+        .pub-row:hover { background: var(--bg-elevated); margin: 0 -16px; padding-left: 16px; padding-right: 16px; border-radius: 8px; }
+        .pub-yr {
+            font-family: 'Sora', sans-serif;
+            font-size: 12px;
+            color: var(--text-dim);
+            padding-top: 2px;
+        }
+        .pub-title {
+            font-size: 0.98rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 4px;
+            line-height: 1.4;
+        }
+        .pub-title a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .pub-title a:hover { color: var(--accent); }
+        .pub-authors {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+        .pub-authors .me { color: var(--accent); font-weight: 600; }
+        .pub-venue {
+            font-family: 'Sora', sans-serif;
+            font-size: 10px;
+            letter-spacing: 0.5px;
+            color: var(--warm);
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 3px;
+            background: var(--warm-dim);
+        }
+        .pub-badge {
+            font-family: 'Sora', sans-serif;
+            font-size: 10px;
+            color: var(--text-dim);
+            white-space: nowrap;
+            padding-top: 2px;
+        }
+        .pub-footer {
+            margin-top: 28px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            gap: 16px;
+        }
+        .pub-footer a {
+            font-family: 'Sora', sans-serif;
+            font-size: 12px;
+            color: var(--accent);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: opacity 0.2s;
+        }
+        .pub-footer a:hover { opacity: 0.7; }
+        .exp-list { list-style: none; }
+        .exp-item {
+            position: relative;
+            padding: 0 0 40px 40px;
+        }
+        .exp-item:last-child { padding-bottom: 0; }
+        .exp-item::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 1px;
+            background: linear-gradient(to bottom, var(--accent), var(--emerald), var(--border));
+        }
+        .exp-item:last-child::before { background: var(--accent); height: 12px; }
+        .exp-item::after {
+            content: '';
+            position: absolute;
+            left: -5px;
+            top: 4px;
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            background: var(--bg);
+            border: 2px solid var(--accent);
+        }
+        .exp-role { font-size: 1rem; font-weight: 600; color: #fff; margin-bottom: 4px; }
+        .exp-org { font-size: 0.9rem; color: var(--text-secondary); }
+        .exp-details { font-size: 0.84rem; color: var(--text-dim); margin-top: 4px; }
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+        .tool-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.3s;
+        }
+        .tool-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px #00000050;
+        }
+        .tool-name {
+            font-family: 'Sora', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+        .tool-desc {
+            font-size: 0.84rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 40px 0;
+            margin-top: 32px;
+        }
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer-left {
+            font-family: 'Sora', sans-serif;
+            font-size: 11px;
+            color: var(--text-dim);
+        }
+        .footer-right { display: flex; gap: 16px; }
+        .footer-right a {
+            font-family: 'Sora', sans-serif;
+            font-size: 11px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer-right a:hover { color: var(--accent); }
+        @media (max-width: 768px) {
+            .hero { grid-template-columns: 1fr; }
+            .hero-visual { display: none; }
+            .research-grid, .tools-grid { grid-template-columns: 1fr; }
+            .pub-row { grid-template-columns: 48px 1fr; }
+            .pub-badge { display: none; }
+            .stats-strip { gap: 20px; }
+            .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
+            .nav-links a { padding: 6px 8px; font-size: 11px; }
+            .container { padding: 0 20px; }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero, section { animation: fadeIn 0.7s ease-out both; }
+        section:nth-of-type(1) { animation-delay: 0.05s; }
+        section:nth-of-type(2) { animation-delay: 0.1s; }
+        section:nth-of-type(3) { animation-delay: 0.15s; }
+        section:nth-of-type(4) { animation-delay: 0.2s; }
+        section:nth-of-type(5) { animation-delay: 0.25s; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: var(--surface); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
+    </style>
+</head>
+<body>
+<div class="page">
+    <nav>
+        <div class="nav-inner">
+            <div class="nav-name">DS</div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#research">Research</a>
+                <a href="#publications">Publications</a>
+                <a href="#experience">Experience</a>
+                <a href="#tools">Tools</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="hero">
+            <div>
+                <div class="hero-eyebrow">Hardware Security Researcher</div>
+                <h1>Dillibabu Shanmugam</h1>
+                <p class="hero-sub">
+                    PhD Researcher at <a href="https://vernamlab.org/" target="_blank" rel="noopener">Vernam Lab</a>,
+                    <a href="https://www.wpi.edu" target="_blank" rel="noopener">Worcester Polytechnic Institute</a>.
+                    Working with Prof. Patrick Schaumont on side-channel analysis, fault injection, and pre-silicon security assessment.
+                </p>
+                <div class="stats-strip">
+                    <div class="stat-block">
+                        <span class="stat-num">161</span>
+                        <span class="stat-lbl">Citations</span>
+                    </div>
+                    <div class="stat-block">
+                        <span class="stat-num">20+</span>
+                        <span class="stat-lbl">Publications</span>
+                    </div>
+                    <div class="stat-block">
+                        <span class="stat-num">11</span>
+                        <span class="stat-lbl">Years Active</span>
+                    </div>
+                </div>
+                <div class="link-pills">
+                    <a href="https://scholar.google.com/citations?user=IeeEZO3mmn8C&hl=en" target="_blank" rel="noopener" class="pill pill--accent">Google Scholar</a>
+                    <a href="https://dblp.org/pid/150/9439.html" target="_blank" rel="noopener" class="pill">DBLP</a>
+                    <a href="https://dl.acm.org/profile/99658704967" target="_blank" rel="noopener" class="pill">ACM DL</a>
+                    <a href="https://www.researchgate.net/profile/Dillibabu-Shanmugam" target="_blank" rel="noopener" class="pill">ResearchGate</a>
+                    <a href="mailto:dshanmugam@wpi.edu" class="pill">dshanmugam@wpi.edu</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="10" y="10" width="40" height="40" rx="4" stroke="#818cf8" stroke-width="1.5" opacity="0.5"/>
+                    <rect x="70" y="10" width="40" height="40" rx="4" stroke="#34d399" stroke-width="1.5" opacity="0.4"/>
+                    <rect x="10" y="70" width="40" height="40" rx="4" stroke="#f0b45a" stroke-width="1.5" opacity="0.4"/>
+                    <rect x="70" y="70" width="40" height="40" rx="4" stroke="#818cf8" stroke-width="1.5" opacity="0.5"/>
+                    <line x1="50" y1="30" x2="70" y2="30" stroke="#a5b4fc" stroke-width="1" opacity="0.4"/>
+                    <line x1="50" y1="90" x2="70" y2="90" stroke="#a5b4fc" stroke-width="1" opacity="0.4"/>
+                    <line x1="30" y1="50" x2="30" y2="70" stroke="#a5b4fc" stroke-width="1" opacity="0.4"/>
+                    <line x1="90" y1="50" x2="90" y2="70" stroke="#a5b4fc" stroke-width="1" opacity="0.4"/>
+                    <circle cx="60" cy="60" r="8" stroke="#818cf8" stroke-width="1.5" opacity="0.7"/>
+                    <circle cx="60" cy="60" r="3" fill="#a5b4fc" opacity="0.7"/>
+                </svg>
+            </div>
+        </div>
+        <section id="about">
+            <div class="section-header">
+                <span class="section-tag">About</span>
+                <div class="section-line"></div>
+            </div>
+            <div class="about-text">
+                <p>My research focuses on <strong>hardware security</strong>, spanning side-channel analysis, fault injection attacks and countermeasures, pre-silicon security assessment, and lightweight cryptographic implementations.</p>
+                <p>I bridge the gap between theoretical fault models and practical hardware behavior, developing tools and methodologies for detecting, characterizing, and mitigating hardware-level vulnerabilities in embedded systems and processors. I also work on <strong>deep learning approaches</strong> for security assessment of micro-architectural states.</p>
+            </div>
+            <div class="keywords">
+                <span class="kw kw--hl">Hardware Security</span>
+                <span class="kw">Side-Channel Analysis</span>
+                <span class="kw">Fault Injection</span>
+                <span class="kw">Lightweight Cryptography</span>
+                <span class="kw">Pre-silicon Leakage Assessment</span>
+                <span class="kw">DPA / CPA</span>
+                <span class="kw">Embedded Systems Security</span>
+                <span class="kw">Deep Learning for Security</span>
+            </div>
+        </section>
+        <section id="research">
+            <div class="section-header">
+                <span class="section-tag">Research</span>
+                <div class="section-line"></div>
+            </div>
+            <div class="research-grid">
+                <div class="r-card">
+                    <span class="r-card-icon">&#9889;</span>
+                    <h3>Fault Injection &amp; Analysis</h3>
+                    <p>Guided hardware fault injection, fault root cause detection, and bridging the simulation-to-practice gap in fault attacks on processors.</p>
+                </div>
+                <div class="r-card">
+                    <span class="r-card-icon">&#128225;</span>
+                    <h3>Side-Channel Analysis</h3>
+                    <p>Differential and correlation power analysis on block ciphers (AES, PRINCE, SIMON, LED, GIFT), with countermeasure evaluation.</p>
+                </div>
+                <div class="r-card">
+                    <span class="r-card-icon">&#128300;</span>
+                    <h3>Pre-silicon Security</h3>
+                    <p>Leakage assessment using pre-silicon models, scan-chain-based micro-architecture state monitoring, and early-stage vulnerability detection.</p>
+                </div>
+                <div class="r-card">
+                    <span class="r-card-icon">&#128274;</span>
+                    <h3>Lightweight Cryptography</h3>
+                    <p>Secure implementation of lightweight ciphers for IoT and resource-constrained devices, including stream ciphers and block ciphers.</p>
+                </div>
+                <div class="r-card">
+                    <span class="r-card-icon">&#129504;</span>
+                    <h3>ML for Hardware Security</h3>
+                    <p>Deep learning detection of faulty micro-architecture states and patterns from scan-chain data for automated security assessment.</p>
+                </div>
+                <div class="r-card">
+                    <span class="r-card-icon">&#128736;</span>
+                    <h3>Security Tools &amp; Frameworks</h3>
+                    <p>Co-developer of SCAPEgoat, FaultDetective, and GlitchGl&uuml;ck toolchains for side-channel and fault security evaluation.</p>
+                </div>
+            </div>
+        </section>
+        <section id="publications">
+            <div class="section-header">
+                <span class="section-tag">Publications</span>
+                <div class="section-line"></div>
+            </div>
+            <div class="pub-table">
+                <div class="pub-row">
+                    <span class="pub-yr">2025</span>
+                    <div>
+                        <div class="pub-title"><a href="https://link.springer.com/chapter/10.1007/978-3-032-01799-4_8" target="_blank" rel="noopener">&mu;Scan: Deep Learning Detection of Faulty Micro-architecture States and Patterns from Scan-Chain Data</a></div>
+                        <div class="pub-authors"><span class="me">D. Shanmugam</span>, Z. Liu, A. Malnicof, P. Schaumont</div>
+                        <span class="pub-venue">ACNS Workshops 2025</span>
+                    </div>
+                    <span class="pub-badge">LNCS 15653</span>
+                </div>
+                <div class="pub-row">
+                    <span class="pub-yr">2025</span>
+                    <div>
+                        <div class="pub-title"><a href="https://www.usenix.org/conference/woot25/presentation/liu" target="_blank" rel="noopener">GlitchGl&uuml;ck: Enabling Software Vulnerabilities through Guided Hardware Fault Injection</a></div>
+                        <div class="pub-authors">Z. Liu, <span class="me">D. Shanmugam</span>, P. Schaumont</div>
+                        <span class="pub-venue">USENIX WOOT 2025</span>
+                    </div>
+                    <span class="pub-badge"></span>
+                </div>
+                <div class="pub-row">
+                    <span class="pub-yr">2025</span>
+                    <div>
+                        <div class="pub-title">CAPRI6: A Solution for Fault Root Cause Detection</div>
+                        <div class="pub-authors"><span class="me">D. Shanmugam</span>, Z. Liu, P. Schaumont</div>
+                        <span class="pub-venue">IEEE MDTS 2025</span>
+                    </div>
+                    <span class="pub-badge">1 Citation</span>
+                </div>
+                <div class="pub-row">
+                    <span class="pub-yr">2025</span>
+                    <div>
+                        <div class="pub-title"><a href="https://eprint.iacr.org/2025/499" target="_blank" rel="noopener">SCAPEgoat: Side-channel Analysis Library</a></div>
+                        <div class="pub-authors">D. Mehta, T. Marcantino, M. Hashemi, S. Karkache, <span class="me">D. Shanmugam</span>, P. Schaumont, F. Ganji</div>
+                        <span class="pub-venue">IEEE VTS 2025</span>
+                    </div>
+                    <span class="pub-badge">ePrint 2025/499</span>
+                </div>
+                <div class="pub-row">
+                    <span class="pub-yr">2024</span>
+                    <div>
+                        <div class="pub-title"><a href="https://tches.iacr.org/index.php/TCHES/article/view/11804" target="_blank" rel="noopener">FaultDetective: Explainable to a Fault, from the Design Layout to the Software</a></div>
+                        <div class="pub-authors">Z. Liu, <span class="me">D. Shanmugam</span>, P. Schaumont</div>
+                        <span class="pub-venue">IACR TCHES 2024(4)</span>
+                    </div>
+                    <span class="pub-badge">6 Citations</span>
+                </div>
+                <div class="pub-row">
+                    <span class="pub-yr">2023</span>
+                    <div>
+                        <div class="pub-title"><a href="https://doi.org/10.1007/978-3-031-29497-6_6" target="_blank" rel="noopener">Improving Side-channel Leakage Assessment Using Pre-silicon Leakage Models</a></div>
+                        <div class="pub-authors"><span class="me">D. Shanmugam</span>, P. Schaumont</div>
+                        <span class="pub-venue">COSADE 2023</span>
+                    </div>
+                    <span class="pub-badge"></span>
+                </div>
+                <div class="pub-row">
+                    <span class="pub-yr">2022</span>
+                    <div>
+                        <div class="pub-title"><a href="https://doi.org/10.1504/ijics.2022.125276" target="_blank" rel="noopener">Robust Message Authentication in the Context of Quantum Key Distribution</a></div>
+                        <div class="pub-authors"><span class="me">D. Shanmugam</span>, J. Rangasamy</div>
+                        <span class="pub-venue">IJICS 18(3/4)</span>
+                    </div>
+                    <span class="pub-badge"></span>
+                </div>
+                <div class="pub-row">
+                    <span class="pub-yr">2018</span>
+                    <div>
+                        <div class="pub-title">Secure Realization of Lightweight Block Cipher: A Case Study Using GIFT</div>
+                        <div class="pub-authors">V. Satheesh, <span class="me">D. Shanmugam</span></div>
+                        <span class="pub-venue">SPACE 2018</span>
+                    </div>
+                    <span class="pub-badge"></span>
+                </div>
+                <div class="pub-row">
+                    <span class="pub-yr">2016</span>
+                    <div>
+                        <div class="pub-title">Decomposed S-Boxes and DPA Attacks: A Quantitative Case Study Using PRINCE</div>
+                        <div class="pub-authors">R. Selvam, <span class="me">D. Shanmugam</span>, S. Annadurai, J. Rangasamy</div>
+                        <span class="pub-venue">SPACE 2016</span>
+                    </div>
+                    <span class="pub-badge">ePrint 2016/630</span>
+                </div>
+                <div class="pub-row">
+                    <span class="pub-yr">2015</span>
+                    <div>
+                        <div class="pub-title">Secure Implementation of Stream Cipher: Trivium</div>
+                        <div class="pub-authors"><span class="me">D. Shanmugam</span>, S. Annadurai</div>
+                        <span class="pub-venue">SECITC 2015</span>
+                    </div>
+                    <span class="pub-badge"></span>
+                </div>
+                <div class="pub-row">
+                    <span class="pub-yr">2014</span>
+                    <div>
+                        <div class="pub-title">Differential Power Analysis Attack on SIMON and LED Block Ciphers</div>
+                        <div class="pub-authors"><span class="me">D. Shanmugam</span>, R. Selvam, S. Annadurai</div>
+                        <span class="pub-venue">SPACE 2014</span>
+                    </div>
+                    <span class="pub-badge"></span>
+                </div>
+            </div>
+            <div class="pub-footer">
+                <a href="https://scholar.google.com/citations?user=IeeEZO3mmn8C&hl=en" target="_blank" rel="noopener">&rarr; Full list on Google Scholar</a>
+                <a href="https://dblp.org/pid/150/9439.html" target="_blank" rel="noopener">&rarr; DBLP Bibliography</a>
+            </div>
+        </section>
+        <section id="experience">
+            <div class="section-header">
+                <span class="section-tag">Experience</span>
+                <div class="section-line"></div>
+            </div>
+            <ul class="exp-list">
+                <li class="exp-item">
+                    <div class="exp-role">PhD Researcher</div>
+                    <div class="exp-org">Worcester Polytechnic Institute &mdash; Vernam Lab</div>
+                    <div class="exp-details">Advisor: Prof. Patrick Schaumont &middot; Hardware Security, Fault Injection, Side-Channel Analysis</div>
+                </li>
+                <li class="exp-item">
+                    <div class="exp-role">Researcher</div>
+                    <div class="exp-org">Society for Electronic Transactions and Security (SETS)</div>
+                    <div class="exp-details">Chennai, India &middot; Lightweight Cryptography &amp; Side-Channel Analysis</div>
+                </li>
+            </ul>
+        </section>
+        <section id="tools">
+            <div class="section-header">
+                <span class="section-tag">Tools &amp; Software</span>
+                <div class="section-line"></div>
+            </div>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-name">SCAPEgoat</div>
+                    <div class="tool-desc">Python-based side-channel analysis library with standardized file formats, capture interfaces, and metric computation modules.</div>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-name">&mu;Scan</div>
+                    <div class="tool-desc">Deep learning framework for detecting faulty micro-architecture states from scan-chain data in embedded processors.</div>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-name">GlitchGl&uuml;ck</div>
+                    <div class="tool-desc">Guided hardware fault injection methodology using Dynamic State Transition Graphs for systematic vulnerability discovery.</div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-left">&copy; 2026 Dillibabu Shanmugam</div>
+                <div class="footer-right">
+                    <a href="mailto:dshanmugam@wpi.edu">Email</a>
+                    <a href="https://scholar.google.com/citations?user=IeeEZO3mmn8C&hl=en" target="_blank" rel="noopener">Scholar</a>
+                    <a href="https://dblp.org/pid/150/9439.html" target="_blank" rel="noopener">DBLP</a>
+                    <a href="https://www.researchgate.net/profile/Dillibabu-Shanmugam" target="_blank" rel="noopener">ResearchGate</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+</body>
+</html>
