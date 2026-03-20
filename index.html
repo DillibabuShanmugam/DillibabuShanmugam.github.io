@@ -260,9 +260,9 @@
             background: var(--accent-dim);
         }
         .hero-visual {
-            width: 200px;
-            height: 200px;
-            border-radius: 16px;
+            width: 180px;
+            height: 220px;
+            border-radius: 50%;
             border: 1px solid var(--border);
             background: var(--bg-card);
             display: flex;
@@ -481,6 +481,10 @@
         .exp-role { font-size: 1rem; font-weight: 600; color: #fff; margin-bottom: 4px; }
         .exp-org { font-size: 0.9rem; color: var(--text-secondary); }
         .exp-details { font-size: 0.84rem; color: var(--text-dim); margin-top: 4px; }
+        .exp-projects { list-style: none; margin-top: 10px; }
+        .exp-projects li { font-size: 0.82rem; color: var(--text-secondary); padding: 4px 0 4px 16px; position: relative; line-height: 1.5; }
+        .exp-projects li::before { content: ''; position: absolute; left: 0; top: 11px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); opacity: 0.5; }
+        .exp-projects li strong { color: var(--accent-bright); font-weight: 600; }
         .tools-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -589,7 +593,7 @@
                 <p class="hero-sub">
                     PhD Researcher at <a href="https://vernamlab.org/" target="_blank" rel="noopener">Vernam Lab</a>,
                     <a href="https://www.wpi.edu" target="_blank" rel="noopener">Worcester Polytechnic Institute</a>.
-                    Working with Prof. Patrick Schaumont on side-channel analysis, fault injection, ASIC design, and post-quantum cryptography. Led two ASIC tape-outs in TSMC 180nm.
+                    Working with Prof. Patrick Schaumont on side-channel analysis, fault injection, ASIC design, and post-quantum cryptography.
                 </p>
                 <div class="stats-strip">
                     <div class="stat-block">
@@ -621,7 +625,7 @@
                 <div class="section-line"></div>
             </div>
             <div class="about-text">
-                <p>Hardware security researcher with <strong>17 peer-reviewed publications</strong> (TCHES, USENIX WOOT, COSADE) and <strong>14+ years</strong> of combined industry and research experience. Led two <strong>ASIC tape-outs</strong> (TSMC 180nm) and specialized in side-channel analysis (power, EM), fault injection (EMFI, laser, clock glitch), post-quantum cryptography (ML-DSA-87), and ML-based security verification.</p>
+                <p>Hardware security researcher with <strong>17 peer-reviewed publications</strong> and <strong>14+ years</strong> of combined industry and research experience. Led two <strong>ASIC tape-outs</strong> (TSMC 180nm) and specialized in side-channel analysis (power, EM), fault injection (EMFI, laser, clock glitch), post-quantum cryptography (ML-DSA-87), and ML-based security verification.</p>
                 <p>I bridge the gap between theoretical fault models and practical hardware behavior, developing tools and methodologies for detecting, characterizing, and mitigating hardware-level vulnerabilities in embedded systems and RISC-V processors. I also work on <strong>deep learning approaches</strong> (CNN/GNN achieving 92% accuracy) for security assessment of micro-architectural states.</p>
             </div>
             <div class="keywords">
@@ -961,6 +965,13 @@
                     <div class="exp-role">Researcher (14 years)</div>
                     <div class="exp-org">Society for Electronic Transactions and Security (SETS), India</div>
                     <div class="exp-details">Feb 2007 &ndash; Aug 2021 &middot; DPA/CPA on AES, RSA, SHA-3, lightweight ciphers &middot; Hardware countermeasures (masking, shuffling, redundancy) &middot; 10 publications</div>
+                    <ul class="exp-projects">
+                        <li><strong>MAQAN</strong> (Co-PI) &mdash; Developed field-deployable CoW-QKD between IIT Madras and SETS. Funded by MeitY.</li>
+                        <li><strong>DST QuEST Project</strong> &mdash; Developed Key Distillation Engine (KDE) for Quantum Key Distribution.</li>
+                        <li><strong>Secure Threshold Implementation</strong> &mdash; Secure threshold implementations of cryptographic primitives. Funded by MeitY.</li>
+                        <li><strong>DDoS Detection &amp; Mitigation</strong> &mdash; Hardware and software solutions for DDoS detection and mitigation. Funded by NTRO.</li>
+                        <li><strong>Side-Channel Analysis</strong> &mdash; SCA evaluation of cryptographic implementations. Funded by IMSc, Chennai.</li>
+                    </ul>
                 </li>
             </ul>
         </section>
