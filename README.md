@@ -2,7 +2,7 @@
 
 **PhD Researcher** | Hardware Security | Vernam Lab, WPI
 
-18 publications. 2 ASIC tape-outs (TSMC 180nm).
+19 publications. 2 ASIC tape-outs (TSMC 180nm).
 
 ## Research
 
