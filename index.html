@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dillibabu Shanmugam — Hardware Security Researcher | ASIC Design | WPI</title>
-    <meta name="description" content="Dillibabu Shanmugam is a hardware security researcher at WPI with 19 publications (TCHES, USENIX WOOT, COSADE, GLSVLSI, AIHWS). Specializing in side-channel analysis, fault injection, ASIC design (TSMC 180nm tape-outs), post-quantum cryptography, and ML-based security verification.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Dillibabu Shanmugam | Hardware Security Researcher | ASIC Design | WPI</title>
+    <meta name="description" content="Dillibabu Shanmugam is a hardware security researcher at WPI with 19 publications (TCHES, USENIX WOOT, COSADE, GLSVLSI, AIHWS). Specializing in side-channel analysis, fault injection, ASIC design (TSMC tape-outs), post-quantum cryptography, and ML-based security verification.">
     <meta name="keywords" content="Dillibabu Shanmugam, hardware security, side-channel analysis, fault injection, ASIC design, post-quantum cryptography, WPI, Worcester Polytechnic Institute, TCHES, USENIX WOOT, RISC-V, EMFI, ML-DSA, SCA, DPA, CPA, cryptographic engineering">
     <meta name="author" content="Dillibabu Shanmugam">
     <meta name="robots" content="index, follow">
@@ -39,1074 +40,910 @@
         "knowsAbout": ["Hardware Security","Side-Channel Analysis","Fault Injection","ASIC Design","Post-Quantum Cryptography","Pre-silicon Leakage Assessment","Differential Power Analysis","Correlation Power Analysis","RISC-V","ML-based Security Verification"]
     }
     </script>
+
+    <!-- Fonts (al-folio: Roboto + Roboto Slab) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Icons: Font Awesome + Academicons (scholarly icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css">
+
     <style>
+        /* ============================================================
+           al-folio inspired theme — light default + dark-mode toggle
+           ============================================================ */
         :root {
-            --bg: #06080d;
-            --bg-elevated: #0a0d14;
-            --bg-card: #0d1117;
-            --bg-card-hover: #131820;
-            --surface: #161b27;
-            --border: #1a2035;
-            --border-hover: #283350;
-            --text: #e8ecf4;
-            --text-secondary: #94a3b8;
-            --text-dim: #475569;
-            --accent: #22d3ee;
-            --accent-dim: #22d3ee12;
-            --accent-mid: #22d3ee30;
-            --accent-glow: #22d3ee18;
-            --accent-bright: #67e8f9;
-            --violet: #a78bfa;
-            --violet-dim: #a78bfa15;
-            --violet-mid: #a78bfa30;
-            --warm: #fbbf24;
-            --warm-dim: #fbbf2418;
-            --emerald: #34d399;
-            --emerald-dim: #34d39915;
-            --rose: #fb7185;
-            --rose-dim: #fb718515;
+            --global-bg-color: #ffffff;
+            --global-code-bg-color: #f2f3f5;
+            --global-text-color: #1c1c1c;
+            --global-text-color-light: #6f6f6f;
+            --global-theme-color: #AC2B37;       /* WPI crimson (links/headings) */
+            --global-hover-color: #8a222c;
+            --global-divider-color: #e8e8e8;
+            --global-card-bg-color: #ffffff;
+            --global-card-border: #ededed;
+            --global-nav-bg: rgba(255, 255, 255, 0.75);
+            --global-footer-bg: #fafafa;
+            --global-tag-bg: #fbecee;
+            --global-shadow: rgba(0, 0, 0, 0.12);
         }
+        html[data-theme="dark"] {
+            --global-bg-color: #1c1c1d;
+            --global-code-bg-color: #2c3237;
+            --global-text-color: #e8e8e8;
+            --global-text-color-light: #a0a0a0;
+            --global-theme-color: #e8616d;       /* WPI crimson, lightened for dark bg */
+            --global-hover-color: #f08a93;
+            --global-divider-color: #3a3a3c;
+            --global-card-bg-color: #212529;
+            --global-card-border: #33373b;
+            --global-nav-bg: rgba(28, 28, 29, 0.78);
+            --global-footer-bg: #18191a;
+            --global-tag-bg: #3a2226;
+            --global-shadow: rgba(0, 0, 0, 0.5);
+        }
+        /* Blue theme — accent sampled from the photo background (#0030C0) */
+        html[data-theme="blue"] {
+            --global-bg-color: #ffffff;
+            --global-code-bg-color: #eef1fb;
+            --global-text-color: #14213d;
+            --global-text-color-light: #5b6478;
+            --global-theme-color: #0030C0;       /* photo-background royal blue */
+            --global-hover-color: #00208a;
+            --global-divider-color: #e2e6f3;
+            --global-card-bg-color: #ffffff;
+            --global-card-border: #e3e7f4;
+            --global-nav-bg: rgba(255, 255, 255, 0.78);
+            --global-footer-bg: #f4f6fc;
+            --global-tag-bg: #e7ecfb;
+            --global-shadow: rgba(0, 48, 192, 0.16);
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body {
-            font-family: 'Sora', sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.7;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+            background-color: var(--global-bg-color);
+            color: var(--global-text-color);
+            line-height: 1.6;
             -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
+            padding-top: 56px;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
-        body::before {
-            content: '';
+        a {
+            color: var(--global-theme-color);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        a:hover { color: var(--global-hover-color); text-decoration: none; }
+
+        /* ---------------- Navbar ---------------- */
+        nav.navbar {
             position: fixed;
-            inset: 0;
-            background-image:
-                linear-gradient(var(--border) 1px, transparent 1px),
-                linear-gradient(90deg, var(--border) 1px, transparent 1px);
-            background-size: 60px 60px;
-            opacity: 0.15;
-            pointer-events: none;
-            z-index: 0;
-        }
-        body::after {
-            content: '';
-            position: fixed;
-            top: -300px;
-            right: -300px;
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, #22d3ee10 0%, #a78bfa08 35%, transparent 65%);
-            pointer-events: none;
-            z-index: 0;
-        }
-        .page { position: relative; z-index: 1; }
-        .page::before {
-            content: '';
-            position: fixed;
-            bottom: -300px;
-            left: -200px;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, #a78bfa08 0%, transparent 60%);
-            pointer-events: none;
-            z-index: 0;
-        }
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: #06080dee;
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border-bottom: 1px solid var(--border);
-            padding: 0 32px;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            height: 56px;
+            background: var(--global-nav-bg);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid var(--global-divider-color);
         }
         .nav-inner {
-            max-width: 1080px;
+            max-width: 920px;
             margin: 0 auto;
+            height: 100%;
+            padding: 0 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            height: 56px;
         }
-        .nav-name {
-            font-family: 'Sora', sans-serif;
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            color: var(--accent);
-        }
-        .nav-links { display: flex; gap: 8px; }
-        .nav-links a {
-            font-size: 12px;
+        .nav-brand {
+            font-family: 'Roboto Slab', serif;
+            font-size: 1.05rem;
             font-weight: 500;
-            color: var(--text-secondary);
-            text-decoration: none;
-            padding: 6px 12px;
-            border-radius: 6px;
-            transition: all 0.2s;
+            color: var(--global-text-color);
+            white-space: nowrap;
         }
-        .nav-links a:hover {
-            color: var(--text);
-            background: var(--surface);
-        }
-        .container {
-            max-width: 1080px;
-            margin: 0 auto;
-            padding: 0 32px;
-        }
-        .hero {
-            padding: 80px 0 64px;
-            display: grid;
-            grid-template-columns: 1fr auto;
-            gap: 48px;
-            align-items: end;
-            border-bottom: 1px solid var(--border);
-        }
-        .hero-eyebrow {
-            font-family: 'Sora', sans-serif;
-            font-size: 11px;
-            font-weight: 400;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: var(--accent);
-            margin-bottom: 16px;
+        .nav-links {
             display: flex;
             align-items: center;
-            gap: 10px;
+            flex-wrap: wrap;
+            gap: 2px;
+            justify-content: flex-end;
         }
-        .hero-eyebrow::before {
-            content: '';
-            width: 24px;
-            height: 1px;
-            background: var(--accent);
+        .nav-links a {
+            font-size: 0.82rem;
+            font-weight: 400;
+            color: var(--global-text-color);
+            padding: 6px 9px;
+            border-radius: 4px;
         }
-        .hero h1 {
-            font-family: 'Sora', sans-serif;
-            font-size: clamp(2.8rem, 5.5vw, 4.2rem);
-            font-weight: 700;
-            line-height: 1.05;
-            letter-spacing: -0.03em;
-            margin-bottom: 16px;
-            color: #fff;
+        .nav-links a:hover { color: var(--global-theme-color); }
+        #theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--global-text-color);
+            font-size: 0.95rem;
+            padding: 6px 8px;
+            margin-left: 4px;
         }
-        .hero-sub {
+        #theme-toggle:hover { color: var(--global-theme-color); }
+        .nav-toggle { display: none; background: none; border: none; cursor: pointer; color: var(--global-text-color); font-size: 1.2rem; }
+
+        /* ---------------- Scrolling progress bar ---------------- */
+        #progress {
+            position: fixed;
+            top: 56px; left: 0;
+            width: 100%; height: 2px;
+            appearance: none; -webkit-appearance: none;
+            border: none; background: transparent;
+            z-index: 999;
+        }
+        #progress::-webkit-progress-bar { background: transparent; }
+        #progress::-webkit-progress-value { background: var(--global-theme-color); }
+        #progress::-moz-progress-bar { background: var(--global-theme-color); }
+
+        /* ---------------- Layout ---------------- */
+        .container {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .clearfix::after { content: ""; display: table; clear: both; }
+
+        /* ---------------- Header / About ---------------- */
+        .post-header { margin-top: 44px; margin-bottom: 8px; }
+        .post-title {
+            font-family: 'Roboto Slab', serif;
+            font-weight: 300;
+            font-size: 2.6rem;
+            line-height: 1.15;
+            color: var(--global-text-color);
+        }
+        .post-title .fw-bold { font-weight: 700; }
+        .post-desc {
+            color: var(--global-text-color-light);
             font-size: 1.05rem;
-            color: var(--text-secondary);
-            max-width: 540px;
-            margin-bottom: 28px;
-            line-height: 1.7;
+            font-weight: 300;
+            margin-top: 6px;
         }
-        .hero-sub a {
-            color: var(--text);
-            text-decoration: none;
-            border-bottom: 1px dashed var(--text-dim);
-            transition: all 0.2s;
+
+        .profile {
+            float: right;
+            width: 230px;
+            margin: 6px 0 14px 28px;
+            text-align: left;
         }
-        .hero-sub a:hover {
-            color: var(--accent);
-            border-color: var(--accent);
+        .profile img {
+            width: 100%;
+            border-radius: 6px;
+            box-shadow: 0 4px 14px var(--global-shadow);
+            display: block;
         }
+        .profile .more-info {
+            margin-top: 12px;
+            font-size: 0.9rem;
+            color: var(--global-text-color-light);
+            line-height: 1.55;
+        }
+        .profile .more-info p { margin: 0; }
+        .profile .more-info i { width: 1.2em; color: var(--global-theme-color); }
+
+        .intro p { margin-bottom: 14px; font-size: 1rem; }
+        .intro strong { font-weight: 500; color: var(--global-text-color); }
+
+        /* stat strip */
         .stats-strip {
             display: flex;
-            gap: 32px;
-            margin-bottom: 28px;
+            gap: 34px;
+            margin: 22px 0 18px;
         }
-        .stat-block { display: flex; flex-direction: column; }
         .stat-num {
-            font-family: 'Sora', sans-serif;
-            font-size: 2rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--accent-bright), var(--violet));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-family: 'Roboto Slab', serif;
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: var(--global-theme-color);
             line-height: 1;
         }
         .stat-lbl {
-            font-family: 'Sora', sans-serif;
-            font-size: 9px;
-            letter-spacing: 2.5px;
+            font-size: 0.72rem;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
-            color: var(--text-dim);
-            margin-top: 6px;
-        }
-        .link-pills { display: flex; flex-wrap: wrap; gap: 8px; }
-        .pill {
-            font-family: 'Sora', sans-serif;
-            font-size: 11px;
-            font-weight: 400;
-            padding: 7px 16px;
-            border: 1px solid var(--border);
-            border-radius: 100px;
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: all 0.25s;
-            background: transparent;
-        }
-        .pill:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-            background: var(--accent-dim);
-            box-shadow: 0 0 24px #22d3ee15, 0 0 2px var(--accent);
-        }
-        .pill--accent {
-            border-color: var(--accent-mid);
-            color: var(--accent);
-            background: var(--accent-dim);
-        }
-        .hero-visual {
-            width: 140px;
-            height: 170px;
-            border-radius: 50%;
-            border: 2px solid #22d3ee30;
-            background: var(--bg-card);
-            box-shadow: 0 0 30px #22d3ee12, 0 0 60px #a78bfa08;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .hero-visual img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 15px;
-        }
-        .hero-visual::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 16px;
-            background: linear-gradient(135deg, #22d3ee12, transparent 50%);
-            pointer-events: none;
-        }
-        section { padding: 64px 0; }
-        .section-header {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            margin-bottom: 36px;
-        }
-        .section-tag {
-            font-family: 'Sora', sans-serif;
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--accent);
-            background: linear-gradient(135deg, var(--accent-dim), var(--violet-dim));
-            padding: 5px 14px;
-            border-radius: 100px;
-            border: 1px solid var(--accent-mid);
-        }
-        .section-line {
-            flex: 1;
-            height: 1px;
-            background: var(--border);
-        }
-        .about-text {
-            max-width: 680px;
-            font-size: 1.02rem;
-            color: var(--text-secondary);
-            line-height: 1.8;
-        }
-        .about-text strong { color: var(--text); font-weight: 600; }
-        .about-text p + p { margin-top: 16px; }
-        .keywords {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 28px;
-        }
-        .kw {
-            font-family: 'Sora', sans-serif;
-            font-size: 10px;
-            letter-spacing: 0.5px;
-            padding: 5px 14px;
-            border-radius: 4px;
-            border: 1px solid var(--border);
-            color: var(--text-secondary);
-            background: var(--bg-card);
-            transition: all 0.2s;
-        }
-        .kw:hover { border-color: var(--border-hover); color: var(--text); }
-        .kw--hl { border-color: var(--accent-mid); color: var(--accent-bright); background: var(--accent-dim); box-shadow: 0 0 12px #22d3ee08; }
-        .research-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 16px;
-        }
-        .r-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 28px 24px;
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-        .r-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--accent), var(--violet), transparent);
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-        .r-card:hover {
-            border-color: #22d3ee25;
-            background: var(--bg-card-hover);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 40px #22d3ee08, 0 2px 12px #00000040;
-        }
-        .r-card:hover::before { opacity: 1; }
-        .r-card-icon { margin-bottom: 16px; display: flex; align-items: center; justify-content: center; width: 52px; height: 52px; border-radius: 12px; background: linear-gradient(135deg, var(--accent-dim), var(--violet-dim)); border: 1px solid var(--border); }
-        .r-card-icon svg { width: 32px; height: 32px; }
-        .r-card h3 {
-            font-size: 0.95rem;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--accent-bright);
-        }
-        .r-card p {
-            font-size: 0.84rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-        .pub-table { width: 100%; }
-        .pub-row {
-            display: grid;
-            grid-template-columns: 60px 1fr auto;
-            gap: 20px;
-            padding: 22px 0;
-            border-bottom: 1px solid var(--border);
-            align-items: start;
-            transition: all 0.2s;
-        }
-        .pub-row:last-child { border-bottom: none; }
-        .pub-row:hover { background: var(--bg-elevated); margin: 0 -16px; padding-left: 16px; padding-right: 16px; border-radius: 8px; }
-        .pub-yr {
-            font-family: 'Sora', sans-serif;
-            font-size: 12px;
-            color: var(--text-dim);
-            padding-top: 2px;
-        }
-        .pub-title {
-            font-size: 0.98rem;
-            font-weight: 600;
-            color: #fff;
-            margin-bottom: 4px;
-            line-height: 1.4;
-        }
-        .pub-title a {
-            color: #fff;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        .pub-title a:hover { color: var(--accent); }
-        .pub-authors {
-            font-size: 0.82rem;
-            color: var(--text-secondary);
-            margin-bottom: 4px;
-        }
-        .pub-authors .me { color: var(--accent); font-weight: 600; }
-        .pub-venue {
-            font-family: 'Sora', sans-serif;
-            font-size: 10px;
-            letter-spacing: 0.5px;
-            color: var(--emerald);
-            display: inline-block;
-            padding: 2px 8px;
-            border-radius: 3px;
-            background: var(--emerald-dim);
-            border: 1px solid #34d39920;
-        }
-        .pub-badge {
-            font-family: 'Sora', sans-serif;
-            font-size: 10px;
-            color: var(--text-dim);
-            white-space: nowrap;
-            padding-top: 2px;
-        }
-        .pub-links {
-            display: inline-flex;
-            gap: 6px;
+            color: var(--global-text-color-light);
             margin-top: 4px;
         }
-        .pub-links a {
-            font-family: 'Sora', sans-serif;
-            font-size: 10px;
-            color: var(--accent);
-            text-decoration: none;
-            padding: 1px 7px;
-            border-radius: 3px;
-            border: 1px solid var(--accent);
-            transition: all 0.2s;
+
+        /* social icons (al-folio contact-icons) */
+        .contact-icons {
+            margin: 10px 0 6px;
+            font-size: 1.5rem;
         }
-        .pub-links a:hover {
-            background: var(--accent);
-            color: var(--bg);
+        .contact-icons a {
+            color: var(--global-text-color);
+            margin-right: 14px;
+            transition: color 0.2s ease;
         }
-        .pub-footer {
-            margin-top: 28px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border);
-            display: flex;
-            gap: 16px;
+        .contact-icons a:hover { color: var(--global-theme-color); }
+
+        /* link pills */
+        .link-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+        .pill {
+            font-size: 0.78rem;
+            padding: 5px 13px;
+            border: 1px solid var(--global-divider-color);
+            border-radius: 100px;
+            color: var(--global-text-color-light);
+            background: var(--global-card-bg-color);
         }
-        .pub-footer a {
-            font-family: 'Sora', sans-serif;
-            font-size: 12px;
-            color: var(--accent);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            transition: opacity 0.2s;
+        .pill:hover { border-color: var(--global-theme-color); color: var(--global-theme-color); }
+
+        /* ---------------- Section headings ---------------- */
+        section { padding: 30px 0 6px; }
+        h2.section-title {
+            font-family: 'Roboto Slab', serif;
+            font-weight: 400;
+            font-size: 1.55rem;
+            color: var(--global-text-color);
+            padding-bottom: 8px;
+            margin-bottom: 22px;
+            border-bottom: 1px solid var(--global-divider-color);
         }
-        .pub-footer a:hover { opacity: 0.7; }
-        .exp-list { list-style: none; }
-        .exp-item {
-            position: relative;
-            padding: 0 0 40px 40px;
+        h2.section-title .hash { color: var(--global-theme-color); font-weight: 300; opacity: 0; transition: opacity .2s; }
+        h2.section-title:hover .hash { opacity: 1; }
+
+        .about-text p { margin-bottom: 12px; }
+        .about-text strong { font-weight: 500; color: var(--global-text-color); }
+
+        /* keyword tags */
+        .keywords { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+        .kw {
+            font-size: 0.78rem;
+            padding: 4px 12px;
+            border-radius: 4px;
+            background: var(--global-tag-bg);
+            color: var(--global-theme-color);
+            border: 1px solid transparent;
         }
-        .exp-item:last-child { padding-bottom: 0; }
-        .exp-item::before {
-            content: '';
-            position: absolute;
-            left: 0; top: 0; bottom: 0;
-            width: 2px;
-            background: linear-gradient(to bottom, var(--accent), var(--violet), var(--border));
-            border-radius: 1px;
+        .kw--plain {
+            background: var(--global-card-bg-color);
+            color: var(--global-text-color-light);
+            border: 1px solid var(--global-divider-color);
         }
-        .exp-item:last-child::before { background: var(--accent); height: 12px; }
-        .exp-item::after {
-            content: '';
-            position: absolute;
-            left: -5px;
-            top: 4px;
-            width: 11px;
-            height: 11px;
-            border-radius: 50%;
-            background: var(--bg);
-            border: 2px solid var(--accent);
+
+        /* ---------------- Research / Tools cards ---------------- */
+        .card-grid { display: grid; gap: 16px; }
+        .research-grid { grid-template-columns: repeat(2, 1fr); }
+        .tools-grid { grid-template-columns: repeat(3, 1fr); }
+        .card {
+            background: var(--global-card-bg-color);
+            border: 1px solid var(--global-card-border);
+            border-radius: 8px;
+            padding: 20px;
+            transition: box-shadow 0.2s ease, transform 0.2s ease;
         }
-        .exp-role { font-size: 1rem; font-weight: 600; color: #fff; margin-bottom: 4px; }
-        .exp-org { font-size: 0.9rem; color: var(--text-secondary); }
-        .exp-details { font-size: 0.84rem; color: var(--text-dim); margin-top: 4px; }
-        .exp-projects { list-style: none; margin-top: 10px; }
-        .exp-projects li { font-size: 0.82rem; color: var(--text-secondary); padding: 4px 0 4px 16px; position: relative; line-height: 1.5; }
-        .exp-projects li::before { content: ''; position: absolute; left: 0; top: 11px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); opacity: 0.5; }
-        .exp-projects li strong { color: var(--accent-bright); font-weight: 600; }
-        .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
+        .card:hover { box-shadow: 0 6px 20px var(--global-shadow); transform: translateY(-2px); }
+        .card-icon { width: 40px; height: 40px; margin-bottom: 12px; }
+        .card h3 {
+            font-family: 'Roboto Slab', serif;
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: var(--global-text-color);
         }
-        .tool-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 24px;
-            transition: all 0.3s;
-        }
-        .tool-card:hover {
-            border-color: #a78bfa25;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 40px #a78bfa08, 0 2px 12px #00000040;
-        }
+        .card p { font-size: 0.88rem; color: var(--global-text-color-light); }
         .tool-name {
-            font-family: 'Sora', sans-serif;
+            font-family: 'Roboto Slab', serif;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--global-theme-color);
+            margin-bottom: 6px;
+        }
+
+        /* ---------------- Publications / Talks / Awards list ---------------- */
+        .bib-list { list-style: none; }
+        .bib-row {
+            display: grid;
+            grid-template-columns: 54px 1fr auto;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--global-divider-color);
+            align-items: start;
+        }
+        .bib-row:last-child { border-bottom: none; }
+        .bib-yr {
+            font-family: 'Roboto Slab', serif;
             font-size: 0.95rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--accent), var(--violet));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 8px;
+            color: var(--global-text-color-light);
+            padding-top: 2px;
         }
-        .tool-desc {
-            font-size: 0.84rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
+        .bib-title { font-size: 0.98rem; font-weight: 500; color: var(--global-text-color); line-height: 1.4; }
+        .bib-title a { color: var(--global-text-color); }
+        .bib-title a:hover { color: var(--global-theme-color); }
+        .bib-authors { font-size: 0.85rem; color: var(--global-text-color-light); margin: 3px 0; }
+        .bib-authors .me { color: var(--global-theme-color); font-weight: 500; }
+        .bib-venue {
+            display: inline-block;
+            font-size: 0.74rem;
+            color: var(--global-theme-color);
+            background: var(--global-tag-bg);
+            padding: 2px 9px;
+            border-radius: 4px;
         }
+        .bib-links { display: inline-flex; gap: 8px; margin-top: 6px; }
+        .bib-links a {
+            font-size: 0.74rem;
+            padding: 1px 8px;
+            border: 1px solid var(--global-theme-color);
+            border-radius: 4px;
+        }
+        .bib-links a:hover { background: var(--global-theme-color); color: #fff; }
+        .bib-badge { font-size: 0.74rem; color: var(--global-text-color-light); white-space: nowrap; padding-top: 2px; text-align: right; }
+        .list-footer { margin-top: 18px; display: flex; gap: 20px; font-size: 0.88rem; }
+
+        /* ---------------- Timeline (Experience / Education) ---------------- */
+        .timeline { list-style: none; padding-left: 4px; }
+        .tl-item { position: relative; padding: 0 0 26px 26px; border-left: 2px solid var(--global-divider-color); }
+        .tl-item:last-child { border-left-color: transparent; padding-bottom: 0; }
+        .tl-item::before {
+            content: '';
+            position: absolute;
+            left: -7px; top: 3px;
+            width: 12px; height: 12px;
+            border-radius: 50%;
+            background: var(--global-bg-color);
+            border: 2px solid var(--global-theme-color);
+        }
+        .tl-role { font-weight: 500; color: var(--global-text-color); }
+        .tl-org { font-size: 0.92rem; color: var(--global-text-color); }
+        .tl-meta { font-size: 0.84rem; color: var(--global-text-color-light); margin-top: 3px; }
+        .tl-projects { list-style: none; margin-top: 8px; }
+        .tl-projects li { font-size: 0.84rem; color: var(--global-text-color-light); padding: 3px 0 3px 14px; position: relative; }
+        .tl-projects li::before { content: '–'; position: absolute; left: 0; color: var(--global-theme-color); }
+        .tl-projects strong { color: var(--global-text-color); font-weight: 500; }
+
+        /* ---------------- Footer ---------------- */
         footer {
-            border-top: 1px solid var(--border);
-            padding: 40px 0;
-            margin-top: 32px;
+            background: var(--global-footer-bg);
+            border-top: 1px solid var(--global-divider-color);
+            margin-top: 40px;
+            padding: 26px 0;
         }
         .footer-inner {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 0 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
         }
-        .footer-left {
-            font-family: 'Sora', sans-serif;
-            font-size: 11px;
-            color: var(--text-dim);
-        }
-        .footer-right { display: flex; gap: 16px; }
-        .footer-right a {
-            font-family: 'Sora', sans-serif;
-            font-size: 11px;
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        .footer-right a:hover { color: var(--accent); }
+        .footer-left { font-size: 0.82rem; color: var(--global-text-color-light); }
+        .footer-right { display: flex; flex-wrap: wrap; gap: 14px; }
+        .footer-right a { font-size: 0.82rem; color: var(--global-text-color-light); }
+        .footer-right a:hover { color: var(--global-theme-color); }
+
+        /* ---------------- Responsive ---------------- */
         @media (max-width: 768px) {
-            .hero { grid-template-columns: 1fr; }
-            .hero-visual { display: none; }
-            .research-grid { grid-template-columns: 1fr 1fr; }
-            .tools-grid { grid-template-columns: 1fr; }
-            .pub-row { grid-template-columns: 48px 1fr; }
-            .pub-badge { display: none; }
-            .stats-strip { gap: 20px; }
-            .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
-            .nav-links a { padding: 6px 8px; font-size: 11px; }
-            .container { padding: 0 20px; }
+            .nav-links { display: none; position: absolute; top: 56px; left: 0; right: 0; flex-direction: column; background: var(--global-bg-color); border-bottom: 1px solid var(--global-divider-color); padding: 8px 16px; align-items: flex-start; gap: 0; }
+            .nav-links.open { display: flex; }
+            .nav-links a { width: 100%; padding: 9px 4px; }
+            .nav-toggle { display: block; }
+            .profile { float: none; width: 200px; margin: 0 auto 20px; }
+            .post-header { text-align: center; }
+            .stats-strip { justify-content: center; }
+            .research-grid, .tools-grid { grid-template-columns: 1fr; }
+            .bib-row { grid-template-columns: 46px 1fr; }
+            .bib-badge { display: none; }
+            .post-title { font-size: 2.1rem; }
         }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .hero, section { animation: fadeIn 0.7s ease-out both; }
-        section:nth-of-type(1) { animation-delay: 0.05s; }
-        section:nth-of-type(2) { animation-delay: 0.1s; }
-        section:nth-of-type(3) { animation-delay: 0.15s; }
-        section:nth-of-type(4) { animation-delay: 0.2s; }
-        section:nth-of-type(5) { animation-delay: 0.25s; }
-        section:nth-of-type(6) { animation-delay: 0.3s; }
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: var(--bg); }
-        ::-webkit-scrollbar-thumb { background: var(--surface); border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
     </style>
 </head>
 <body>
-<div class="page">
-    <nav>
+
+    <!-- ===================== Navbar ===================== -->
+    <nav class="navbar">
         <div class="nav-inner">
-            <div class="nav-name">DS</div>
-            <div class="nav-links">
-                <a href="#about">About</a>
-                <a href="#research">Research</a>
-                <a href="#publications">Publications</a>
-                <a href="#talks">Talks</a>
-                <a href="#awards">Awards</a>
-                <a href="#service">Service</a>
-                <a href="#experience">Experience</a>
-                <a href="#education">Education</a>
-                <a href="#tools">Tools</a>
+            <a class="nav-brand" href="#">Dillibabu Shanmugam</a>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation"><i class="fa-solid fa-bars"></i></button>
+            <div class="nav-links" id="nav-links">
+                <a href="#about">about</a>
+                <a href="#research">research</a>
+                <a href="#publications">publications</a>
+                <a href="#talks">talks</a>
+                <a href="#awards">awards</a>
+                <a href="#service">service</a>
+                <a href="#experience">experience</a>
+                <a href="#education">education</a>
+                <a href="#tools">tools</a>
+                <button id="theme-toggle" title="Toggle light/dark"><i class="fa-solid fa-moon"></i></button>
             </div>
         </div>
     </nav>
+
+    <!-- Scrolling progress bar -->
+    <progress id="progress" value="0" max="100"></progress>
+
+    <!-- ===================== About / Header ===================== -->
     <div class="container">
-        <div class="hero">
-            <div>
-                <div class="hero-eyebrow">Hardware Security Researcher &middot; ASIC Design &middot; Side-Channel Analysis &amp; Fault Injection</div>
-                <h1>Dillibabu Shanmugam</h1>
-                <p class="hero-sub">
-                    PhD Researcher at <a href="https://vernamlab.org/" target="_blank" rel="noopener">Vernam Lab</a>,
-                    <a href="https://www.wpi.edu" target="_blank" rel="noopener">Worcester Polytechnic Institute</a>.
-                    Working with Prof. Patrick Schaumont on side-channel analysis, fault injection, ASIC design, and post-quantum cryptography.
-                </p>
+        <header class="post-header">
+            <h1 class="post-title"><span class="fw-bold">Dillibabu</span> Shanmugam</h1>
+            <p class="post-desc">Hardware Security Researcher &middot; ASIC Design &middot; Side-Channel Analysis &amp; Fault Injection</p>
+        </header>
+
+        <article>
+            <div class="profile">
+                <img src="photo/shanmugamdillibabu.jpg" alt="Dillibabu Shanmugam">
+                <div class="more-info">
+                    <p><i class="fa-solid fa-graduation-cap"></i> PhD Researcher, <a href="https://vernamlab.org/" target="_blank" rel="noopener">Vernam Lab</a></p>
+                    <p><i class="fa-solid fa-building-columns"></i> <a href="https://www.wpi.edu" target="_blank" rel="noopener">Worcester Polytechnic Institute</a></p>
+                    <p><i class="fa-solid fa-user"></i> Advisor: Prof. Patrick Schaumont</p>
+                    <p><i class="fa-solid fa-envelope"></i> <a href="mailto:dshanmugam@wpi.edu">dshanmugam@wpi.edu</a></p>
+                </div>
+            </div>
+
+            <section id="about" class="clearfix" style="padding-top:0;">
+                <div class="intro">
+                    <p>I am a PhD researcher at <a href="https://vernamlab.org/" target="_blank" rel="noopener">Vernam Lab</a>, <a href="https://www.wpi.edu" target="_blank" rel="noopener">Worcester Polytechnic Institute</a>, advised by Prof. Patrick Schaumont. My work spans side-channel analysis, fault injection, ASIC design, and post-quantum cryptography.</p>
+                    <p>I have <strong>19 peer-reviewed publications</strong> and <strong>14+ years</strong> of combined research and industry experience. I have led two <strong>ASIC tape-outs</strong> in TSMC and work across power and EM side-channel analysis, fault injection (EMFI, laser, and clock glitch), post-quantum cryptography (ML-DSA-87), and machine-learning-based security verification.</p>
+                    <p>My research connects theoretical fault models with practical hardware behavior. I develop tools and methods to detect, characterize, and mitigate hardware vulnerabilities in embedded systems and RISC-V processors, including <strong>deep learning models</strong> (CNN and GNN) that reach 92% accuracy in assessing micro-architectural states.</p>
+                </div>
+
                 <div class="stats-strip">
-                    <div class="stat-block">
-                        <span class="stat-num">19</span>
-                        <span class="stat-lbl">Publications</span>
+                    <div>
+                        <div class="stat-num">19</div>
+                        <div class="stat-lbl">Publications</div>
                     </div>
-                    <div class="stat-block">
-                        <span class="stat-num">2</span>
-                        <span class="stat-lbl">ASIC Tape-outs</span>
+                    <div>
+                        <div class="stat-num">2</div>
+                        <div class="stat-lbl">ASIC Tape-outs</div>
+                    </div>
+                    <div>
+                        <div class="stat-num">14+</div>
+                        <div class="stat-lbl">Years Experience</div>
                     </div>
                 </div>
+
+                <div class="contact-icons">
+                    <a href="mailto:dshanmugam@wpi.edu" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="https://scholar.google.com/citations?user=IeeEZO3mmn8C&hl=en" target="_blank" rel="noopener" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>
+                    <a href="https://www.linkedin.com/in/dillibabushanmugam/" target="_blank" rel="noopener" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://github.com/secure-Embedded-Systems/" target="_blank" rel="noopener" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://dblp.org/pid/150/9439.html" target="_blank" rel="noopener" title="DBLP"><i class="ai ai-dblp"></i></a>
+                    <a href="https://dl.acm.org/profile/99658704967" target="_blank" rel="noopener" title="ACM Digital Library"><i class="ai ai-acm"></i></a>
+                    <a href="https://www.researchgate.net/profile/Dillibabu-Shanmugam" target="_blank" rel="noopener" title="ResearchGate"><i class="ai ai-researchgate"></i></a>
+                    <a href="https://orcid.org/0000-0003-3018-777X" target="_blank" rel="noopener" title="ORCID"><i class="ai ai-orcid"></i></a>
+                </div>
+
                 <div class="link-pills">
-                    <a href="https://scholar.google.com/citations?user=IeeEZO3mmn8C&hl=en" target="_blank" rel="noopener" class="pill pill--accent">Google Scholar</a>
-                    <a href="https://www.linkedin.com/in/dillibabushanmugam/" target="_blank" rel="noopener" class="pill pill--accent">LinkedIn</a>
+                    <a href="https://scholar.google.com/citations?user=IeeEZO3mmn8C&hl=en" target="_blank" rel="noopener" class="pill">Google Scholar</a>
+                    <a href="https://www.linkedin.com/in/dillibabushanmugam/" target="_blank" rel="noopener" class="pill">LinkedIn</a>
                     <a href="https://github.com/secure-Embedded-Systems/" target="_blank" rel="noopener" class="pill">GitHub</a>
                     <a href="https://dblp.org/pid/150/9439.html" target="_blank" rel="noopener" class="pill">DBLP</a>
                     <a href="https://dl.acm.org/profile/99658704967" target="_blank" rel="noopener" class="pill">ACM DL</a>
                     <a href="https://www.researchgate.net/profile/Dillibabu-Shanmugam" target="_blank" rel="noopener" class="pill">ResearchGate</a>
                     <a href="https://orcid.org/0000-0003-3018-777X" target="_blank" rel="noopener" class="pill">ORCID</a>
                     <a href="https://www.webofscience.com/wos/author/record/LXV-1654-2024" target="_blank" rel="noopener" class="pill">Web of Science</a>
-                    <a href="mailto:dshanmugam@wpi.edu" class="pill">dshanmugam@wpi.edu</a>
                 </div>
-            </div>
-            <div class="hero-visual">
-                <img src="photo.png" alt="Dillibabu Shanmugam" />
-            </div>
-        </div>
-        <section id="about">
-            <div class="section-header">
-                <span class="section-tag">About</span>
-                <div class="section-line"></div>
-            </div>
-            <div class="about-text">
-                <p>Hardware security researcher with <strong>19 peer-reviewed publications</strong> and <strong>14+ years</strong> of combined industry and research experience. Led two <strong>ASIC tape-outs</strong> (TSMC 180nm) and specialized in side-channel analysis (power, EM), fault injection (EMFI, laser, clock glitch), post-quantum cryptography (ML-DSA-87), and ML-based security verification.</p>
-                <p>I bridge the gap between theoretical fault models and practical hardware behavior, developing tools and methodologies for detecting, characterizing, and mitigating hardware-level vulnerabilities in embedded systems and RISC-V processors. I also work on <strong>deep learning approaches</strong> (CNN/GNN achieving 92% accuracy) for security assessment of micro-architectural states.</p>
-            </div>
-            <div class="keywords">
-                <span class="kw kw--hl">Hardware Security</span>
-                <span class="kw kw--hl">ASIC Design</span>
-                <span class="kw">Side-Channel Analysis</span>
-                <span class="kw">Fault Injection (EMFI, Laser, Glitch)</span>
-                <span class="kw">Post-Quantum Cryptography</span>
-                <span class="kw">RISC-V</span>
-                <span class="kw">Pre-silicon Leakage Assessment</span>
-                <span class="kw">DPA / CPA / TVLA</span>
-                <span class="kw">Lightweight Cryptography</span>
-                <span class="kw">ML for Security</span>
-                <span class="kw">RTL-to-GDSII</span>
-            </div>
-        </section>
+
+                <div class="keywords">
+                    <span class="kw">Hardware Security</span>
+                    <span class="kw">ASIC Design</span>
+                    <span class="kw kw--plain">Side-Channel Analysis</span>
+                    <span class="kw kw--plain">Fault Injection (EMFI, Laser, Glitch)</span>
+                    <span class="kw kw--plain">Post-Quantum Cryptography</span>
+                    <span class="kw kw--plain">RISC-V</span>
+                    <span class="kw kw--plain">Pre-silicon Leakage Assessment</span>
+                    <span class="kw kw--plain">DPA / CPA / TVLA</span>
+                    <span class="kw kw--plain">Lightweight Cryptography</span>
+                    <span class="kw kw--plain">ML for Security</span>
+                    <span class="kw kw--plain">RTL-to-GDSII</span>
+                </div>
+            </section>
+        </article>
+
+        <!-- ===================== Research ===================== -->
         <section id="research">
-            <div class="section-header">
-                <span class="section-tag">Research</span>
-                <div class="section-line"></div>
-            </div>
-            <div class="research-grid">
-                <div class="r-card">
-                    <span class="r-card-icon"><svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="8" y="8" width="20" height="20" rx="3" stroke="#22d3ee" stroke-width="1.5" opacity="0.6"/>
-                        <rect x="12" y="12" width="4" height="4" rx="0.5" fill="#22d3ee" opacity="0.5"/>
-                        <rect x="20" y="12" width="4" height="4" rx="0.5" fill="#22d3ee" opacity="0.5"/>
-                        <rect x="12" y="20" width="4" height="4" rx="0.5" fill="#22d3ee" opacity="0.5"/>
-                        <rect x="20" y="20" width="4" height="4" rx="0.5" fill="#a78bfa" opacity="0.5"/>
-                        <path d="M26 4L22 10M26 4L30 8M26 4L24 6" stroke="#fb7185" stroke-width="1.8" stroke-linecap="round"/>
-                        <line x1="23" y1="7" x2="27" y2="11" stroke="#fb7185" stroke-width="1" opacity="0.4" stroke-dasharray="2 2"/>
-                    </svg></span>
+            <h2 class="section-title">Research <a href="#research" class="hash">#</a></h2>
+            <div class="card-grid research-grid">
+                <div class="card">
+                    <svg class="card-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="8" y="8" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.5" opacity="0.7" style="color:var(--global-theme-color)"/>
+                        <rect x="12" y="12" width="4" height="4" rx="0.5" fill="currentColor" opacity="0.4" style="color:var(--global-theme-color)"/>
+                        <rect x="20" y="20" width="4" height="4" rx="0.5" fill="currentColor" opacity="0.4" style="color:var(--global-theme-color)"/>
+                        <path d="M26 4L22 10M26 4L30 8" stroke="#e0245e" stroke-width="1.8" stroke-linecap="round"/>
+                    </svg>
                     <h3>Fault Injection &amp; Analysis</h3>
                     <p>331 EMFI campaigns on RISC-V SoC. Direction-aware PDN loop models for fault susceptibility. EMFI, laser, and clock glitch attacks.</p>
                 </div>
-                <div class="r-card">
-                    <span class="r-card-icon"><svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M4 18C6 14 8 22 10 16C12 10 14 24 16 18C18 12 20 22 22 15C24 8 26 20 28 18C30 16 32 18 32 18" stroke="#22d3ee" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-                        <path d="M4 18C6 14 8 22 10 16C12 10 14 24 16 18" stroke="#a78bfa" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.4" transform="translate(0,3)"/>
-                        <circle cx="27" cy="12" r="6" stroke="#67e8f9" stroke-width="1.2" opacity="0.7"/>
-                        <line x1="31.5" y1="16.5" x2="34" y2="19" stroke="#67e8f9" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
-                        <circle cx="27" cy="12" r="2" fill="#22d3ee" opacity="0.3"/>
-                    </svg></span>
+                <div class="card">
+                    <svg class="card-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" style="color:var(--global-theme-color)">
+                        <path d="M4 18C6 14 8 22 10 16C12 10 14 24 16 18C18 12 20 22 22 15C24 8 26 20 28 18C30 16 32 18 32 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                        <circle cx="27" cy="12" r="6" stroke="currentColor" stroke-width="1.2" opacity="0.7"/>
+                        <line x1="31.5" y1="16.5" x2="34" y2="19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+                    </svg>
                     <h3>Side-Channel Analysis</h3>
                     <p>Differential and correlation power analysis on block ciphers (AES, PRINCE, SIMON, LED, GIFT), with countermeasure evaluation.</p>
                 </div>
-                <div class="r-card">
-                    <span class="r-card-icon"><svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="18" cy="18" r="12" stroke="#22d3ee" stroke-width="1.2" opacity="0.3" stroke-dasharray="3 3"/>
-                        <rect x="11" y="11" width="14" height="14" rx="2" stroke="#a78bfa" stroke-width="1.5" opacity="0.7"/>
-                        <rect x="14" y="14" width="3" height="3" rx="0.5" fill="#22d3ee" opacity="0.6"/>
-                        <rect x="19" y="14" width="3" height="3" rx="0.5" fill="#22d3ee" opacity="0.4"/>
-                        <rect x="14" y="19" width="3" height="3" rx="0.5" fill="#22d3ee" opacity="0.4"/>
-                        <rect x="19" y="19" width="3" height="3" rx="0.5" fill="#a78bfa" opacity="0.6"/>
-                        <line x1="18" y1="3" x2="18" y2="7" stroke="#22d3ee" stroke-width="1" opacity="0.4"/>
-                        <line x1="18" y1="29" x2="18" y2="33" stroke="#22d3ee" stroke-width="1" opacity="0.4"/>
-                        <line x1="3" y1="18" x2="7" y2="18" stroke="#22d3ee" stroke-width="1" opacity="0.4"/>
-                        <line x1="29" y1="18" x2="33" y2="18" stroke="#22d3ee" stroke-width="1" opacity="0.4"/>
-                    </svg></span>
+                <div class="card">
+                    <svg class="card-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" style="color:var(--global-theme-color)">
+                        <circle cx="18" cy="18" r="12" stroke="currentColor" stroke-width="1.2" opacity="0.3" stroke-dasharray="3 3"/>
+                        <rect x="11" y="11" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity="0.8"/>
+                        <rect x="14" y="14" width="3" height="3" rx="0.5" fill="currentColor" opacity="0.5"/>
+                        <rect x="19" y="19" width="3" height="3" rx="0.5" fill="currentColor" opacity="0.5"/>
+                    </svg>
                     <h3>Pre-silicon Security</h3>
                     <p>Leakage assessment using pre-silicon models, scan-chain-based micro-architecture state monitoring, and early-stage vulnerability detection.</p>
                 </div>
-                <div class="r-card">
-                    <span class="r-card-icon"><svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="10" y="6" width="16" height="20" rx="8" stroke="#22d3ee" stroke-width="1.5" opacity="0.7" fill="none"/>
-                        <rect x="15" y="14" width="6" height="6" rx="1" fill="#a78bfa" opacity="0.5"/>
-                        <line x1="18" y1="26" x2="18" y2="32" stroke="#22d3ee" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
-                        <line x1="12" y1="32" x2="24" y2="32" stroke="#22d3ee" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
-                        <circle cx="18" cy="11" r="1.5" fill="#67e8f9" opacity="0.6"/>
-                    </svg></span>
+                <div class="card">
+                    <svg class="card-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" style="color:var(--global-theme-color)">
+                        <rect x="10" y="6" width="16" height="20" rx="8" stroke="currentColor" stroke-width="1.5" opacity="0.8" fill="none"/>
+                        <rect x="15" y="14" width="6" height="6" rx="1" fill="currentColor" opacity="0.5"/>
+                        <line x1="18" y1="26" x2="18" y2="32" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+                    </svg>
                     <h3>Lightweight Cryptography</h3>
                     <p>Secure implementation of lightweight ciphers for IoT and resource-constrained devices, including stream ciphers and block ciphers.</p>
                 </div>
-                <div class="r-card">
-                    <span class="r-card-icon"><svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="10" cy="8" r="3" stroke="#a78bfa" stroke-width="1.2" opacity="0.6"/>
-                        <circle cx="26" cy="8" r="3" stroke="#a78bfa" stroke-width="1.2" opacity="0.6"/>
-                        <circle cx="10" cy="28" r="3" stroke="#a78bfa" stroke-width="1.2" opacity="0.6"/>
-                        <circle cx="26" cy="28" r="3" stroke="#a78bfa" stroke-width="1.2" opacity="0.6"/>
-                        <circle cx="18" cy="18" r="4" stroke="#22d3ee" stroke-width="1.5" opacity="0.8"/>
-                        <circle cx="18" cy="18" r="1.5" fill="#22d3ee" opacity="0.7"/>
-                        <line x1="13" y1="10" x2="15" y2="15" stroke="#67e8f9" stroke-width="1" opacity="0.4"/>
-                        <line x1="23" y1="10" x2="21" y2="15" stroke="#67e8f9" stroke-width="1" opacity="0.4"/>
-                        <line x1="13" y1="26" x2="15" y2="21" stroke="#67e8f9" stroke-width="1" opacity="0.4"/>
-                        <line x1="23" y1="26" x2="21" y2="21" stroke="#67e8f9" stroke-width="1" opacity="0.4"/>
-                        <rect x="14" y="14" width="8" height="8" rx="1.5" stroke="#22d3ee" stroke-width="0.8" opacity="0.3" stroke-dasharray="2 1"/>
-                    </svg></span>
+                <div class="card">
+                    <svg class="card-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" style="color:var(--global-theme-color)">
+                        <circle cx="10" cy="8" r="3" stroke="currentColor" stroke-width="1.2" opacity="0.6"/>
+                        <circle cx="26" cy="28" r="3" stroke="currentColor" stroke-width="1.2" opacity="0.6"/>
+                        <circle cx="18" cy="18" r="4" stroke="currentColor" stroke-width="1.5"/>
+                        <line x1="13" y1="10" x2="15" y2="15" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+                        <line x1="23" y1="26" x2="21" y2="21" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+                    </svg>
                     <h3>ML for Hardware Security</h3>
                     <p>CNN/GNN-based fault detection achieving 92% accuracy. Transfer learning reducing SCA traces by 2.8&times; and test time by 30%.</p>
                 </div>
-                <div class="r-card">
-                    <span class="r-card-icon"><svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="6" y="10" width="14" height="18" rx="2" stroke="#22d3ee" stroke-width="1.2" opacity="0.5"/>
-                        <text x="9" y="21" font-family="monospace" font-size="7" fill="#67e8f9" opacity="0.7">&gt;_</text>
-                        <text x="9" y="26" font-family="monospace" font-size="5" fill="#a78bfa" opacity="0.5">01</text>
-                        <circle cx="26" cy="16" r="6" stroke="#a78bfa" stroke-width="1.2" opacity="0.6"/>
-                        <path d="M23.5 16L25 17.5L28.5 14" stroke="#22d3ee" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
-                        <line x1="20" y1="16" x2="22" y2="16" stroke="#67e8f9" stroke-width="0.8" opacity="0.4"/>
-                        <line x1="26" y1="22" x2="26" y2="26" stroke="#a78bfa" stroke-width="1" opacity="0.4"/>
-                        <line x1="22" y1="26" x2="30" y2="26" stroke="#a78bfa" stroke-width="1" opacity="0.3" stroke-dasharray="2 2"/>
-                    </svg></span>
+                <div class="card">
+                    <svg class="card-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" style="color:var(--global-theme-color)">
+                        <rect x="6" y="10" width="14" height="18" rx="2" stroke="currentColor" stroke-width="1.2" opacity="0.6"/>
+                        <circle cx="26" cy="16" r="6" stroke="currentColor" stroke-width="1.2" opacity="0.7"/>
+                        <path d="M23.5 16L25 17.5L28.5 14" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
                     <h3>Security Tools &amp; Frameworks</h3>
                     <p>Co-developer of SCAPEgoat, FaultDetective, and GlitchGl&uuml;ck toolchains for side-channel and fault security evaluation.</p>
                 </div>
-                <div class="r-card">
-                    <span class="r-card-icon"><svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="6" y="6" width="24" height="24" rx="2" stroke="#22d3ee" stroke-width="1.5" opacity="0.6"/>
-                        <rect x="10" y="10" width="6" height="6" rx="1" fill="#22d3ee" opacity="0.5"/>
-                        <rect x="20" y="10" width="6" height="6" rx="1" fill="#a78bfa" opacity="0.5"/>
-                        <rect x="10" y="20" width="6" height="6" rx="1" fill="#a78bfa" opacity="0.4"/>
-                        <rect x="20" y="20" width="6" height="6" rx="1" fill="#22d3ee" opacity="0.5"/>
-                        <line x1="18" y1="2" x2="18" y2="6" stroke="#67e8f9" stroke-width="1.2" opacity="0.5"/>
-                        <line x1="18" y1="30" x2="18" y2="34" stroke="#67e8f9" stroke-width="1.2" opacity="0.5"/>
-                        <line x1="2" y1="18" x2="6" y2="18" stroke="#67e8f9" stroke-width="1.2" opacity="0.5"/>
-                        <line x1="30" y1="18" x2="34" y2="18" stroke="#67e8f9" stroke-width="1.2" opacity="0.5"/>
-                        <line x1="10" y1="2" x2="10" y2="6" stroke="#67e8f9" stroke-width="0.8" opacity="0.3"/>
-                        <line x1="26" y1="2" x2="26" y2="6" stroke="#67e8f9" stroke-width="0.8" opacity="0.3"/>
-                    </svg></span>
+                <div class="card">
+                    <svg class="card-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" style="color:var(--global-theme-color)">
+                        <rect x="6" y="6" width="24" height="24" rx="2" stroke="currentColor" stroke-width="1.5" opacity="0.7"/>
+                        <rect x="10" y="10" width="6" height="6" rx="1" fill="currentColor" opacity="0.5"/>
+                        <rect x="20" y="20" width="6" height="6" rx="1" fill="currentColor" opacity="0.5"/>
+                        <line x1="18" y1="2" x2="18" y2="6" stroke="currentColor" stroke-width="1.2" opacity="0.5"/>
+                        <line x1="2" y1="18" x2="6" y2="18" stroke="currentColor" stroke-width="1.2" opacity="0.5"/>
+                    </svg>
                     <h3>ASIC Design</h3>
-                    <p>Full RTL-to-GDSII flow. Led 2 tape-outs (CAPRI1, CAPRI6) in TSMC 180nm using Cadence, Synopsys, and OpenROAD.</p>
+                    <p>Full RTL-to-GDSII flow. Led 2 tape-outs (CAPRI1, CAPRI6) in TSMC using Cadence, Synopsys, and OpenROAD.</p>
                 </div>
-                <div class="r-card">
-                    <span class="r-card-icon"><svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="18" cy="18" r="12" stroke="#a78bfa" stroke-width="1.2" opacity="0.4"/>
-                        <circle cx="18" cy="18" r="7" stroke="#22d3ee" stroke-width="1.2" opacity="0.5"/>
-                        <circle cx="18" cy="18" r="2.5" fill="#22d3ee" opacity="0.6"/>
-                        <path d="M8 8L13 13" stroke="#a78bfa" stroke-width="1" opacity="0.4"/>
-                        <path d="M28 8L23 13" stroke="#a78bfa" stroke-width="1" opacity="0.4"/>
-                        <path d="M8 28L13 23" stroke="#a78bfa" stroke-width="1" opacity="0.4"/>
-                        <path d="M28 28L23 23" stroke="#a78bfa" stroke-width="1" opacity="0.4"/>
-                        <circle cx="7" cy="7" r="2" stroke="#a78bfa" stroke-width="1" opacity="0.5"/>
-                        <circle cx="29" cy="7" r="2" stroke="#a78bfa" stroke-width="1" opacity="0.5"/>
-                        <circle cx="7" cy="29" r="2" stroke="#a78bfa" stroke-width="1" opacity="0.5"/>
-                        <circle cx="29" cy="29" r="2" stroke="#a78bfa" stroke-width="1" opacity="0.5"/>
-                    </svg></span>
+                <div class="card">
+                    <svg class="card-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" style="color:var(--global-theme-color)">
+                        <circle cx="18" cy="18" r="12" stroke="currentColor" stroke-width="1.2" opacity="0.4"/>
+                        <circle cx="18" cy="18" r="7" stroke="currentColor" stroke-width="1.2" opacity="0.6"/>
+                        <circle cx="18" cy="18" r="2.5" fill="currentColor" opacity="0.7"/>
+                        <circle cx="7" cy="7" r="2" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+                        <circle cx="29" cy="29" r="2" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+                    </svg>
                     <h3>Post-Quantum Cryptography</h3>
                     <p>First pre-silicon SCA methodology for ML-DSA-87 (FIPS 204): CPA with MTD=6 traces, template attacks with top-10 key recovery in 50 traces.</p>
                 </div>
             </div>
         </section>
+
+        <!-- ===================== Publications ===================== -->
         <section id="publications">
-            <div class="section-header">
-                <span class="section-tag">Publications</span>
-                <div class="section-line"></div>
-            </div>
-            <div class="pub-table">
-                <div class="pub-row">
-                    <span class="pub-yr">2026</span>
+            <h2 class="section-title">Publications <a href="#publications" class="hash">#</a></h2>
+            <ul class="bib-list">
+                <li class="bib-row">
+                    <span class="bib-yr">2026</span>
                     <div>
-                        <div class="pub-title"><a href="https://par.nsf.gov/biblio/10681571" target="_blank" rel="noopener">Security Analysis of Microscaling Formats Under Fault Injection on a RISC-V Edge Platform</a></div>
-                        <div class="pub-authors"><span class="me">D. Shanmugam</span>, P. Schaumont</div>
-                        <span class="pub-venue">AIHWS 2026 (ACNS Workshops)</span>
-                        <div class="pub-links"><a href="https://par.nsf.gov/servlets/purl/10681571" target="_blank">PDF</a></div>
+                        <div class="bib-title"><a href="https://par.nsf.gov/biblio/10681571" target="_blank" rel="noopener">Security Analysis of Microscaling Formats Under Fault Injection on a RISC-V Edge Platform</a></div>
+                        <div class="bib-authors"><span class="me">D. Shanmugam</span>, P. Schaumont</div>
+                        <span class="bib-venue">AIHWS 2026 (ACNS Workshops)</span>
+                        <div class="bib-links"><a href="https://par.nsf.gov/servlets/purl/10681571" target="_blank">PDF</a></div>
                     </div>
-                    <span class="pub-badge">Accepted</span>
-                </div>
-                <div class="pub-row">
-                    <span class="pub-yr">2026</span>
+                    <span class="bib-badge">Accepted</span>
+                </li>
+                <li class="bib-row">
+                    <span class="bib-yr">2026</span>
                     <div>
-                        <div class="pub-title">Fault Analysis of Microscaling Formats on a RISC-V SoC</div>
-                        <div class="pub-authors"><span class="me">D. Shanmugam</span>, P. Schaumont</div>
-                        <span class="pub-venue">ACM GLSVLSI 2026</span>
-                        <div class="pub-links"><a href="papers/glsvlsi_2026.pdf" target="_blank">PDF</a></div>
+                        <div class="bib-title">Fault Analysis of Microscaling Formats on a RISC-V SoC</div>
+                        <div class="bib-authors"><span class="me">D. Shanmugam</span>, P. Schaumont</div>
+                        <span class="bib-venue">ACM GLSVLSI 2026</span>
+                        <div class="bib-links"><a href="papers/glsvlsi_2026.pdf" target="_blank">PDF</a></div>
                     </div>
-                    <span class="pub-badge">Accepted</span>
-                </div>
-                <div class="pub-row">
-                    <span class="pub-yr">2026</span>
+                    <span class="bib-badge">Accepted</span>
+                </li>
+                <li class="bib-row">
+                    <span class="bib-yr">2026</span>
                     <div>
-                        <div class="pub-title">Hierarchical EMFI Analysis on a RISC-V SoC</div>
-                        <div class="pub-authors"><span class="me">D. Shanmugam</span>, Z. Liu, P. Schaumont</div>
-                        <span class="pub-venue">European Test Symposium 2026</span>
-                        <div class="pub-links"><a href="papers/ETS2026.pdf" target="_blank">PDF</a> <a href="papers/ets2026_poster_v1.pdf" target="_blank">Poster</a></div>
+                        <div class="bib-title">Hierarchical EMFI Analysis on a RISC-V SoC</div>
+                        <div class="bib-authors"><span class="me">D. Shanmugam</span>, Z. Liu, P. Schaumont</div>
+                        <span class="bib-venue">European Test Symposium 2026</span>
+                        <div class="bib-links"><a href="papers/ETS2026.pdf" target="_blank">PDF</a> <a href="papers/ets2026_poster_v1.pdf" target="_blank">Poster</a></div>
                     </div>
-                    <span class="pub-badge">Accepted</span>
-                </div>
-                <div class="pub-row">
-                    <span class="pub-yr">2025</span>
+                    <span class="bib-badge">Accepted</span>
+                </li>
+                <li class="bib-row">
+                    <span class="bib-yr">2025</span>
                     <div>
-                        <div class="pub-title">ML-DSA-87: Offensive Top-Down Side-Channel Leakage Assessment Using Pre-Silicon Models</div>
-                        <div class="pub-authors"><span class="me">D. Shanmugam</span>, P. Schaumont</div>
-                        <span class="pub-venue">Submitted</span>
-                        <div class="pub-links"><a href="papers/mldsa87_2025.pdf" target="_blank">PDF</a> <a href="slides/mldsa87_slides.pptx" target="_blank">Slides</a></div>
+                        <div class="bib-title">ML-DSA-87: Offensive Top-Down Side-Channel Leakage Assessment Using Pre-Silicon Models</div>
+                        <div class="bib-authors"><span class="me">D. Shanmugam</span>, P. Schaumont</div>
+                        <span class="bib-venue">Submitted</span>
+                        <div class="bib-links"><a href="papers/mldsa87_2025.pdf" target="_blank">PDF</a> <a href="slides/mldsa87_slides.pptx" target="_blank">Slides</a></div>
                     </div>
-                    <span class="pub-badge">Under Review</span>
-                </div>
-                <div class="pub-row">
-                    <span class="pub-yr">2025</span>
+                    <span class="bib-badge">Under Review</span>
+                </li>
+                <li class="bib-row">
+                    <span class="bib-yr">2025</span>
                     <div>
-                        <div class="pub-title"><a href="https://link.springer.com/chapter/10.1007/978-3-032-01799-4_8" target="_blank" rel="noopener">&mu;Scan: Deep Learning Detection of Faulty Micro-architecture States and Patterns from Scan-Chain Data</a></div>
-                        <div class="pub-authors"><span class="me">D. Shanmugam</span>, Z. Liu, A. Malnicof, P. Schaumont</div>
-                        <span class="pub-venue">ACNS Workshops 2025</span>
-                        <div class="pub-links"><a href="papers/uscan_aihws2025.pdf" target="_blank">PDF</a> <a href="slides/uscan_aihws2025_slides.pdf" target="_blank">Slides</a></div>
+                        <div class="bib-title"><a href="https://link.springer.com/chapter/10.1007/978-3-032-01799-4_8" target="_blank" rel="noopener">&mu;Scan: Deep Learning Detection of Faulty Micro-architecture States and Patterns from Scan-Chain Data</a></div>
+                        <div class="bib-authors"><span class="me">D. Shanmugam</span>, Z. Liu, A. Malnicof, P. Schaumont</div>
+                        <span class="bib-venue">ACNS Workshops 2025</span>
+                        <div class="bib-links"><a href="papers/uscan_aihws2025.pdf" target="_blank">PDF</a> <a href="slides/uscan_aihws2025_slides.pdf" target="_blank">Slides</a></div>
                     </div>
-                    <span class="pub-badge">LNCS 15653</span>
-                </div>
-                <div class="pub-row">
-                    <span class="pub-yr">2025</span>
+                    <span class="bib-badge">LNCS 15653</span>
+                </li>
+                <li class="bib-row">
+                    <span class="bib-yr">2025</span>
                     <div>
-                        <div class="pub-title"><a href="https://www.usenix.org/conference/woot25/presentation/liu" target="_blank" rel="noopener">GlitchGl&uuml;ck: Enabling Software Vulnerabilities through Guided Hardware Fault Injection</a></div>
-                        <div class="pub-authors">Z. Liu, <span class="me">D. Shanmugam</span>, P. Schaumont</div>
-                        <span class="pub-venue">USENIX WOOT 2025</span>
-                        <div class="pub-links"><a href="papers/glitchgluck_woot2025.pdf" target="_blank">PDF</a> <a href="slides/glitchgluck_woot2025_slides.pdf" target="_blank">Slides</a></div>
+                        <div class="bib-title"><a href="https://www.usenix.org/conference/woot25/presentation/liu" target="_blank" rel="noopener">GlitchGl&uuml;ck: Enabling Software Vulnerabilities through Guided Hardware Fault Injection</a></div>
+                        <div class="bib-authors">Z. Liu, <span class="me">D. Shanmugam</span>, P. Schaumont</div>
+                        <span class="bib-venue">USENIX WOOT 2025</span>
+                        <div class="bib-links"><a href="papers/glitchgluck_woot2025.pdf" target="_blank">PDF</a> <a href="slides/glitchgluck_woot2025_slides.pdf" target="_blank">Slides</a></div>
                     </div>
-                    <span class="pub-badge"></span>
-                </div>
-                <div class="pub-row">
-                    <span class="pub-yr">2025</span>
+                    <span class="bib-badge"></span>
+                </li>
+                <li class="bib-row">
+                    <span class="bib-yr">2025</span>
                     <div>
-                        <div class="pub-title">CAPRI6: A Solution for Fault Root Cause Detection</div>
-                        <div class="pub-authors"><span class="me">D. Shanmugam</span>, Z. Liu, P. Schaumont</div>
-                        <span class="pub-venue">IEEE MDTS 2025</span>
-                        <div class="pub-links"><a href="papers/capri6_mdts2025.pdf" target="_blank">PDF</a> <a href="slides/capri6_mdts2025_slides.pdf" target="_blank">Slides</a></div>
+                        <div class="bib-title">CAPRI6: A Solution for Fault Root Cause Detection</div>
+                        <div class="bib-authors"><span class="me">D. Shanmugam</span>, Z. Liu, P. Schaumont</div>
+                        <span class="bib-venue">IEEE MDTS 2025</span>
+                        <div class="bib-links"><a href="papers/capri6_mdts2025.pdf" target="_blank">PDF</a> <a href="slides/capri6_mdts2025_slides.pdf" target="_blank">Slides</a></div>
                     </div>
-                    <span class="pub-badge">1 Citation</span>
-                </div>
-                <div class="pub-row">
-                    <span class="pub-yr">2025</span>
+                    <span class="bib-badge">1 Citation</span>
+                </li>
+                <li class="bib-row">
+                    <span class="bib-yr">2025</span>
                     <div>
-                        <div class="pub-title"><a href="https://eprint.iacr.org/2025/499" target="_blank" rel="noopener">SCAPEgoat: Side-channel Analysis Library</a></div>
-                        <div class="pub-authors">D. Mehta, T. Marcantino, M. Hashemi, S. Karkache, <span class="me">D. Shanmugam</span>, P. Schaumont, F. Ganji</div>
-                        <span class="pub-venue">IEEE VTS 2025</span>
-                        <div class="pub-links"><a href="papers/scapegoat_vts2025.pdf" target="_blank">PDF</a></div>
+                        <div class="bib-title"><a href="https://eprint.iacr.org/2025/499" target="_blank" rel="noopener">SCAPEgoat: Side-channel Analysis Library</a></div>
+                        <div class="bib-authors">D. Mehta, T. Marcantino, M. Hashemi, S. Karkache, <span class="me">D. Shanmugam</span>, P. Schaumont, F. Ganji</div>
+                        <span class="bib-venue">IEEE VTS 2025</span>
+                        <div class="bib-links"><a href="papers/scapegoat_vts2025.pdf" target="_blank">PDF</a></div>
                     </div>
-                    <span class="pub-badge">ePrint 2025/499</span>
-                </div>
-                <div class="pub-row">
-                    <span class="pub-yr">2024</span>
+                    <span class="bib-badge">ePrint 2025/499</span>
+                </li>
+                <li class="bib-row">
+                    <span class="bib-yr">2024</span>
                     <div>
-                        <div class="pub-title"><a href="https://tches.iacr.org/index.php/TCHES/article/view/11804" target="_blank" rel="noopener">FaultDetective: Explainable to a Fault, from the Design Layout to the Software</a></div>
-                        <div class="pub-authors">Z. Liu, <span class="me">D. Shanmugam</span>, P. Schaumont</div>
-                        <span class="pub-venue">IACR TCHES 2024(4)</span>
-                        <div class="pub-links"><a href="papers/faultdetective_tches2024.pdf" target="_blank">PDF</a> <a href="slides/faultdetective_tches2024_slides.pptx" target="_blank">Slides</a></div>
+                        <div class="bib-title"><a href="https://tches.iacr.org/index.php/TCHES/article/view/11804" target="_blank" rel="noopener">FaultDetective: Explainable to a Fault, from the Design Layout to the Software</a></div>
+                        <div class="bib-authors">Z. Liu, <span class="me">D. Shanmugam</span>, P. Schaumont</div>
+                        <span class="bib-venue">IACR TCHES 2024(4)</span>
+                        <div class="bib-links"><a href="papers/faultdetective_tches2024.pdf" target="_blank">PDF</a> <a href="slides/faultdetective_tches2024_slides.pptx" target="_blank">Slides</a></div>
                     </div>
-                    <span class="pub-badge">6 Citations</span>
-                </div>
-                <div class="pub-row">
-                    <span class="pub-yr">2023</span>
+                    <span class="bib-badge">6 Citations</span>
+                </li>
+                <li class="bib-row">
+                    <span class="bib-yr">2023</span>
                     <div>
-                        <div class="pub-title"><a href="https://doi.org/10.1007/978-3-031-29497-6_6" target="_blank" rel="noopener">Improving Side-channel Leakage Assessment Using Pre-silicon Leakage Models</a></div>
-                        <div class="pub-authors"><span class="me">D. Shanmugam</span>, P. Schaumont</div>
-                        <span class="pub-venue">COSADE 2023</span>
-                        <div class="pub-links"><a href="papers/cosade2023.pdf" target="_blank">PDF</a> <a href="slides/cosade2023_slides.pdf" target="_blank">Slides</a></div>
+                        <div class="bib-title"><a href="https://doi.org/10.1007/978-3-031-29497-6_6" target="_blank" rel="noopener">Improving Side-channel Leakage Assessment Using Pre-silicon Leakage Models</a></div>
+                        <div class="bib-authors"><span class="me">D. Shanmugam</span>, P. Schaumont</div>
+                        <span class="bib-venue">COSADE 2023</span>
+                        <div class="bib-links"><a href="papers/cosade2023.pdf" target="_blank">PDF</a> <a href="slides/cosade2023_slides.pdf" target="_blank">Slides</a></div>
                     </div>
-                    <span class="pub-badge"></span>
-                </div>
-                <div class="pub-row">
-                    <span class="pub-yr">2023</span>
+                    <span class="bib-badge"></span>
+                </li>
+                <li class="bib-row">
+                    <span class="bib-yr">2023</span>
                     <div>
-                        <div class="pub-title"><a href="https://doi.org/10.1109/TQE.2023.3326093" target="_blank" rel="noopener">Scalable QKD Postprocessing System with Reconfigurable Hardware Accelerator</a></div>
-                        <div class="pub-authors">N. Venkatachalam, F. P. Shingala, S. C, H. P. S, <span class="me">D. Shanmugam</span>, P. Chandravanshi, R. P. Singh</div>
-                        <span class="pub-venue">IEEE Trans. Quantum Eng. 2023</span>
+                        <div class="bib-title"><a href="https://doi.org/10.1109/TQE.2023.3326093" target="_blank" rel="noopener">Scalable QKD Postprocessing System with Reconfigurable Hardware Accelerator</a></div>
+                        <div class="bib-authors">N. Venkatachalam, F. P. Shingala, S. C, H. P. S, <span class="me">D. Shanmugam</span>, P. Chandravanshi, R. P. Singh</div>
+                        <span class="bib-venue">IEEE Trans. Quantum Eng. 2023</span>
                     </div>
-                    <span class="pub-badge"></span>
-                </div>
-                <div class="pub-row">
-                    <span class="pub-yr">2022</span>
+                    <span class="bib-badge"></span>
+                </li>
+                <li class="bib-row">
+                    <span class="bib-yr">2022</span>
                     <div>
-                        <div class="pub-title"><a href="https://doi.org/10.1504/ijics.2022.125276" target="_blank" rel="noopener">Robust Message Authentication in the Context of Quantum Key Distribution</a></div>
-                        <div class="pub-authors"><span class="me">D. Shanmugam</span>, J. Rangasamy</div>
-                        <span class="pub-venue">IJICS 18(3/4)</span>
+                        <div class="bib-title"><a href="https://doi.org/10.1504/ijics.2022.125276" target="_blank" rel="noopener">Robust Message Authentication in the Context of Quantum Key Distribution</a></div>
+                        <div class="bib-authors"><span class="me">D. Shanmugam</span>, J. Rangasamy</div>
+                        <span class="bib-venue">IJICS 18(3/4)</span>
                     </div>
-                    <span class="pub-badge"></span>
-                </div>
-                <div class="pub-row">
-                    <span class="pub-yr">2020</span>
+                    <span class="bib-badge"></span>
+                </li>
+                <li class="bib-row">
+                    <span class="bib-yr">2020</span>
                     <div>
-                        <div class="pub-title"><a href="https://doi.org/10.1109/iSES50453.2020.00032" target="_blank" rel="noopener">Implementation Vulnerability Analysis: A Case Study on ChaCha of SPHINCS</a></div>
-                        <div class="pub-authors">V. Satheesh, <span class="me">D. Shanmugam</span></div>
-                        <span class="pub-venue">IEEE iSES 2020</span>
-                        <div class="pub-links"><a href="slides/ises2020_slides.pdf" target="_blank">Slides</a></div>
+                        <div class="bib-title"><a href="https://doi.org/10.1109/iSES50453.2020.00032" target="_blank" rel="noopener">Implementation Vulnerability Analysis: A Case Study on ChaCha of SPHINCS</a></div>
+                        <div class="bib-authors">V. Satheesh, <span class="me">D. Shanmugam</span></div>
+                        <span class="bib-venue">IEEE iSES 2020</span>
+                        <div class="bib-links"><a href="slides/ises2020_slides.pdf" target="_blank">Slides</a></div>
                     </div>
-                    <span class="pub-badge"></span>
-                </div>
-                <div class="pub-row">
-                    <span class="pub-yr">2019</span>
+                    <span class="bib-badge"></span>
+                </li>
+                <li class="bib-row">
+                    <span class="bib-yr">2019</span>
                     <div>
-                        <div class="pub-title"><a href="https://doi.org/10.1109/CCST.2019.8888402" target="_blank" rel="noopener">Denial of Service Detection System on Various Platforms</a></div>
-                        <div class="pub-authors"><span class="me">D. Shanmugam</span>, S. Annadurai, R. Vijayasarathy, T. V. Prasad</div>
-                        <span class="pub-venue">IEEE ICCST 2019</span>
+                        <div class="bib-title"><a href="https://doi.org/10.1109/CCST.2019.8888402" target="_blank" rel="noopener">Denial of Service Detection System on Various Platforms</a></div>
+                        <div class="bib-authors"><span class="me">D. Shanmugam</span>, S. Annadurai, R. Vijayasarathy, T. V. Prasad</div>
+                        <span class="bib-venue">IEEE ICCST 2019</span>
                     </div>
-                    <span class="pub-badge"></span>
-                </div>
-                <div class="pub-row">
-                    <span class="pub-yr">2018</span>
+                    <span class="bib-badge"></span>
+                </li>
+                <li class="bib-row">
+                    <span class="bib-yr">2018</span>
                     <div>
-                        <div class="pub-title"><a href="https://doi.org/10.1109/iSES.2018.00062" target="_blank" rel="noopener">Crypto Primitives IPCore Implementation Susceptibility in Cyber Physical System</a></div>
-                        <div class="pub-authors"><span class="me">D. Shanmugam</span>, S. Annadurai</div>
-                        <span class="pub-venue">IEEE iSES 2018</span>
+                        <div class="bib-title"><a href="https://doi.org/10.1109/iSES.2018.00062" target="_blank" rel="noopener">Crypto Primitives IPCore Implementation Susceptibility in Cyber Physical System</a></div>
+                        <div class="bib-authors"><span class="me">D. Shanmugam</span>, S. Annadurai</div>
+                        <span class="bib-venue">IEEE iSES 2018</span>
                     </div>
-                    <span class="pub-badge"></span>
-                </div>
-                <div class="pub-row">
-                    <span class="pub-yr">2018</span>
+                    <span class="bib-badge"></span>
+                </li>
+                <li class="bib-row">
+                    <span class="bib-yr">2018</span>
                     <div>
-                        <div class="pub-title">Secure Realization of Lightweight Block Cipher: A Case Study Using GIFT</div>
-                        <div class="pub-authors">V. Satheesh, <span class="me">D. Shanmugam</span></div>
-                        <span class="pub-venue">SPACE 2018</span>
-                        <div class="pub-links"><a href="slides/space2018_gift_slides.pdf" target="_blank">Slides</a></div>
+                        <div class="bib-title">Secure Realization of Lightweight Block Cipher: A Case Study Using GIFT</div>
+                        <div class="bib-authors">V. Satheesh, <span class="me">D. Shanmugam</span></div>
+                        <span class="bib-venue">SPACE 2018</span>
+                        <div class="bib-links"><a href="slides/space2018_gift_slides.pdf" target="_blank">Slides</a></div>
                     </div>
-                    <span class="pub-badge"></span>
-                </div>
-                <div class="pub-row">
-                    <span class="pub-yr">2016</span>
+                    <span class="bib-badge"></span>
+                </li>
+                <li class="bib-row">
+                    <span class="bib-yr">2016</span>
                     <div>
-                        <div class="pub-title">Decomposed S-Boxes and DPA Attacks: A Quantitative Case Study Using PRINCE</div>
-                        <div class="pub-authors">R. Selvam, <span class="me">D. Shanmugam</span>, S. Annadurai, J. Rangasamy</div>
-                        <span class="pub-venue">SPACE 2016</span>
-                        <div class="pub-links"><a href="slides/space2016_slides.pdf" target="_blank">Slides</a></div>
+                        <div class="bib-title">Decomposed S-Boxes and DPA Attacks: A Quantitative Case Study Using PRINCE</div>
+                        <div class="bib-authors">R. Selvam, <span class="me">D. Shanmugam</span>, S. Annadurai, J. Rangasamy</div>
+                        <span class="bib-venue">SPACE 2016</span>
+                        <div class="bib-links"><a href="slides/space2016_slides.pdf" target="_blank">Slides</a></div>
                     </div>
-                    <span class="pub-badge">ePrint 2016/630</span>
-                </div>
-                <div class="pub-row">
-                    <span class="pub-yr">2015</span>
+                    <span class="bib-badge">ePrint 2016/630</span>
+                </li>
+                <li class="bib-row">
+                    <span class="bib-yr">2015</span>
                     <div>
-                        <div class="pub-title"><a href="https://doi.org/10.1145/2732198.2732207" target="_blank" rel="noopener">Vulnerability Analysis of PRINCE and RECTANGLE Using CPA</a></div>
-                        <div class="pub-authors">R. Selvam, <span class="me">D. Shanmugam</span>, S. Annadurai</div>
-                        <span class="pub-venue">ACM CPSS@AsiaCCS 2015</span>
+                        <div class="bib-title"><a href="https://doi.org/10.1145/2732198.2732207" target="_blank" rel="noopener">Vulnerability Analysis of PRINCE and RECTANGLE Using CPA</a></div>
+                        <div class="bib-authors">R. Selvam, <span class="me">D. Shanmugam</span>, S. Annadurai</div>
+                        <span class="bib-venue">ACM CPSS@AsiaCCS 2015</span>
                     </div>
-                    <span class="pub-badge"></span>
-                </div>
-                <div class="pub-row">
-                    <span class="pub-yr">2015</span>
+                    <span class="bib-badge"></span>
+                </li>
+                <li class="bib-row">
+                    <span class="bib-yr">2015</span>
                     <div>
-                        <div class="pub-title">Secure Implementation of Stream Cipher: Trivium</div>
-                        <div class="pub-authors"><span class="me">D. Shanmugam</span>, S. Annadurai</div>
-                        <span class="pub-venue">SECITC 2015</span>
+                        <div class="bib-title">Secure Implementation of Stream Cipher: Trivium</div>
+                        <div class="bib-authors"><span class="me">D. Shanmugam</span>, S. Annadurai</div>
+                        <span class="bib-venue">SECITC 2015</span>
                     </div>
-                    <span class="pub-badge"></span>
-                </div>
-                <div class="pub-row">
-                    <span class="pub-yr">2014</span>
+                    <span class="bib-badge"></span>
+                </li>
+                <li class="bib-row">
+                    <span class="bib-yr">2014</span>
                     <div>
-                        <div class="pub-title">Differential Power Analysis Attack on SIMON and LED Block Ciphers</div>
-                        <div class="pub-authors"><span class="me">D. Shanmugam</span>, R. Selvam, S. Annadurai</div>
-                        <span class="pub-venue">SPACE 2014</span>
+                        <div class="bib-title">Differential Power Analysis Attack on SIMON and LED Block Ciphers</div>
+                        <div class="bib-authors"><span class="me">D. Shanmugam</span>, R. Selvam, S. Annadurai</div>
+                        <span class="bib-venue">SPACE 2014</span>
                     </div>
-                    <span class="pub-badge"></span>
-                </div>
-            </div>
-            <div class="pub-footer">
+                    <span class="bib-badge"></span>
+                </li>
+            </ul>
+            <div class="list-footer">
                 <a href="https://scholar.google.com/citations?user=IeeEZO3mmn8C&hl=en" target="_blank" rel="noopener">&rarr; Full list on Google Scholar</a>
                 <a href="https://dblp.org/pid/150/9439.html" target="_blank" rel="noopener">&rarr; DBLP Bibliography</a>
             </div>
         </section>
+
+        <!-- ===================== Talks ===================== -->
         <section id="talks">
-            <div class="section-header">
-                <span class="section-tag">Talks</span>
-                <div class="section-line"></div>
-            </div>
-            <div class="pub-table">
-                <div class="pub-row">
-                    <span class="pub-yr">2026</span>
+            <h2 class="section-title">Talks <a href="#talks" class="hash">#</a></h2>
+            <ul class="bib-list">
+                <li class="bib-row">
+                    <span class="bib-yr">2026</span>
                     <div>
-                        <div class="pub-title">Open-Source Reference for Reproducible Side-Channel Assessment of Post-Quantum Standards</div>
-                        <div class="pub-authors"><span class="me">D. Shanmugam</span>, P. Schaumont</div>
-                        <span class="pub-venue">OSCAR Workshop 2026 (co-located with ISCA 2026)</span>
-                        <div class="pub-links"><a href="papers/oscar_15may26_v1.pdf" target="_blank">PDF</a></div>
+                        <div class="bib-title">Open-Source Reference for Reproducible Side-Channel Assessment of Post-Quantum Standards</div>
+                        <div class="bib-authors"><span class="me">D. Shanmugam</span>, P. Schaumont</div>
+                        <span class="bib-venue">OSCAR Workshop 2026 (co-located with ISCA 2026)</span>
+                        <div class="bib-links"><a href="papers/oscar_15may26_v1.pdf" target="_blank">PDF</a></div>
                     </div>
-                    <span class="pub-badge">Talk &middot; Journal in prep</span>
-                </div>
-                <div class="pub-row">
-                    <span class="pub-yr">2021</span>
+                    <span class="bib-badge">Talk &middot; Journal in prep</span>
+                </li>
+                <li class="bib-row">
+                    <span class="bib-yr">2021</span>
                     <div>
-                        <div class="pub-title">Key Distillation Engine for Quantum Key Distribution (KDE-QKD)</div>
-                        <div class="pub-authors"><span class="me">D. Shanmugam</span></div>
-                        <span class="pub-venue">Defence Institute, Pune, India &middot; June 2021</span>
+                        <div class="bib-title">Key Distillation Engine for Quantum Key Distribution (KDE-QKD)</div>
+                        <div class="bib-authors"><span class="me">D. Shanmugam</span></div>
+                        <span class="bib-venue">Defence Institute, Pune, India &middot; June 2021</span>
                     </div>
-                    <span class="pub-badge">5-day Workshop</span>
-                </div>
-                <div class="pub-row">
-                    <span class="pub-yr">2010</span>
+                    <span class="bib-badge">5-day Workshop</span>
+                </li>
+                <li class="bib-row">
+                    <span class="bib-yr">2010</span>
                     <div>
-                        <div class="pub-title">Efficient Packet Capturing for DDoS on FPGA</div>
-                        <div class="pub-authors"><span class="me">D. Shanmugam</span></div>
-                        <span class="pub-venue">Queensland University of Technology (QUT), Brisbane, Australia &middot; Indo&ndash;Australia Joint Project on DDoS Detection &amp; Mitigation (HW realization)</span>
+                        <div class="bib-title">Efficient Packet Capturing for DDoS on FPGA</div>
+                        <div class="bib-authors"><span class="me">D. Shanmugam</span></div>
+                        <span class="bib-venue">Queensland University of Technology (QUT), Brisbane, Australia &middot; Indo&ndash;Australia Joint Project on DDoS Detection &amp; Mitigation (HW realization)</span>
                     </div>
-                    <span class="pub-badge">Research Visit</span>
-                </div>
-            </div>
+                    <span class="bib-badge">Research Visit</span>
+                </li>
+            </ul>
         </section>
+
+        <!-- ===================== Awards ===================== -->
         <section id="awards">
-            <div class="section-header">
-                <span class="section-tag">Awards</span>
-                <div class="section-line"></div>
-            </div>
-            <div class="pub-table">
-                <div class="pub-row">
-                    <span class="pub-yr">2026</span>
+            <h2 class="section-title">Awards <a href="#awards" class="hash">#</a></h2>
+            <ul class="bib-list">
+                <li class="bib-row">
+                    <span class="bib-yr">2026</span>
                     <div>
-                        <div class="pub-title">Poster Prize</div>
-                        <span class="pub-venue">New England Hardware Security Day (NEHWS) 2026</span>
+                        <div class="bib-title">Poster Prize</div>
+                        <span class="bib-venue">New England Hardware Security Day (NEHWS) 2026</span>
                     </div>
-                    <span class="pub-badge">1st Prize</span>
-                </div>
-                <div class="pub-row">
-                    <span class="pub-yr">2026</span>
+                    <span class="bib-badge">1st Prize</span>
+                </li>
+                <li class="bib-row">
+                    <span class="bib-yr">2026</span>
                     <div>
-                        <div class="pub-title">Best Paper Nominee</div>
-                        <span class="pub-venue">ACM GLSVLSI 2026 &middot; Fault Analysis of Microscaling Formats on a RISC-V SoC</span>
+                        <div class="bib-title">Best Paper Nominee</div>
+                        <span class="bib-venue">ACM GLSVLSI 2026 &middot; Fault Analysis of Microscaling Formats on a RISC-V SoC</span>
                     </div>
-                    <span class="pub-badge">Upcoming</span>
-                </div>
-                <div class="pub-row">
-                    <span class="pub-yr">2025</span>
+                    <span class="bib-badge">Upcoming</span>
+                </li>
+                <li class="bib-row">
+                    <span class="bib-yr">2025</span>
                     <div>
-                        <div class="pub-title">Poster Prize</div>
-                        <span class="pub-venue">New England Hardware Security Day (NEHWS) 2025</span>
+                        <div class="bib-title">Poster Prize</div>
+                        <span class="bib-venue">New England Hardware Security Day (NEHWS) 2025</span>
                     </div>
-                    <span class="pub-badge">3rd Prize</span>
-                </div>
-            </div>
+                    <span class="bib-badge">3rd Prize</span>
+                </li>
+            </ul>
         </section>
+
+        <!-- ===================== Service ===================== -->
         <section id="service">
-            <div class="section-header">
-                <span class="section-tag">Service</span>
-                <div class="section-line"></div>
-            </div>
+            <h2 class="section-title">Service <a href="#service" class="hash">#</a></h2>
             <div class="about-text">
                 <p><strong>Peer reviewer</strong> for journals and conferences across hardware security, circuits and systems, and quantum information &mdash; reviews verified on <a href="https://www.webofscience.com/wos/author/record/LXV-1654-2024" target="_blank" rel="noopener">Web of Science</a>.</p>
             </div>
             <div class="keywords">
-                <span class="kw kw--hl">Scientific Reports (Nature)</span>
-                <span class="kw">IEEE TCAS-II</span>
-                <span class="kw">IEEE Internet of Things Journal</span>
-                <span class="kw">IEEE Trans. Emerging Topics in Computing</span>
-                <span class="kw">IEEE/ACM ICCAD</span>
-                <span class="kw">Information (MDPI)</span>
-                <span class="kw">Cryptography (MDPI)</span>
+                <span class="kw">Scientific Reports (Nature)</span>
+                <span class="kw kw--plain">IEEE TCAS-II</span>
+                <span class="kw kw--plain">IEEE Internet of Things Journal</span>
+                <span class="kw kw--plain">IEEE Trans. Emerging Topics in Computing</span>
+                <span class="kw kw--plain">IEEE/ACM ICCAD</span>
+                <span class="kw kw--plain">Information (MDPI)</span>
+                <span class="kw kw--plain">Cryptography (MDPI)</span>
             </div>
         </section>
+
+        <!-- ===================== Experience ===================== -->
         <section id="experience">
-            <div class="section-header">
-                <span class="section-tag">Experience</span>
-                <div class="section-line"></div>
-            </div>
-            <ul class="exp-list">
-                <li class="exp-item">
-                    <div class="exp-role">Research Assistant</div>
-                    <div class="exp-org">Worcester Polytechnic Institute &mdash; Vernam Lab</div>
-                    <div class="exp-details">Aug 2021 &ndash; Dec 2026 &middot; Advisor: Prof. Patrick Schaumont &middot; 17 papers, 2 ASIC tape-outs (TSMC 180nm), 331 EMFI campaigns, pre-silicon SCA for ML-DSA-87</div>
+            <h2 class="section-title">Experience <a href="#experience" class="hash">#</a></h2>
+            <ul class="timeline">
+                <li class="tl-item">
+                    <div class="tl-role">Research Assistant</div>
+                    <div class="tl-org">Worcester Polytechnic Institute &mdash; Vernam Lab</div>
+                    <div class="tl-meta">Aug 2021 &ndash; Dec 2026 &middot; Advisor: Prof. Patrick Schaumont &middot; 17 papers, 2 ASIC tape-outs (TSMC), 331 EMFI campaigns, pre-silicon SCA for ML-DSA-87</div>
                 </li>
-                <li class="exp-item">
-                    <div class="exp-role">Research Intern</div>
-                    <div class="exp-org">IIT Madras, India</div>
-                    <div class="exp-details">May 2024 &ndash; Aug 2024 &middot; Hardened cryptographic IP cores against fault attacks using formal verification and layout-aware sensors</div>
+                <li class="tl-item">
+                    <div class="tl-role">Research Intern</div>
+                    <div class="tl-org">IIT Madras, India</div>
+                    <div class="tl-meta">May 2024 &ndash; Aug 2024 &middot; Hardened cryptographic IP cores against fault attacks using formal verification and layout-aware sensors</div>
                 </li>
-                <li class="exp-item">
-                    <div class="exp-role">Security Research Intern</div>
-                    <div class="exp-org">Riscure, San Francisco, USA</div>
-                    <div class="exp-details">May 2023 &ndash; Aug 2023 &middot; Pre-silicon side-channel analysis on RISC-V ASIC, EM leakage identification in AES IP at layout level</div>
+                <li class="tl-item">
+                    <div class="tl-role">Security Research Intern</div>
+                    <div class="tl-org">Riscure, San Francisco, USA</div>
+                    <div class="tl-meta">May 2023 &ndash; Aug 2023 &middot; Pre-silicon side-channel analysis on RISC-V ASIC, EM leakage identification in AES IP at layout level</div>
                 </li>
-                <li class="exp-item">
-                    <div class="exp-role">Researcher (14 years)</div>
-                    <div class="exp-org">Society for Electronic Transactions and Security (SETS), India</div>
-                    <div class="exp-details">Feb 2007 &ndash; Aug 2021 &middot; DPA/CPA on AES, lightweight ciphers &middot; Hardware countermeasures (masking, shuffling, redundancy) &middot; 10 publications</div>
-                    <ul class="exp-projects">
+                <li class="tl-item">
+                    <div class="tl-role">Researcher (14 years)</div>
+                    <div class="tl-org">Society for Electronic Transactions and Security (SETS), India</div>
+                    <div class="tl-meta">Feb 2007 &ndash; Aug 2021 &middot; DPA/CPA on AES, lightweight ciphers &middot; Hardware countermeasures (masking, shuffling, redundancy) &middot; 10 publications</div>
+                    <ul class="tl-projects">
                         <li><strong>MAQAN</strong> (Co-PI) &mdash; Developed field-deployable CoW-QKD between IIT Madras and SETS. Funded by MeitY.</li>
                         <li><strong>DST QuEST Project</strong> (Q61: PI) &mdash; Developed Key Distillation Engine (KDE) for RPL and IITK Quantum Key Distribution systems.</li>
                         <li><strong>Secure Threshold Implementation</strong> (PI) &mdash; Secure threshold implementations of cryptographic primitives. Funded by MeitY.</li>
@@ -1116,74 +953,119 @@
                 </li>
             </ul>
         </section>
+
+        <!-- ===================== Education ===================== -->
         <section id="education">
-            <div class="section-header">
-                <span class="section-tag">Education</span>
-                <div class="section-line"></div>
-            </div>
-            <ul class="exp-list">
-                <li class="exp-item">
-                    <div class="exp-role">Ph.D., Electrical and Computer Engineering</div>
-                    <div class="exp-org">Worcester Polytechnic Institute, MA, USA</div>
-                    <div class="exp-details">Aug 2021 &ndash; Dec 2026 &middot; Advisor: Prof. Patrick Schaumont &middot; Focus: Hardware security, SCA, fault injection, ASIC design, ML for vulnerability analysis</div>
+            <h2 class="section-title">Education <a href="#education" class="hash">#</a></h2>
+            <ul class="timeline">
+                <li class="tl-item">
+                    <div class="tl-role">Ph.D., Electrical and Computer Engineering</div>
+                    <div class="tl-org">Worcester Polytechnic Institute, MA, USA</div>
+                    <div class="tl-meta">Aug 2021 &ndash; Dec 2026 &middot; Advisor: Prof. Patrick Schaumont &middot; Focus: Hardware security, SCA, fault injection, ASIC design, ML for vulnerability analysis</div>
                 </li>
-                <li class="exp-item">
-                    <div class="exp-role">B.E., Electronics and Communication Engineering</div>
-                    <div class="exp-org">Anna University, India</div>
-                    <div class="exp-details">Jun 2001 &ndash; May 2005</div>
+                <li class="tl-item">
+                    <div class="tl-role">B.E., Electronics and Communication Engineering</div>
+                    <div class="tl-org">Anna University, India</div>
+                    <div class="tl-meta">Jun 2001 &ndash; May 2005</div>
                 </li>
             </ul>
         </section>
+
+        <!-- ===================== Tools ===================== -->
         <section id="tools">
-            <div class="section-header">
-                <span class="section-tag">Tools &amp; Software</span>
-                <div class="section-line"></div>
-            </div>
-            <div class="tools-grid">
-                <div class="tool-card">
+            <h2 class="section-title">Tools &amp; Software <a href="#tools" class="hash">#</a></h2>
+            <div class="card-grid tools-grid">
+                <div class="card">
                     <div class="tool-name">SCAPEgoat</div>
-                    <div class="tool-desc">Automated Python framework coordinating Spider-XYZ EMFI stage, oscilloscope, and DUT for fault campaigns. Side-channel analysis library.</div>
+                    <p>Automated Python framework coordinating Spider-XYZ EMFI stage, oscilloscope, and DUT for fault campaigns. Side-channel analysis library.</p>
                 </div>
-                <div class="tool-card">
+                <div class="card">
                     <div class="tool-name">&mu;Scan</div>
-                    <div class="tool-desc">CNN/GNN-based fault detection framework achieving 92% accuracy detecting anomalous CPU micro-architectural states from scan-chain data.</div>
+                    <p>CNN/GNN-based fault detection framework achieving 92% accuracy detecting anomalous CPU micro-architectural states from scan-chain data.</p>
                 </div>
-                <div class="tool-card">
+                <div class="card">
                     <div class="tool-name">GlitchGl&uuml;ck</div>
-                    <div class="tool-desc">Guided hardware fault injection methodology using Dynamic State Transition Graphs for systematic vulnerability discovery.</div>
+                    <p>Guided hardware fault injection methodology using Dynamic State Transition Graphs for systematic vulnerability discovery.</p>
                 </div>
-                <div class="tool-card">
+                <div class="card">
                     <div class="tool-name">FaultDetective</div>
-                    <div class="tool-desc">Explainable fault analysis from the design layout to software. Maps fault susceptibility across the physical layout of RISC-V processors.</div>
+                    <p>Explainable fault analysis from the design layout to software. Maps fault susceptibility across the physical layout of RISC-V processors.</p>
                 </div>
-                <div class="tool-card">
+                <div class="card">
                     <div class="tool-name">CAPRI1</div>
-                    <div class="tool-desc">Custom RISC-V SoC ASIC (TSMC 180nm) designed for systematic EMFI fault characterization and PDN-aware susceptibility analysis.</div>
+                    <p>Custom RISC-V SoC ASIC (TSMC) designed for systematic EMFI fault characterization and PDN-aware susceptibility analysis.</p>
                 </div>
-                <div class="tool-card">
+                <div class="card">
                     <div class="tool-name">CAPRI6</div>
-                    <div class="tool-desc">6-core lockstep openMSP430 SoC with full scan-chain for cycle-accurate fault root-cause analysis. Custom ASIC in TSMC 180nm.</div>
+                    <p>6-core lockstep openMSP430 SoC with full scan-chain for cycle-accurate fault root-cause analysis. Custom ASIC in TSMC.</p>
                 </div>
             </div>
         </section>
     </div>
+
+    <!-- ===================== Footer ===================== -->
     <footer>
-        <div class="container">
-            <div class="footer-inner">
-                <div class="footer-left">&copy; 2026 Dillibabu Shanmugam</div>
-                <div class="footer-right">
-                    <a href="mailto:dshanmugam@wpi.edu">Email</a>
-                    <a href="https://www.linkedin.com/in/dillibabushanmugam/" target="_blank" rel="noopener">LinkedIn</a>
-                    <a href="https://github.com/secure-Embedded-Systems/" target="_blank" rel="noopener">GitHub</a>
-                    <a href="https://scholar.google.com/citations?user=IeeEZO3mmn8C&hl=en" target="_blank" rel="noopener">Scholar</a>
-                    <a href="https://dblp.org/pid/150/9439.html" target="_blank" rel="noopener">DBLP</a>
-                    <a href="https://www.researchgate.net/profile/Dillibabu-Shanmugam" target="_blank" rel="noopener">ResearchGate</a>
-                    <a href="https://orcid.org/0000-0003-3018-777X" target="_blank" rel="noopener">ORCID</a>
-                    <a href="https://www.webofscience.com/wos/author/record/LXV-1654-2024" target="_blank" rel="noopener">Web of Science</a>
-                </div>
+        <div class="footer-inner">
+            <div class="footer-left">&copy; 2026 Dillibabu Shanmugam</div>
+            <div class="footer-right">
+                <a href="mailto:dshanmugam@wpi.edu">Email</a>
+                <a href="https://www.linkedin.com/in/dillibabushanmugam/" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://github.com/secure-Embedded-Systems/" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://scholar.google.com/citations?user=IeeEZO3mmn8C&hl=en" target="_blank" rel="noopener">Scholar</a>
+                <a href="https://dblp.org/pid/150/9439.html" target="_blank" rel="noopener">DBLP</a>
+                <a href="https://www.researchgate.net/profile/Dillibabu-Shanmugam" target="_blank" rel="noopener">ResearchGate</a>
+                <a href="https://orcid.org/0000-0003-3018-777X" target="_blank" rel="noopener">ORCID</a>
+                <a href="https://www.webofscience.com/wos/author/record/LXV-1654-2024" target="_blank" rel="noopener">Web of Science</a>
             </div>
         </div>
     </footer>
-</div>
+
+    <!-- ===================== Scripts ===================== -->
+    <script>
+        // Theme cycle: crimson (light) -> blue -> dark (al-folio style, persisted)
+        (function () {
+            const root = document.documentElement;
+            const toggle = document.getElementById('theme-toggle');
+            const icon = toggle.querySelector('i');
+            const order = ['light', 'blue', 'dark'];
+            // icon shows the NEXT theme you'll switch to
+            const icons  = { light: 'fa-solid fa-droplet', blue: 'fa-solid fa-moon', dark: 'fa-solid fa-sun' };
+            const titles = { light: 'Crimson theme — click for blue', blue: 'Blue theme — click for dark', dark: 'Dark theme — click for crimson' };
+            function apply(theme) {
+                if (theme === 'light') root.removeAttribute('data-theme');
+                else root.setAttribute('data-theme', theme);
+                icon.className = icons[theme];
+                toggle.title = titles[theme];
+                localStorage.setItem('theme', theme);
+            }
+            let saved = localStorage.getItem('theme');
+            if (!order.includes(saved)) saved = 'light';
+            apply(saved);
+            toggle.addEventListener('click', function () {
+                const cur = localStorage.getItem('theme') || 'light';
+                apply(order[(order.indexOf(cur) + 1) % order.length]);
+            });
+        })();
+
+        // Mobile nav toggle
+        document.getElementById('nav-toggle').addEventListener('click', function () {
+            document.getElementById('nav-links').classList.toggle('open');
+        });
+        document.querySelectorAll('#nav-links a').forEach(function (a) {
+            a.addEventListener('click', function () { document.getElementById('nav-links').classList.remove('open'); });
+        });
+
+        // Scrolling progress bar
+        const progress = document.getElementById('progress');
+        function updateProgress() {
+            const h = document.documentElement;
+            const scrolled = h.scrollTop;
+            const height = h.scrollHeight - h.clientHeight;
+            progress.value = height > 0 ? (scrolled / height) * 100 : 0;
+        }
+        window.addEventListener('scroll', updateProgress);
+        window.addEventListener('resize', updateProgress);
+        updateProgress();
+    </script>
 </body>
 </html>
