@@ -4,14 +4,24 @@
 
 Dillibabu Shanmugam is a PhD researcher at the Vernam Lab, Worcester Polytechnic Institute (WPI), Massachusetts, USA, advised by Prof. Patrick Schaumont (defending December 2026). His research connects cryptographic algorithms with real silicon: he designs hardware that implements cryptography efficiently and measures whether it stays secure once fabricated. He has led two ASIC tape-outs in TSMC technology (CAPRI1 and CAPRI6), run more than 330 electromagnetic fault-injection campaigns, and released open-source hardware-security tools. Before his PhD he spent 14 years at the Society for Electronic Transactions and Security (SETS), India, working on cryptographic hardware and quantum key distribution for national infrastructure.
 
+## Primary research focus (current priorities)
+1. Edge-AI security and fault analysis of OCP Microscaling (MX) formats on RISC-V accelerators
+2. Post-quantum cryptography implementation security
+3. An open-source reference for side-channel assessment of post-quantum cryptography standards
+4. Open-source protected and unprotected implementations of ML-KEM and ML-DSA with custom RISC-V instructions
+5. Electromagnetic fault injection (EMFI)
+6. TSMC ASIC tape-outs of RISC-V accelerators
+7. Pre- and post-silicon side-channel leakage assessment
+
 ## Research areas
-- Side-channel analysis: power and EM analysis, DPA, CPA, TVLA
+- Edge-AI hardware security and Microscaling (MX) format analysis
+- Side-channel analysis: power and EM analysis, DPA, CPA, TVLA, pre- and post-silicon leakage assessment
 - Fault injection: EMFI, laser, and clock-glitch attacks
-- ASIC design: RTL-to-GDSII, DFT and scan-chain observability, TSMC tape-out
+- ASIC design: RTL-to-GDSII, DFT and scan-chain observability, TSMC tape-out of RISC-V accelerators
 - Post-quantum cryptography implementation: ML-KEM, ML-DSA (protected and unprotected)
-- Security of OCP Microscaling (MX) formats for AI inference hardware
+- Reference side-channel assessment of PQC standards (open-source)
 - Machine learning for hardware security verification (CNN and GNN models)
-- Microarchitectural weird machines and pre-silicon leakage assessment
+- Microarchitectural weird machines
 
 ## Selected publications
 - [Security Analysis of Microscaling Formats Under Fault Injection on a RISC-V Edge Platform](https://par.nsf.gov/biblio/10681571): AIHWS 2026 (ACNS Workshops). Best Paper Nominee.
