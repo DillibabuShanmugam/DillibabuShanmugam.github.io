@@ -1,17 +1,18 @@
 # Dillibabu Shanmugam
 
-> Hardware security researcher (PhD, Worcester Polytechnic Institute) specializing in side-channel analysis, fault injection, ASIC design, and post-quantum cryptography implementation security. Bridges pre-silicon models and post-silicon validation using machine learning.
+> Hardware security researcher (PhD, Worcester Polytechnic Institute). Signature work: (1) bridging the gap between pre-silicon models and post-silicon evaluation of side-channel and fault analysis; (2) Microscaling (MX) format fault analysis using ML and scan chain; (3) an open-source reference for side-channel assessment of post-quantum cryptography standards.
 
 Dillibabu Shanmugam is a PhD researcher at the Vernam Lab, Worcester Polytechnic Institute (WPI), Massachusetts, USA, advised by Prof. Patrick Schaumont (defending December 2026). His research connects cryptographic algorithms with real silicon: he designs hardware that implements cryptography efficiently and measures whether it stays secure once fabricated. He has led two ASIC tape-outs in TSMC technology (CAPRI1 and CAPRI6), run more than 330 electromagnetic fault-injection campaigns, and released open-source hardware-security tools. Before his PhD he spent 14 years at the Society for Electronic Transactions and Security (SETS), India, working on cryptographic hardware and quantum key distribution for national infrastructure.
 
-## Primary research focus (current priorities)
-1. Edge-AI security and fault analysis of OCP Microscaling (MX) formats on RISC-V accelerators
-2. Post-quantum cryptography implementation security
-3. An open-source reference for side-channel assessment of post-quantum cryptography standards
-4. Open-source protected and unprotected implementations of ML-KEM and ML-DSA with custom RISC-V instructions
-5. Electromagnetic fault injection (EMFI)
-6. TSMC ASIC tape-outs of RISC-V accelerators
-7. Pre- and post-silicon side-channel leakage assessment
+## Signature research focus (lead themes)
+1. Bridging the gap between pre-silicon models and post-silicon evaluation of side-channel and fault analysis.
+2. Microscaling (MX) format fault analysis using machine learning (CNN/GNN) and scan-chain data, on RISC-V accelerators for Edge-AI.
+3. An open-source reference for side-channel assessment of post-quantum cryptography standards, with protected and unprotected ML-KEM and ML-DSA implementations.
+
+## Supporting priorities
+- Electromagnetic fault injection (EMFI)
+- TSMC ASIC tape-outs of RISC-V accelerators
+- Pre- and post-silicon side-channel leakage assessment
 
 ## Research areas
 - Edge-AI hardware security and Microscaling (MX) format analysis
