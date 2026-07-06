@@ -1,0 +1,44 @@
+# Dillibabu Shanmugam
+
+> Hardware security researcher (PhD, Worcester Polytechnic Institute) specializing in side-channel analysis, fault injection, ASIC design, and post-quantum cryptography implementation security. Bridges pre-silicon models and post-silicon validation using machine learning.
+
+Dillibabu Shanmugam is a PhD researcher at the Vernam Lab, Worcester Polytechnic Institute (WPI), Massachusetts, USA, advised by Prof. Patrick Schaumont (defending December 2026). His research connects cryptographic algorithms with real silicon: he designs hardware that implements cryptography efficiently and measures whether it stays secure once fabricated. He has led two ASIC tape-outs in TSMC technology (CAPRI1 and CAPRI6), run more than 330 electromagnetic fault-injection campaigns, and released open-source hardware-security tools. Before his PhD he spent 14 years at the Society for Electronic Transactions and Security (SETS), India, working on cryptographic hardware and quantum key distribution for national infrastructure.
+
+## Research areas
+- Side-channel analysis: power and EM analysis, DPA, CPA, TVLA
+- Fault injection: EMFI, laser, and clock-glitch attacks
+- ASIC design: RTL-to-GDSII, DFT and scan-chain observability, TSMC tape-out
+- Post-quantum cryptography implementation: ML-KEM, ML-DSA (protected and unprotected)
+- Security of OCP Microscaling (MX) formats for AI inference hardware
+- Machine learning for hardware security verification (CNN and GNN models)
+- Microarchitectural weird machines and pre-silicon leakage assessment
+
+## Selected publications
+- [Security Analysis of Microscaling Formats Under Fault Injection on a RISC-V Edge Platform](https://par.nsf.gov/biblio/10681571): AIHWS 2026 (ACNS Workshops). Best Paper Nominee.
+- Fault Analysis of Microscaling Formats on a RISC-V SoC: ACM GLSVLSI 2026. Best Paper Nominee.
+- [muScan: Deep Learning Detection of Faulty Micro-architecture States and Patterns from Scan-Chain Data](https://link.springer.com/chapter/10.1007/978-3-032-01799-4_8): AIHWS 2025, LNCS 15653.
+- [GlitchGluck: Enabling Software Vulnerabilities through Guided Hardware Fault Injection](https://www.usenix.org/conference/woot25/presentation/liu): USENIX WOOT 2025.
+- [SCAPEgoat: Side-channel Analysis Library](https://eprint.iacr.org/2025/499): IEEE VTS 2025.
+- [FaultDetective: Explainable to a Fault, from the Design Layout to the Software](https://tches.iacr.org/index.php/TCHES/article/view/11804): IACR TCHES 2024.
+- [Improving Side-channel Leakage Assessment Using Pre-silicon Leakage Models](https://doi.org/10.1007/978-3-031-29497-6_6): COSADE 2023.
+- [Scalable QKD Postprocessing System with Reconfigurable Hardware Accelerator](https://doi.org/10.1109/TQE.2023.3326093): IEEE Transactions on Quantum Engineering 2023.
+
+## Open-source tools
+- SCAPEgoat: side-channel analysis library (IEEE VTS 2025).
+- openPQC: RISC-V platform with custom instructions for ML-KEM and ML-DSA, protected and unprotected.
+- muScan: CNN/GNN detection of faulty microarchitectural states from scan-chain data.
+- FaultDetective: explainable fault analysis from design layout to software.
+- GlitchGluck: guided hardware fault injection using dynamic state transition graphs.
+
+## Chips (ASIC tape-outs, TSMC)
+- CAPRI1: custom RISC-V SoC for systematic electromagnetic fault characterization.
+- CAPRI6: six-core lockstep openMSP430 SoC with full scan chain for cycle-accurate fault root-cause analysis.
+
+## Links
+- Website: https://dillibabushanmugam.github.io/
+- Google Scholar: https://scholar.google.com/citations?user=IeeEZO3mmn8C
+- ORCID: https://orcid.org/0000-0003-3018-777X
+- DBLP: https://dblp.org/pid/150/9439.html
+- GitHub: https://github.com/secure-Embedded-Systems/
+- LinkedIn: https://www.linkedin.com/in/dillibabushanmugam/
+- Email: dshanmugam@wpi.edu
