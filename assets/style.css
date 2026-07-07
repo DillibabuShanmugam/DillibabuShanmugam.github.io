@@ -1,0 +1,390 @@
+/* ============================================================
+           al-folio inspired theme — light default + dark-mode toggle
+           ============================================================ */
+        :root {
+            --global-bg-color: #ffffff;
+            --global-code-bg-color: #f2f3f5;
+            --global-text-color: #1c1c1c;
+            --global-text-color-light: #6f6f6f;
+            --global-theme-color: #AC2B37;       /* WPI crimson (links/headings) */
+            --global-hover-color: #8a222c;
+            --global-divider-color: #e8e8e8;
+            --global-card-bg-color: #ffffff;
+            --global-card-border: #ededed;
+            --global-nav-bg: rgba(255, 255, 255, 0.75);
+            --global-footer-bg: #fafafa;
+            --global-tag-bg: #fbecee;
+            --global-shadow: rgba(0, 0, 0, 0.12);
+        }
+        html[data-theme="dark"] {
+            --global-bg-color: #1c1c1d;
+            --global-code-bg-color: #2c3237;
+            --global-text-color: #e8e8e8;
+            --global-text-color-light: #a0a0a0;
+            --global-theme-color: #e8616d;       /* WPI crimson, lightened for dark bg */
+            --global-hover-color: #f08a93;
+            --global-divider-color: #3a3a3c;
+            --global-card-bg-color: #212529;
+            --global-card-border: #33373b;
+            --global-nav-bg: rgba(28, 28, 29, 0.78);
+            --global-footer-bg: #18191a;
+            --global-tag-bg: #3a2226;
+            --global-shadow: rgba(0, 0, 0, 0.5);
+        }
+        /* Blue theme — accent sampled from the photo background (#0030C0) */
+        html[data-theme="blue"] {
+            --global-bg-color: #ffffff;
+            --global-code-bg-color: #eef1fb;
+            --global-text-color: #14213d;
+            --global-text-color-light: #5b6478;
+            --global-theme-color: #0030C0;       /* photo-background royal blue */
+            --global-hover-color: #00208a;
+            --global-divider-color: #e2e6f3;
+            --global-card-bg-color: #ffffff;
+            --global-card-border: #e3e7f4;
+            --global-nav-bg: rgba(255, 255, 255, 0.78);
+            --global-footer-bg: #f4f6fc;
+            --global-tag-bg: #e7ecfb;
+            --global-shadow: rgba(0, 48, 192, 0.16);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+            background-color: var(--global-bg-color);
+            color: var(--global-text-color);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            padding-top: 56px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        a {
+            color: var(--global-theme-color);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        a:hover { color: var(--global-hover-color); text-decoration: none; }
+
+        /* ---------------- Navbar ---------------- */
+        nav.navbar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            height: 56px;
+            background: var(--global-nav-bg);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid var(--global-divider-color);
+        }
+        .nav-inner {
+            max-width: 920px;
+            margin: 0 auto;
+            height: 100%;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-brand {
+            font-family: 'Roboto Slab', serif;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: var(--global-text-color);
+            white-space: nowrap;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2px;
+            justify-content: flex-end;
+        }
+        .nav-links a {
+            font-size: 0.82rem;
+            font-weight: 400;
+            color: var(--global-text-color);
+            padding: 6px 9px;
+            border-radius: 4px;
+        }
+        .nav-links a:hover { color: var(--global-theme-color); }
+        #theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--global-text-color);
+            font-size: 0.95rem;
+            padding: 6px 8px;
+            margin-left: 4px;
+        }
+        #theme-toggle:hover { color: var(--global-theme-color); }
+        .nav-toggle { display: none; background: none; border: none; cursor: pointer; color: var(--global-text-color); font-size: 1.2rem; }
+
+        /* ---------------- Scrolling progress bar ---------------- */
+        #progress {
+            position: fixed;
+            top: 56px; left: 0;
+            width: 100%; height: 2px;
+            appearance: none; -webkit-appearance: none;
+            border: none; background: transparent;
+            z-index: 999;
+        }
+        #progress::-webkit-progress-bar { background: transparent; }
+        #progress::-webkit-progress-value { background: var(--global-theme-color); }
+        #progress::-moz-progress-bar { background: var(--global-theme-color); }
+
+        /* ---------------- Layout ---------------- */
+        .container {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .clearfix::after { content: ""; display: table; clear: both; }
+
+        /* ---------------- Header / About ---------------- */
+        .post-header { margin-top: 44px; margin-bottom: 8px; }
+        .post-title {
+            font-family: 'Roboto Slab', serif;
+            font-weight: 300;
+            font-size: 2.6rem;
+            line-height: 1.15;
+            color: var(--global-text-color);
+        }
+        .post-title .fw-bold { font-weight: 700; }
+        .post-desc {
+            color: var(--global-text-color-light);
+            font-size: 1.05rem;
+            font-weight: 300;
+            margin-top: 6px;
+        }
+
+        .profile {
+            float: right;
+            width: 230px;
+            margin: 6px 0 14px 28px;
+            text-align: left;
+        }
+        .profile img {
+            width: 100%;
+            border-radius: 6px;
+            box-shadow: 0 4px 14px var(--global-shadow);
+            display: block;
+        }
+        .profile .more-info {
+            margin-top: 12px;
+            font-size: 0.9rem;
+            color: var(--global-text-color-light);
+            line-height: 1.55;
+        }
+        .profile .more-info p { margin: 0; }
+        .profile .more-info i { width: 1.2em; color: var(--global-theme-color); }
+
+        .intro p { margin-bottom: 14px; font-size: 1rem; }
+        .intro strong { font-weight: 500; color: var(--global-text-color); }
+
+        /* stat strip */
+        .stats-strip {
+            display: flex;
+            gap: 34px;
+            margin: 22px 0 18px;
+        }
+        .stat-num {
+            font-family: 'Roboto Slab', serif;
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: var(--global-theme-color);
+            line-height: 1;
+        }
+        .stat-lbl {
+            font-size: 0.72rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--global-text-color-light);
+            margin-top: 4px;
+        }
+
+        /* social icons (al-folio contact-icons) */
+        .contact-icons {
+            margin: 10px 0 6px;
+            font-size: 1.5rem;
+        }
+        .contact-icons a {
+            color: var(--global-text-color);
+            margin-right: 14px;
+            transition: color 0.2s ease;
+        }
+        .contact-icons a:hover { color: var(--global-theme-color); }
+
+        /* link pills */
+        .link-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+        .pill {
+            font-size: 0.78rem;
+            padding: 5px 13px;
+            border: 1px solid var(--global-divider-color);
+            border-radius: 100px;
+            color: var(--global-text-color-light);
+            background: var(--global-card-bg-color);
+        }
+        .pill:hover { border-color: var(--global-theme-color); color: var(--global-theme-color); }
+
+        /* ---------------- Section headings ---------------- */
+        section { padding: 30px 0 6px; }
+        .section-title {
+            font-family: 'Roboto Slab', serif;
+            font-weight: 400;
+            font-size: 1.55rem;
+            color: var(--global-text-color);
+            padding-bottom: 8px;
+            margin-bottom: 22px;
+            border-bottom: 1px solid var(--global-divider-color);
+        }
+        .section-title .hash { color: var(--global-theme-color); font-weight: 300; opacity: 0; transition: opacity .2s; }
+        .section-title:hover .hash { opacity: 1; }
+
+        .about-text p { margin-bottom: 12px; }
+        .about-text strong { font-weight: 500; color: var(--global-text-color); }
+
+        /* keyword tags */
+        .keywords { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+        .kw {
+            font-size: 0.78rem;
+            padding: 4px 12px;
+            border-radius: 4px;
+            background: var(--global-tag-bg);
+            color: var(--global-theme-color);
+            border: 1px solid transparent;
+        }
+        .kw--plain {
+            background: var(--global-card-bg-color);
+            color: var(--global-text-color-light);
+            border: 1px solid var(--global-divider-color);
+        }
+
+        /* ---------------- Research / Tools cards ---------------- */
+        .card-grid { display: grid; gap: 16px; }
+        .research-grid { grid-template-columns: repeat(2, 1fr); }
+        .tools-grid { grid-template-columns: repeat(3, 1fr); }
+        .card {
+            background: var(--global-card-bg-color);
+            border: 1px solid var(--global-card-border);
+            border-radius: 8px;
+            padding: 20px;
+            transition: box-shadow 0.2s ease, transform 0.2s ease;
+        }
+        .card:hover { box-shadow: 0 6px 20px var(--global-shadow); transform: translateY(-2px); }
+        .card-icon { width: 40px; height: 40px; margin-bottom: 12px; }
+        .card h3 {
+            font-family: 'Roboto Slab', serif;
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: var(--global-text-color);
+        }
+        .card p { font-size: 0.88rem; color: var(--global-text-color-light); }
+        .tool-name {
+            font-family: 'Roboto Slab', serif;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--global-theme-color);
+            margin-bottom: 6px;
+        }
+
+        /* ---------------- Publications / Talks / Awards list ---------------- */
+        .bib-list { list-style: none; }
+        .bib-row {
+            display: grid;
+            grid-template-columns: 54px 1fr auto;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--global-divider-color);
+            align-items: start;
+        }
+        .bib-row:last-child { border-bottom: none; }
+        .bib-yr {
+            font-family: 'Roboto Slab', serif;
+            font-size: 0.95rem;
+            color: var(--global-text-color-light);
+            padding-top: 2px;
+        }
+        .bib-title { font-size: 0.98rem; font-weight: 500; color: var(--global-text-color); line-height: 1.4; }
+        .bib-title a { color: var(--global-text-color); }
+        .bib-title a:hover { color: var(--global-theme-color); }
+        .bib-authors { font-size: 0.85rem; color: var(--global-text-color-light); margin: 3px 0; }
+        .bib-authors .me { color: var(--global-theme-color); font-weight: 500; }
+        .bib-venue {
+            display: inline-block;
+            font-size: 0.74rem;
+            color: var(--global-theme-color);
+            background: var(--global-tag-bg);
+            padding: 2px 9px;
+            border-radius: 4px;
+        }
+        .bib-links { display: inline-flex; gap: 8px; margin-top: 6px; }
+        .bib-links a {
+            font-size: 0.74rem;
+            padding: 1px 8px;
+            border: 1px solid var(--global-theme-color);
+            border-radius: 4px;
+        }
+        .bib-links a:hover { background: var(--global-theme-color); color: #fff; }
+        .bib-badge { font-size: 0.74rem; color: var(--global-text-color-light); white-space: nowrap; padding-top: 2px; text-align: right; }
+        .list-footer { margin-top: 18px; display: flex; gap: 20px; font-size: 0.88rem; }
+
+        /* ---------------- Timeline (Experience / Education) ---------------- */
+        .timeline { list-style: none; padding-left: 4px; }
+        .tl-item { position: relative; padding: 0 0 26px 26px; border-left: 2px solid var(--global-divider-color); }
+        .tl-item:last-child { border-left-color: transparent; padding-bottom: 0; }
+        .tl-item::before {
+            content: '';
+            position: absolute;
+            left: -7px; top: 3px;
+            width: 12px; height: 12px;
+            border-radius: 50%;
+            background: var(--global-bg-color);
+            border: 2px solid var(--global-theme-color);
+        }
+        .tl-role { font-weight: 500; color: var(--global-text-color); }
+        .tl-org { font-size: 0.92rem; color: var(--global-text-color); }
+        .tl-meta { font-size: 0.84rem; color: var(--global-text-color-light); margin-top: 3px; }
+        .tl-projects { list-style: none; margin-top: 8px; }
+        .tl-projects li { font-size: 0.84rem; color: var(--global-text-color-light); padding: 3px 0 3px 14px; position: relative; }
+        .tl-projects li::before { content: '–'; position: absolute; left: 0; color: var(--global-theme-color); }
+        .tl-projects strong { color: var(--global-text-color); font-weight: 500; }
+
+        /* ---------------- Footer ---------------- */
+        footer {
+            background: var(--global-footer-bg);
+            border-top: 1px solid var(--global-divider-color);
+            margin-top: 40px;
+            padding: 26px 0;
+        }
+        .footer-inner {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .footer-left { font-size: 0.82rem; color: var(--global-text-color-light); }
+        .footer-right { display: flex; flex-wrap: wrap; gap: 14px; }
+        .footer-right a { font-size: 0.82rem; color: var(--global-text-color-light); }
+        .footer-right a:hover { color: var(--global-theme-color); }
+
+        /* ---------------- Responsive ---------------- */
+        @media (max-width: 768px) {
+            .nav-links { display: none; position: absolute; top: 56px; left: 0; right: 0; flex-direction: column; background: var(--global-bg-color); border-bottom: 1px solid var(--global-divider-color); padding: 8px 16px; align-items: flex-start; gap: 0; }
+            .nav-links.open { display: flex; }
+            .nav-links a { width: 100%; padding: 9px 4px; }
+            .nav-toggle { display: block; }
+            .profile { float: none; width: 200px; margin: 0 auto 20px; }
+            .post-header { text-align: center; }
+            .stats-strip { justify-content: center; }
+            .research-grid, .tools-grid { grid-template-columns: 1fr; }
+            .bib-row { grid-template-columns: 46px 1fr; }
+            .bib-badge { display: none; }
+            .post-title { font-size: 2.1rem; }
+        }

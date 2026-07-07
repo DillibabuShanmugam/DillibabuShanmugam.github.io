@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Tools & Software | Dillibabu Shanmugam — SCAPEgoat, openPQC, muScan, FaultDetective</title>
+    <meta name="description" content="Open-source hardware-security tools by Dillibabu Shanmugam: SCAPEgoat side-channel library, openPQC ML-KEM/ML-DSA, muScan fault-state detection, FaultDetective, GlitchGluck, and the CAPRI1/CAPRI6 test chips.">
+    <meta name="keywords" content="Dillibabu Shanmugam, Edge-AI security, Microscaling format analysis, MX formats, OCP Microscaling, post-quantum cryptography, PQC side-channel assessment, reference side-channel assessment of PQC standards, pre-and-post-silicon side-channel leakage assessment, open-source ML-KEM, open-source ML-DSA, protected ML-KEM, unprotected ML-KEM, masked ML-DSA, EMFI, electromagnetic fault injection, TSMC ASIC tape-out of RISC-V accelerators, ASIC tape-out, RTL-to-GDSII, hardware security, side-channel analysis, fault injection, RISC-V, DPA, CPA, TVLA, microarchitectural weird machine, sane vs weird machine analysis, GNN, graph neural network, SFT-QLoRA LLM, LLM fine-tuning for hardware security, machine learning for pre-silicon to post-silicon evaluation, scan chain, DFT, CV-X-IF, coprocessor, WPI, Worcester Polytechnic Institute, TCHES, USENIX WOOT">
+    <meta name="author" content="Dillibabu Shanmugam">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://dillibabushanmugam.github.io/tools.html">
+    <meta property="og:title" content="Tools & Software | Dillibabu Shanmugam — SCAPEgoat, openPQC, muScan, FaultDetective">
+    <meta property="og:description" content="Open-source hardware-security tools by Dillibabu Shanmugam: SCAPEgoat side-channel library, openPQC ML-KEM/ML-DSA, muScan fault-state detection, FaultDetective, GlitchGluck, and the CAPRI1/CAPRI6 test chips.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dillibabushanmugam.github.io/tools.html">
+    <meta property="og:site_name" content="Dillibabu Shanmugam">
+    <meta property="og:image" content="https://dillibabushanmugam.github.io/photo/shanmugamdillibabu.jpg">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Tools & Software | Dillibabu Shanmugam — SCAPEgoat, openPQC, muScan, FaultDetective">
+    <meta name="twitter:description" content="Open-source hardware-security tools by Dillibabu Shanmugam: SCAPEgoat side-channel library, openPQC ML-KEM/ML-DSA, muScan fault-state detection, FaultDetective, GlitchGluck, and the CAPRI1/CAPRI6 test chips.">
+    <meta name="twitter:image" content="https://dillibabushanmugam.github.io/photo/shanmugamdillibabu.jpg">
+    <script type="application/ld+json">
+
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Dillibabu Shanmugam",
+        "givenName": "Dillibabu",
+        "familyName": "Shanmugam",
+        "jobTitle": "PhD Researcher",
+        "affiliation": {
+            "@type": "Organization",
+            "name": "Worcester Polytechnic Institute",
+            "url": "https://www.wpi.edu"
+        },
+        "url": "https://dillibabushanmugam.github.io/",
+        "email": "mailto:dshanmugam@wpi.edu",
+        "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "Anna University"
+        },
+        "sameAs": [
+            "https://scholar.google.com/citations?user=IeeEZO3mmn8C",
+            "https://dblp.org/pid/150/9439.html",
+            "https://dl.acm.org/profile/99658704967",
+            "https://www.researchgate.net/profile/Dillibabu-Shanmugam",
+            "https://www.linkedin.com/in/dillibabushanmugam/",
+            "https://github.com/secure-Embedded-Systems/",
+            "https://orcid.org/0000-0003-3018-777X",
+            "https://www.webofscience.com/wos/author/record/LXV-1654-2024"
+        ],
+        "knowsAbout": ["Edge-AI Security","Microscaling (MX) Format Analysis","OCP MX Formats","Post-Quantum Cryptography","PQC Side-Channel Assessment","Reference Side-Channel Assessment of PQC Standards","Open-Source ML-KEM","Open-Source ML-DSA","Protected and Unprotected ML-KEM/ML-DSA","Electromagnetic Fault Injection (EMFI)","ASIC Tape-out (TSMC)","RISC-V Accelerators","Hardware Security","Side-Channel Analysis","Fault Injection","Pre-silicon Leakage Assessment","Machine Learning for Pre-silicon to Post-silicon Evaluation","Sane vs Weird Machine Analysis","Graph Neural Networks for Hardware Security","LLM Fine-tuning (SFT, QLoRA) for Microarchitectural Analysis","Differential Power Analysis","Correlation Power Analysis","ML-based Security Verification","Microarchitectural Weird Machines","Scan Chain Analysis","Design-for-Test","RTL-to-GDSII"]
+    }
+    
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css">
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-inner">
+            <a class="nav-brand" href="index.html">Dillibabu Shanmugam</a>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation"><i class="fa-solid fa-bars"></i></button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">about</a>
+                <a href="research.html">research</a>
+                <a href="publications.html">publications</a>
+                <a href="talks.html">talks</a>
+                <a href="awards.html">awards</a>
+                <a href="service.html">service</a>
+                <a href="experience.html">experience</a>
+                <a href="education.html">education</a>
+                <a href="tools.html" class="active">tools</a>
+                <button id="theme-toggle" title="Toggle light/dark"><i class="fa-solid fa-moon"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <progress id="progress" value="0" max="100"></progress>
+
+    <div class="container">
+        <section id="tools">
+            <h1 class="section-title">Tools &amp; Software</h1>
+            <div class="card-grid tools-grid">
+                <div class="card">
+                    <div class="tool-name">SCAPEgoat</div>
+                    <p>Automated Python framework coordinating Spider-XYZ EMFI stage, oscilloscope, and DUT for fault campaigns. Side-channel analysis library.</p>
+                </div>
+                <div class="card">
+                    <div class="tool-name">&mu;Scan</div>
+                    <p>CNN/GNN-based fault detection framework achieving 92% accuracy detecting anomalous CPU micro-architectural states from scan-chain data.</p>
+                </div>
+                <div class="card">
+                    <div class="tool-name">GlitchGl&uuml;ck</div>
+                    <p>Guided hardware fault injection methodology using Dynamic State Transition Graphs for systematic vulnerability discovery.</p>
+                </div>
+                <div class="card">
+                    <div class="tool-name">FaultDetective</div>
+                    <p>Explainable fault analysis from the design layout to software. Maps fault susceptibility across the physical layout of RISC-V processors.</p>
+                </div>
+                <div class="card">
+                    <div class="tool-name">CAPRI1</div>
+                    <p>Custom RISC-V SoC ASIC (TSMC) designed for systematic EMFI fault characterization and PDN-aware susceptibility analysis.</p>
+                </div>
+                <div class="card">
+                    <div class="tool-name">CAPRI6</div>
+                    <p>6-core lockstep openMSP430 SoC with full scan-chain for cycle-accurate fault root-cause analysis. Custom ASIC in TSMC.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+<footer>
+        <div class="footer-inner">
+            <div class="footer-left">&copy; 2026 Dillibabu Shanmugam</div>
+            <div class="footer-right">
+                <a href="mailto:dshanmugam@wpi.edu">Email</a>
+                <a href="https://www.linkedin.com/in/dillibabushanmugam/" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://github.com/secure-Embedded-Systems/" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://scholar.google.com/citations?user=IeeEZO3mmn8C&hl=en" target="_blank" rel="noopener">Scholar</a>
+                <a href="https://dblp.org/pid/150/9439.html" target="_blank" rel="noopener">DBLP</a>
+                <a href="https://www.researchgate.net/profile/Dillibabu-Shanmugam" target="_blank" rel="noopener">ResearchGate</a>
+                <a href="https://orcid.org/0000-0003-3018-777X" target="_blank" rel="noopener">ORCID</a>
+                <a href="https://www.webofscience.com/wos/author/record/LXV-1654-2024" target="_blank" rel="noopener">Web of Science</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/main.js"></script>
+</body>
+</html>
