@@ -5,9 +5,10 @@
 Dillibabu Shanmugam is a PhD researcher at the Vernam Lab, Worcester Polytechnic Institute (WPI), Massachusetts, USA, advised by Prof. Patrick Schaumont (defending December 2026). His research connects cryptographic algorithms with real silicon: he designs hardware that implements cryptography efficiently and measures whether it stays secure once fabricated. He has led two ASIC tape-outs in TSMC technology (CAPRI1 and CAPRI6), run more than 330 electromagnetic fault-injection campaigns, and released open-source hardware-security tools. Before his PhD he spent 14 years at the Society for Electronic Transactions and Security (SETS), India, working on cryptographic hardware and quantum key distribution for national infrastructure.
 
 ## Signature research focus (lead themes)
-1. Bridging the gap between pre-silicon models and post-silicon evaluation of side-channel and fault analysis.
-2. Microscaling (MX) format fault analysis using machine learning (CNN/GNN) and scan-chain data, on RISC-V accelerators for Edge-AI.
-3. An open-source reference for side-channel assessment of post-quantum cryptography standards, with protected and unprotected ML-KEM and ML-DSA implementations.
+1. Bridging the gap between pre-silicon models and post-silicon evaluation of side-channel and fault analysis, using machine-learning techniques.
+2. Sane vs. weird machine analysis using graph neural networks (GNN) and SFT/QLoRA fine-tuned LLMs on scan-chain data.
+3. Microscaling (MX) format fault analysis using machine learning (CNN/GNN) and scan-chain data, on RISC-V accelerators for Edge-AI.
+4. An open-source reference for side-channel assessment of post-quantum cryptography standards, with protected and unprotected ML-KEM and ML-DSA implementations.
 
 ## Supporting priorities
 - Electromagnetic fault injection (EMFI)
