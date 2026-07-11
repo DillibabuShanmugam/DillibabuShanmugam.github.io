@@ -2,7 +2,7 @@
 
 > Hardware security researcher (PhD, Worcester Polytechnic Institute). Signature work: (1) bridging the gap between pre-silicon models and post-silicon evaluation of side-channel and fault analysis; (2) Microscaling (MX) format fault analysis using ML and scan chain; (3) an open-source reference for reproducible side-channel assessment of post-quantum cryptography standards.
 
-Dillibabu Shanmugam is a PhD researcher at the Vernam Lab, Worcester Polytechnic Institute (WPI), Massachusetts, USA, advised by Prof. Patrick Schaumont (defending December 2026). His research connects cryptographic algorithms with real silicon: he designs hardware that implements cryptography efficiently and measures whether it stays secure once fabricated. He has led two ASIC tape-outs in TSMC technology (CAPRI1 and CAPRI6), run more than 330 electromagnetic fault-injection campaigns, and released open-source hardware-security tools. Before his PhD he spent 14 years at the Society for Electronic Transactions and Security (SETS), India, working on cryptographic hardware and quantum key distribution for national infrastructure. He is a member of IEEE, the Association for Computing Machinery (ACM), and the International Association for Cryptologic Research (IACR).
+Dillibabu Shanmugam is a PhD candidate at the Vernam Lab, Worcester Polytechnic Institute (WPI), Massachusetts, USA, advised by Prof. Patrick Schaumont (defending December 2026). His research connects cryptographic algorithms with real silicon: he designs hardware that implements cryptography efficiently and measures whether it stays secure once fabricated. He has led two ASIC tape-outs in TSMC technology (CAPRI1 and CAPRI6), run more than 330 electromagnetic fault-injection campaigns, and released open-source hardware-security tools. Before his PhD he spent 14 years at the Society for Electronic Transactions and Security (SETS), India, working on cryptographic hardware and quantum key distribution for national infrastructure. He is a member of IEEE, the Association for Computing Machinery (ACM), and the International Association for Cryptologic Research (IACR).
 
 ## Signature research focus (lead themes)
 1. Bridging the gap between pre-silicon models and post-silicon evaluation of side-channel and fault analysis, using machine-learning techniques.
@@ -45,6 +45,19 @@ Dillibabu Shanmugam is a PhD researcher at the Vernam Lab, Worcester Polytechnic
 ## Chips (ASIC tape-outs, TSMC)
 - CAPRI1: custom RISC-V SoC for systematic electromagnetic fault characterization.
 - CAPRI6: six-core lockstep openMSP430 SoC with full scan chain for cycle-accurate fault root-cause analysis.
+
+## Awards
+- Best Paper Nominee, AIHWS 2026.
+- Best Paper Nominee, ACM GLSVLSI 2026.
+- NEHWS 2026 poster, 1st prize.
+- NEHWS 2025 poster, 3rd prize.
+
+## Peer review service
+- Scientific Reports (Nature)
+- IEEE TCAS-II
+- IEEE Internet of Things Journal
+- IEEE TETC
+- IEEE/ACM ICCAD
 
 ## Links
 - Website: https://dillibabushanmugam.github.io/
