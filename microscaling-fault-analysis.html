@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Microscaling (MX) Fault Analysis on RISC-V | Dillibabu Shanmugam</title>
+    <meta name="description" content="Microscaling fault injection and fault analysis of OCP MX formats (MXFP8, MXFP6, MXFP4, MXINT8) on a RISC-V edge platform. Shows how a fault in a shared block scale factor amplifies error across an entire tensor during AI inference. AIHWS 2026 and ACM GLSVLSI 2026, both Best Paper Nominees.">
+    <meta name="keywords" content="microscaling fault, microscaling fault injection, microscaling fault analysis, MX format security, OCP Microscaling, MXFP8, MXFP6, MXFP4, MXINT8, block scale factor fault, electromagnetic fault injection, EMFI, RISC-V edge platform, AI inference security, Edge-AI hardware security, scan chain, CNN GNN fault detection, Dillibabu Shanmugam">
+    <meta name="author" content="Dillibabu Shanmugam">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://dillibabushanmugam.github.io/microscaling-fault-analysis.html">
+    <meta property="og:title" content="Microscaling (MX) Fault Analysis on RISC-V | Dillibabu Shanmugam">
+    <meta property="og:description" content="Fault injection on OCP Microscaling (MX) formats on a RISC-V edge platform: a single fault in a shared block scale factor amplifies error across an entire tensor during AI inference.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://dillibabushanmugam.github.io/microscaling-fault-analysis.html">
+    <meta property="og:site_name" content="Dillibabu Shanmugam">
+    <meta property="og:image" content="https://dillibabushanmugam.github.io/photo/shanmugamdillibabu.jpg">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Microscaling (MX) Fault Analysis on RISC-V | Dillibabu Shanmugam">
+    <meta name="twitter:description" content="Fault injection on OCP Microscaling (MX) formats on a RISC-V edge platform: a single fault in a shared block scale factor amplifies error across an entire tensor during AI inference.">
+    <meta name="twitter:image" content="https://dillibabushanmugam.github.io/photo/shanmugamdillibabu.jpg">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Microscaling (MX) Fault Analysis on a RISC-V Edge Platform",
+        "description": "Security analysis of OCP Microscaling (MX) block-scaled number formats (MXFP8, MXFP6, MXFP4, MXINT8) under electromagnetic fault injection on a RISC-V edge platform, showing how a fault in a shared block scale factor amplifies error across an entire tensor during AI inference.",
+        "url": "https://dillibabushanmugam.github.io/microscaling-fault-analysis.html",
+        "mainEntityOfPage": "https://dillibabushanmugam.github.io/microscaling-fault-analysis.html",
+        "keywords": ["microscaling fault injection", "OCP MX formats", "MXFP8", "MXFP6", "MXFP4", "MXINT8", "electromagnetic fault injection", "RISC-V", "Edge-AI security"],
+        "author": {
+            "@type": "Person",
+            "name": "Dillibabu Shanmugam",
+            "url": "https://dillibabushanmugam.github.io/",
+            "affiliation": {
+                "@type": "Organization",
+                "name": "Worcester Polytechnic Institute",
+                "url": "https://www.wpi.edu"
+            },
+            "sameAs": [
+                "https://scholar.google.com/citations?user=IeeEZO3mmn8C",
+                "https://orcid.org/0000-0003-3018-777X",
+                "https://dblp.org/pid/150/9439.html"
+            ]
+        }
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css">
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-inner">
+            <a class="nav-brand" href="index.html">Dillibabu Shanmugam</a>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation"><i class="fa-solid fa-bars"></i></button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">about</a>
+                <a href="research.html" class="active">research</a>
+                <a href="publications.html">publications</a>
+                <a href="talks.html">talks</a>
+                <a href="awards.html">awards</a>
+                <a href="service.html">service</a>
+                <a href="experience.html">experience</a>
+                <a href="education.html">education</a>
+                <a href="tools.html">tools</a>
+                <button id="theme-toggle" title="Toggle light/dark"><i class="fa-solid fa-moon"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <progress id="progress" value="0" max="100"></progress>
+
+    <div class="container">
+        <section>
+            <h1 class="section-title">Microscaling (MX) Fault Analysis</h1>
+            <div class="intro">
+                <p>Microscaling (MX) formats, standardized by the Open Compute Project (OCP), are block-scaled number formats such as <strong>MXFP8, MXFP6, MXFP4, and MXINT8</strong>. They cut the memory and energy cost of AI inference by letting a block of low-precision elements share one scale factor. Every major AI accelerator roadmap now includes them. What had not been studied before this work is how they behave when the hardware computing them is under attack.</p>
+                <p>This research line delivers the first <strong>microscaling fault injection</strong> study on real hardware. Using electromagnetic fault injection (EMFI) against a RISC-V edge platform executing MX-format inference workloads, it characterizes how each format family responds to injected faults. The central finding is an amplification effect: a single fault that lands in a <strong>shared block scale factor</strong> does not corrupt one value, it corrupts every element in the block, and the error propagates across the entire tensor. Formats that are equivalent in accuracy benchmarks are far from equivalent in fault robustness.</p>
+                <p>The evaluation platform is a RISC-V system-on-chip extended with a unified MX coprocessor through custom instructions, with scan-chain observability into the microarchitectural state. This makes fault effects visible at the exact cycle and register where they land, so faulty behavior can be traced from the physical injection down to the numerical error in the inference result. Machine-learning models (CNN and GNN) trained on scan-chain data classify faulty microarchitectural states automatically. The same platform is described on the <a href="riscv-ai-inference-accelerator.html">AI inference accelerator</a> page.</p>
+                <p>Why it matters: safety-critical edge AI (automotive, medical, industrial) is adopting MX formats for efficiency. This work gives hardware designers concrete, measured evidence of which formats and which microarchitectural choices amplify or contain faults, before those choices are frozen in silicon.</p>
+            </div>
+
+            <h2 style="margin-top:2em;">Publications</h2>
+            <ul class="bib-list">
+                <li class="bib-row">
+                    <span class="bib-yr">2026</span>
+                    <div>
+                        <div class="bib-title"><a href="https://par.nsf.gov/biblio/10681571" target="_blank" rel="noopener">Security Analysis of Microscaling Formats Under Fault Injection on a RISC-V Edge Platform</a></div>
+                        <div class="bib-authors"><span class="me">D. Shanmugam</span>, P. Schaumont</div>
+                        <span class="bib-venue">AIHWS 2026 (ACNS Workshops)</span>
+                        <div class="bib-links"><a href="https://par.nsf.gov/servlets/purl/10681571" target="_blank">PDF</a></div>
+                    </div>
+                    <span class="bib-badge">Best Paper Nominee</span>
+                </li>
+                <li class="bib-row">
+                    <span class="bib-yr">2026</span>
+                    <div>
+                        <div class="bib-title">Fault Analysis of Microscaling Formats on a RISC-V SoC</div>
+                        <div class="bib-authors"><span class="me">D. Shanmugam</span>, P. Schaumont</div>
+                        <span class="bib-venue">ACM GLSVLSI 2026</span>
+                        <div class="bib-links"><a href="papers/glsvlsi_2026.pdf" target="_blank">PDF</a></div>
+                    </div>
+                    <span class="bib-badge">Best Paper Nominee</span>
+                </li>
+                <li class="bib-row">
+                    <span class="bib-yr">2025</span>
+                    <div>
+                        <div class="bib-title"><a href="https://link.springer.com/chapter/10.1007/978-3-032-01799-4_8" target="_blank" rel="noopener">&mu;Scan: Deep Learning Detection of Faulty Micro-architecture States and Patterns from Scan-Chain Data</a></div>
+                        <div class="bib-authors"><span class="me">D. Shanmugam</span>, P. Schaumont</div>
+                        <span class="bib-venue">AIHWS 2025, LNCS 15653</span>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="keywords">
+                <span class="kw">Microscaling Fault Injection</span>
+                <span class="kw">OCP MX Formats</span>
+                <span class="kw">MXFP8 / MXFP6 / MXFP4 / MXINT8</span>
+                <span class="kw">Block Scale Factor Faults</span>
+                <span class="kw">EMFI on RISC-V</span>
+                <span class="kw kw--plain">Edge-AI Hardware Security</span>
+                <span class="kw kw--plain">Scan-Chain Observability</span>
+                <span class="kw kw--plain">CNN / GNN Fault Detection</span>
+            </div>
+        </section>
+    </div>
+
+<footer>
+        <div class="footer-inner">
+            <div class="footer-left">&copy; 2026 Dillibabu Shanmugam</div>
+            <div class="footer-right">
+                <a href="mailto:dshanmugam@wpi.edu">Email</a>
+                <a href="https://www.linkedin.com/in/dillibabushanmugam/" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://github.com/secure-Embedded-Systems/" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://scholar.google.com/citations?user=IeeEZO3mmn8C&hl=en" target="_blank" rel="noopener">Scholar</a>
+                <a href="https://dblp.org/pid/150/9439.html" target="_blank" rel="noopener">DBLP</a>
+                <a href="https://www.researchgate.net/profile/Dillibabu-Shanmugam" target="_blank" rel="noopener">ResearchGate</a>
+                <a href="https://orcid.org/0000-0003-3018-777X" target="_blank" rel="noopener">ORCID</a>
+                <a href="https://www.webofscience.com/wos/author/record/LXV-1654-2024" target="_blank" rel="noopener">Web of Science</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/main.js"></script>
+</body>
+</html>

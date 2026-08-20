@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Accelerator-Protected PQC: CV32E40X + CV-X-IF (openPQC) | Dillibabu Shanmugam</title>
+    <meta name="description" content="openPQC: an accelerator-protected post-quantum cryptography platform built on the CV32E40X RISC-V core with a CV-X-IF coprocessor. Custom instructions accelerate ML-KEM (FIPS 203) and ML-DSA (FIPS 204), in protected and unprotected variants, as an open-source reference for reproducible side-channel assessment of PQC standards.">
+    <meta name="keywords" content="accelerator protected PQC, PQC hardware accelerator, CV32E40X, CV-X-IF, cvxif, PQC coprocessor, openPQC, post-quantum cryptography accelerator, ML-KEM accelerator, ML-DSA accelerator, FIPS 203, FIPS 204, RISC-V custom instructions, protected ML-KEM, masked ML-DSA, side-channel assessment, pre-silicon leakage, Dillibabu Shanmugam">
+    <meta name="author" content="Dillibabu Shanmugam">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://dillibabushanmugam.github.io/pqc-accelerator-cv32e40x-cvxif.html">
+    <meta property="og:title" content="Accelerator-Protected PQC: CV32E40X + CV-X-IF (openPQC) | Dillibabu Shanmugam">
+    <meta property="og:description" content="openPQC: CV32E40X RISC-V core plus CV-X-IF coprocessor with custom instructions for ML-KEM and ML-DSA, protected and unprotected, as an open-source reference for reproducible PQC side-channel assessment.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://dillibabushanmugam.github.io/pqc-accelerator-cv32e40x-cvxif.html">
+    <meta property="og:site_name" content="Dillibabu Shanmugam">
+    <meta property="og:image" content="https://dillibabushanmugam.github.io/photo/shanmugamdillibabu.jpg">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Accelerator-Protected PQC: CV32E40X + CV-X-IF (openPQC) | Dillibabu Shanmugam">
+    <meta name="twitter:description" content="openPQC: CV32E40X RISC-V core plus CV-X-IF coprocessor with custom instructions for ML-KEM and ML-DSA, protected and unprotected, as an open-source reference for reproducible PQC side-channel assessment.">
+    <meta name="twitter:image" content="https://dillibabushanmugam.github.io/photo/shanmugamdillibabu.jpg">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Accelerator-Protected Post-Quantum Cryptography on CV32E40X with CV-X-IF (openPQC)",
+        "description": "openPQC is an open-source platform built on the CV32E40X RISC-V core with a coprocessor attached through the CV-X-IF interface. Custom instructions accelerate ML-KEM (FIPS 203) and ML-DSA (FIPS 204) in both protected and unprotected variants, providing a reproducible reference for side-channel assessment of post-quantum cryptography standards.",
+        "url": "https://dillibabushanmugam.github.io/pqc-accelerator-cv32e40x-cvxif.html",
+        "mainEntityOfPage": "https://dillibabushanmugam.github.io/pqc-accelerator-cv32e40x-cvxif.html",
+        "keywords": ["accelerator-protected PQC", "CV32E40X", "CV-X-IF", "openPQC", "ML-KEM", "ML-DSA", "FIPS 203", "FIPS 204", "RISC-V custom instructions", "side-channel assessment"],
+        "author": {
+            "@type": "Person",
+            "name": "Dillibabu Shanmugam",
+            "url": "https://dillibabushanmugam.github.io/",
+            "affiliation": {
+                "@type": "Organization",
+                "name": "Worcester Polytechnic Institute",
+                "url": "https://www.wpi.edu"
+            },
+            "sameAs": [
+                "https://scholar.google.com/citations?user=IeeEZO3mmn8C",
+                "https://orcid.org/0000-0003-3018-777X",
+                "https://dblp.org/pid/150/9439.html"
+            ]
+        }
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css">
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-inner">
+            <a class="nav-brand" href="index.html">Dillibabu Shanmugam</a>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation"><i class="fa-solid fa-bars"></i></button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">about</a>
+                <a href="research.html" class="active">research</a>
+                <a href="publications.html">publications</a>
+                <a href="talks.html">talks</a>
+                <a href="awards.html">awards</a>
+                <a href="service.html">service</a>
+                <a href="experience.html">experience</a>
+                <a href="education.html">education</a>
+                <a href="tools.html">tools</a>
+                <button id="theme-toggle" title="Toggle light/dark"><i class="fa-solid fa-moon"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <progress id="progress" value="0" max="100"></progress>
+
+    <div class="container">
+        <section>
+            <h1 class="section-title">Accelerator-Protected PQC: CV32E40X + CV-X-IF</h1>
+            <div class="intro">
+                <p>Post-quantum cryptography is moving into products, but the implementations being deployed are hard to compare: every paper measures a different core, a different countermeasure, a different setup. <strong>openPQC</strong> addresses that with a single open platform: the <strong>CV32E40X RISC-V core</strong> extended through the <strong>CV-X-IF coprocessor interface</strong> with custom instructions that accelerate <strong>ML-KEM (FIPS 203)</strong> and <strong>ML-DSA (FIPS 204)</strong>.</p>
+                <p>The platform is <strong>accelerator-protected</strong>: side-channel countermeasures live inside the coprocessor, next to the arithmetic they protect, instead of being patched into software after the fact. Each algorithm is available in both <strong>protected and unprotected variants</strong> on the same core, so the cost and the benefit of a countermeasure can be measured directly, on identical hardware, with nothing else changing. The CV-X-IF interface keeps the CV32E40X core itself unmodified, which makes the accelerator portable and the comparison clean.</p>
+                <p>The goal is an <strong>open-source reference for reproducible side-channel assessment of PQC standards</strong>. Anyone evaluating an ML-KEM or ML-DSA implementation can start from a known platform with known leakage behavior rather than building a target from scratch. The platform connects to the <a href="pre-silicon-models-post-silicon-validation.html">pre-silicon to post-silicon</a> research line: leakage is assessed on pre-silicon models first, then validated on the physical implementation. Applied to ML-DSA-87, this top-down approach recovered key material with correlation power analysis at a minimum traces-to-disclosure of 6, and template attacks ranked the correct key in the top 10 within 50 traces.</p>
+                <p>openPQC is developed at the Vernam Lab, Worcester Polytechnic Institute, and released through the <a href="https://github.com/secure-Embedded-Systems/" target="_blank" rel="noopener">secure-Embedded-Systems</a> GitHub organization.</p>
+            </div>
+
+            <h2 style="margin-top:2em;">Publications</h2>
+            <ul class="bib-list">
+                <li class="bib-row">
+                    <span class="bib-yr">2025</span>
+                    <div>
+                        <div class="bib-title">ML-DSA-87: Offensive Top-Down Side-Channel Leakage Assessment Using Pre-Silicon Models</div>
+                        <div class="bib-authors"><span class="me">D. Shanmugam</span>, P. Schaumont</div>
+                        <span class="bib-venue">Preprint</span>
+                        <div class="bib-links"><a href="papers/mldsa87_2025.pdf" target="_blank">PDF</a></div>
+                    </div>
+                    <span class="bib-badge">Preprint</span>
+                </li>
+                <li class="bib-row">
+                    <span class="bib-yr">2020</span>
+                    <div>
+                        <div class="bib-title"><a href="https://doi.org/10.1109/iSES50453.2020.00032" target="_blank" rel="noopener">Implementation Vulnerability Analysis: A Case Study on ChaCha of SPHINCS</a></div>
+                        <div class="bib-authors"><span class="me">D. Shanmugam</span> et al.</div>
+                        <span class="bib-venue">IEEE iSES 2020</span>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="keywords">
+                <span class="kw">Accelerator-Protected PQC</span>
+                <span class="kw">CV32E40X</span>
+                <span class="kw">CV-X-IF Coprocessor Interface</span>
+                <span class="kw">openPQC</span>
+                <span class="kw">ML-KEM (FIPS 203)</span>
+                <span class="kw">ML-DSA (FIPS 204)</span>
+                <span class="kw kw--plain">RISC-V Custom Instructions</span>
+                <span class="kw kw--plain">Protected / Unprotected Variants</span>
+                <span class="kw kw--plain">Reproducible Side-Channel Assessment</span>
+            </div>
+        </section>
+    </div>
+
+<footer>
+        <div class="footer-inner">
+            <div class="footer-left">&copy; 2026 Dillibabu Shanmugam</div>
+            <div class="footer-right">
+                <a href="mailto:dshanmugam@wpi.edu">Email</a>
+                <a href="https://www.linkedin.com/in/dillibabushanmugam/" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://github.com/secure-Embedded-Systems/" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://scholar.google.com/citations?user=IeeEZO3mmn8C&hl=en" target="_blank" rel="noopener">Scholar</a>
+                <a href="https://dblp.org/pid/150/9439.html" target="_blank" rel="noopener">DBLP</a>
+                <a href="https://www.researchgate.net/profile/Dillibabu-Shanmugam" target="_blank" rel="noopener">ResearchGate</a>
+                <a href="https://orcid.org/0000-0003-3018-777X" target="_blank" rel="noopener">ORCID</a>
+                <a href="https://www.webofscience.com/wos/author/record/LXV-1654-2024" target="_blank" rel="noopener">Web of Science</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/main.js"></script>
+</body>
+</html>

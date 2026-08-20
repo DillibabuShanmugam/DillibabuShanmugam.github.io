@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>AI Inference Accelerator on RISC-V with Custom Instructions | Dillibabu Shanmugam</title>
+    <meta name="description" content="An AI inference accelerator engine built on RISC-V with custom instructions: a unified Microscaling (MX) coprocessor attached through the CV-X-IF coprocessor interface, supporting OCP MX formats (MXFP8, MXFP6, MXFP4, MXINT8) for quantized neural network inference at the edge, with scan-chain observability for security evaluation.">
+    <meta name="keywords" content="AI inference accelerator, RISC-V AI inference engine, RISC-V custom instructions, CV-X-IF, coprocessor interface, MX coprocessor, Microscaling accelerator, OCP MX formats, MXFP8, MXFP6, MXFP4, MXINT8, quantized neural network inference, Edge-AI accelerator, hardware security, scan chain, Dillibabu Shanmugam">
+    <meta name="author" content="Dillibabu Shanmugam">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://dillibabushanmugam.github.io/riscv-ai-inference-accelerator.html">
+    <meta property="og:title" content="AI Inference Accelerator on RISC-V with Custom Instructions | Dillibabu Shanmugam">
+    <meta property="og:description" content="A unified Microscaling (MX) coprocessor attached to a RISC-V core through CV-X-IF custom instructions: an AI inference engine for OCP MX formats, built for both efficiency and security evaluation.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://dillibabushanmugam.github.io/riscv-ai-inference-accelerator.html">
+    <meta property="og:site_name" content="Dillibabu Shanmugam">
+    <meta property="og:image" content="https://dillibabushanmugam.github.io/photo/shanmugamdillibabu.jpg">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="AI Inference Accelerator on RISC-V with Custom Instructions | Dillibabu Shanmugam">
+    <meta name="twitter:description" content="A unified Microscaling (MX) coprocessor attached to a RISC-V core through CV-X-IF custom instructions: an AI inference engine for OCP MX formats, built for both efficiency and security evaluation.">
+    <meta name="twitter:image" content="https://dillibabushanmugam.github.io/photo/shanmugamdillibabu.jpg">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "AI Inference Accelerator Engine on RISC-V with Custom Instructions (CV-X-IF)",
+        "description": "A unified Microscaling (MX) coprocessor attached to a RISC-V core through the CV-X-IF coprocessor interface, providing custom instructions for quantized neural network inference in OCP MX formats (MXFP8, MXFP6, MXFP4, MXINT8), with scan-chain observability for hardware security evaluation.",
+        "url": "https://dillibabushanmugam.github.io/riscv-ai-inference-accelerator.html",
+        "mainEntityOfPage": "https://dillibabushanmugam.github.io/riscv-ai-inference-accelerator.html",
+        "keywords": ["AI inference accelerator", "RISC-V custom instructions", "CV-X-IF", "MX coprocessor", "OCP Microscaling", "Edge-AI", "quantized inference"],
+        "author": {
+            "@type": "Person",
+            "name": "Dillibabu Shanmugam",
+            "url": "https://dillibabushanmugam.github.io/",
+            "affiliation": {
+                "@type": "Organization",
+                "name": "Worcester Polytechnic Institute",
+                "url": "https://www.wpi.edu"
+            },
+            "sameAs": [
+                "https://scholar.google.com/citations?user=IeeEZO3mmn8C",
+                "https://orcid.org/0000-0003-3018-777X",
+                "https://dblp.org/pid/150/9439.html"
+            ]
+        }
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css">
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-inner">
+            <a class="nav-brand" href="index.html">Dillibabu Shanmugam</a>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation"><i class="fa-solid fa-bars"></i></button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">about</a>
+                <a href="research.html" class="active">research</a>
+                <a href="publications.html">publications</a>
+                <a href="talks.html">talks</a>
+                <a href="awards.html">awards</a>
+                <a href="service.html">service</a>
+                <a href="experience.html">experience</a>
+                <a href="education.html">education</a>
+                <a href="tools.html">tools</a>
+                <button id="theme-toggle" title="Toggle light/dark"><i class="fa-solid fa-moon"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <progress id="progress" value="0" max="100"></progress>
+
+    <div class="container">
+        <section>
+            <h1 class="section-title">AI Inference Accelerator on RISC-V with Custom Instructions</h1>
+            <div class="intro">
+                <p>Edge devices need AI inference that is fast, small, and power-efficient. This project builds an <strong>AI inference accelerator engine on RISC-V</strong>: a unified Microscaling (MX) coprocessor attached to the core through the <strong>CV-X-IF coprocessor interface</strong>, so that MX-format tensor operations become <strong>custom instructions</strong> in the processor pipeline rather than calls to an external device. Software issues one instruction; the coprocessor performs the block-scaled arithmetic.</p>
+                <p>The accelerator supports the OCP Microscaling formats <strong>MXFP8, MXFP6, MXFP4, and MXINT8</strong> in a single unified datapath, so the same hardware can run quantized neural network inference at different precision and efficiency points. The CV-X-IF approach keeps the base RISC-V core unmodified and standard-compliant. The accelerator logic sits behind a clean interface, which makes the design portable across CV-X-IF-capable cores and easy to extend with new formats.</p>
+                <p>What makes this inference engine different from a pure performance project is that it is built for <strong>security evaluation from the start</strong>. The design includes scan-chain observability into the coprocessor state, so every cycle of an inference computation can be inspected. That turns the accelerator into a research platform: the same engine that runs edge inference efficiently also serves as the measurement target for the <a href="microscaling-fault-analysis.html">microscaling fault analysis</a> work, where fault injection reveals how MX number formats fail under attack.</p>
+                <p>The design philosophy, accelerating cryptographic or numerical kernels through RISC-V custom instructions while preserving observability, is shared with the <a href="pqc-accelerator-cv32e40x-cvxif.html">openPQC accelerator</a> for post-quantum cryptography. Both are part of a broader research program on secure, verifiable RISC-V accelerators, backed by two TSMC ASIC tape-outs (CAPRI1 and CAPRI6).</p>
+            </div>
+
+            <div class="keywords">
+                <span class="kw">AI Inference Accelerator</span>
+                <span class="kw">RISC-V Custom Instructions</span>
+                <span class="kw">CV-X-IF Coprocessor Interface</span>
+                <span class="kw">Unified MX Coprocessor</span>
+                <span class="kw">OCP Microscaling Formats</span>
+                <span class="kw kw--plain">Quantized Neural Network Inference</span>
+                <span class="kw kw--plain">Edge-AI</span>
+                <span class="kw kw--plain">Scan-Chain Observability</span>
+                <span class="kw kw--plain">TSMC ASIC Tape-out</span>
+            </div>
+        </section>
+    </div>
+
+<footer>
+        <div class="footer-inner">
+            <div class="footer-left">&copy; 2026 Dillibabu Shanmugam</div>
+            <div class="footer-right">
+                <a href="mailto:dshanmugam@wpi.edu">Email</a>
+                <a href="https://www.linkedin.com/in/dillibabushanmugam/" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://github.com/secure-Embedded-Systems/" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://scholar.google.com/citations?user=IeeEZO3mmn8C&hl=en" target="_blank" rel="noopener">Scholar</a>
+                <a href="https://dblp.org/pid/150/9439.html" target="_blank" rel="noopener">DBLP</a>
+                <a href="https://www.researchgate.net/profile/Dillibabu-Shanmugam" target="_blank" rel="noopener">ResearchGate</a>
+                <a href="https://orcid.org/0000-0003-3018-777X" target="_blank" rel="noopener">ORCID</a>
+                <a href="https://www.webofscience.com/wos/author/record/LXV-1654-2024" target="_blank" rel="noopener">Web of Science</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/main.js"></script>
+</body>
+</html>

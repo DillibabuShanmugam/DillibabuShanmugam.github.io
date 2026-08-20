@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Research | Dillibabu Shanmugam — Microscaling, PQC & Side-Channel/Fault Analysis</title>
     <meta name="description" content="Research of Dillibabu Shanmugam: bridging pre-silicon models and post-silicon evaluation using machine learning; Microscaling (MX) format fault analysis with CNN/GNN and scan chain; sane vs. weird machine analysis with GNN and SFT/QLoRA LLMs; open-source PQC side-channel assessment reference.">
-    <meta name="keywords" content="Dillibabu Shanmugam, Edge-AI security, Microscaling format analysis, MX formats, OCP Microscaling, post-quantum cryptography, PQC side-channel assessment, reference side-channel assessment of PQC standards, pre-and-post-silicon side-channel leakage assessment, open-source ML-KEM, open-source ML-DSA, protected ML-KEM, unprotected ML-KEM, masked ML-DSA, EMFI, electromagnetic fault injection, TSMC ASIC tape-out of RISC-V accelerators, ASIC tape-out, RTL-to-GDSII, hardware security, side-channel analysis, fault injection, RISC-V, DPA, CPA, TVLA, microarchitectural weird machine, sane vs weird machine analysis, GNN, graph neural network, SFT-QLoRA LLM, LLM fine-tuning for hardware security, machine learning for pre-silicon to post-silicon evaluation, scan chain, DFT, CV-X-IF, coprocessor, WPI, Worcester Polytechnic Institute, TCHES, USENIX WOOT">
+    <meta name="keywords" content="Dillibabu Shanmugam, Edge-AI security, Microscaling format analysis, MX formats, OCP Microscaling, post-quantum cryptography, PQC side-channel assessment, reference side-channel assessment of PQC standards, pre-and-post-silicon side-channel leakage assessment, open-source ML-KEM, open-source ML-DSA, protected ML-KEM, unprotected ML-KEM, masked ML-DSA, EMFI, electromagnetic fault injection, TSMC ASIC tape-out of RISC-V accelerators, ASIC tape-out, RTL-to-GDSII, hardware security, side-channel analysis, fault injection, RISC-V, DPA, CPA, TVLA, microarchitectural weird machine, sane vs weird machine analysis, GNN, graph neural network, SFT-QLoRA LLM, LLM fine-tuning for hardware security, machine learning for pre-silicon to post-silicon evaluation, scan chain, DFT, CV32E40X, CV-X-IF coprocessor interface, RISC-V custom instructions, AI inference accelerator, RISC-V AI inference engine, microscaling fault injection, PQC hardware accelerator, accelerator-protected PQC, openPQC, pre-silicon models, post-silicon validation, WPI, Worcester Polytechnic Institute, TCHES, USENIX WOOT">
     <meta name="author" content="Dillibabu Shanmugam">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://dillibabushanmugam.github.io/research.html">
@@ -49,7 +49,7 @@
             "https://orcid.org/0000-0003-3018-777X",
             "https://www.webofscience.com/wos/author/record/LXV-1654-2024"
         ],
-        "knowsAbout": ["Edge-AI Security","Microscaling (MX) Format Analysis","OCP MX Formats","Post-Quantum Cryptography","PQC Side-Channel Assessment","Reference Side-Channel Assessment of PQC Standards","Open-Source ML-KEM","Open-Source ML-DSA","Protected and Unprotected ML-KEM/ML-DSA","Electromagnetic Fault Injection (EMFI)","ASIC Tape-out (TSMC)","RISC-V Accelerators","Hardware Security","Side-Channel Analysis","Fault Injection","Pre-silicon Leakage Assessment","Machine Learning for Pre-silicon to Post-silicon Evaluation","Sane vs Weird Machine Analysis","Graph Neural Networks for Hardware Security","LLM Fine-tuning (SFT, QLoRA) for Microarchitectural Analysis","Differential Power Analysis","Correlation Power Analysis","ML-based Security Verification","Microarchitectural Weird Machines","Scan Chain Analysis","Design-for-Test","RTL-to-GDSII"]
+        "knowsAbout": ["Edge-AI Security","Microscaling (MX) Format Analysis","OCP MX Formats","Post-Quantum Cryptography","PQC Side-Channel Assessment","Reference Side-Channel Assessment of PQC Standards","Open-Source ML-KEM","Open-Source ML-DSA","Protected and Unprotected ML-KEM/ML-DSA","Electromagnetic Fault Injection (EMFI)","ASIC Tape-out (TSMC)","RISC-V Accelerators","Hardware Security","Side-Channel Analysis","Fault Injection","Pre-silicon Leakage Assessment","Machine Learning for Pre-silicon to Post-silicon Evaluation","Sane vs Weird Machine Analysis","Graph Neural Networks for Hardware Security","LLM Fine-tuning (SFT, QLoRA) for Microarchitectural Analysis","Differential Power Analysis","Correlation Power Analysis","ML-based Security Verification","Microarchitectural Weird Machines","Scan Chain Analysis","Design-for-Test","RTL-to-GDSII","Microscaling Fault Injection","AI Inference Accelerators","RISC-V Custom Instructions (CV-X-IF)","CV32E40X","PQC Hardware Accelerators (openPQC)","Post-Silicon Validation"]
     }
     
     </script>
@@ -98,6 +98,31 @@
                 </div>
                 <div class="card">
                     <svg class="card-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" style="color:var(--global-theme-color)">
+                        <rect x="6" y="12" width="24" height="12" rx="2" stroke="currentColor" stroke-width="1.5" opacity="0.7"/>
+                        <rect x="9" y="15" width="4" height="6" rx="0.5" fill="currentColor" opacity="0.5"/>
+                        <rect x="15" y="15" width="4" height="6" rx="0.5" fill="currentColor" opacity="0.35"/>
+                        <rect x="21" y="15" width="4" height="6" rx="0.5" fill="currentColor" opacity="0.35"/>
+                        <path d="M27 6L24 11M27 6L30 9" stroke="#e0245e" stroke-width="1.8" stroke-linecap="round"/>
+                    </svg>
+                    <h3>Microscaling (MX) Fault Analysis</h3>
+                    <p>Microscaling fault injection on OCP MX formats (MXFP8/6/4, MXINT8): one fault in a shared block scale factor corrupts a whole tensor. AIHWS and GLSVLSI 2026, both Best Paper Nominees. <a href="microscaling-fault-analysis.html">Read more</a></p>
+                </div>
+                <div class="card">
+                    <svg class="card-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" style="color:var(--global-theme-color)">
+                        <rect x="10" y="10" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.5" opacity="0.8"/>
+                        <rect x="14" y="14" width="8" height="8" rx="1" fill="currentColor" opacity="0.4"/>
+                        <line x1="14" y1="4" x2="14" y2="10" stroke="currentColor" stroke-width="1.2" opacity="0.5"/>
+                        <line x1="22" y1="4" x2="22" y2="10" stroke="currentColor" stroke-width="1.2" opacity="0.5"/>
+                        <line x1="14" y1="26" x2="14" y2="32" stroke="currentColor" stroke-width="1.2" opacity="0.5"/>
+                        <line x1="22" y1="26" x2="22" y2="32" stroke="currentColor" stroke-width="1.2" opacity="0.5"/>
+                        <line x1="4" y1="18" x2="10" y2="18" stroke="currentColor" stroke-width="1.2" opacity="0.5"/>
+                        <line x1="26" y1="18" x2="32" y2="18" stroke="currentColor" stroke-width="1.2" opacity="0.5"/>
+                    </svg>
+                    <h3>AI Inference Accelerator on RISC-V</h3>
+                    <p>AI inference engine built as a unified MX coprocessor on RISC-V, attached through CV-X-IF custom instructions, with scan-chain observability for security evaluation. <a href="riscv-ai-inference-accelerator.html">Read more</a></p>
+                </div>
+                <div class="card">
+                    <svg class="card-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" style="color:var(--global-theme-color)">
                         <path d="M4 18C6 14 8 22 10 16C12 10 14 24 16 18C18 12 20 22 22 15C24 8 26 20 28 18C30 16 32 18 32 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
                         <circle cx="27" cy="12" r="6" stroke="currentColor" stroke-width="1.2" opacity="0.7"/>
                         <line x1="31.5" y1="16.5" x2="34" y2="19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
@@ -112,8 +137,8 @@
                         <rect x="14" y="14" width="3" height="3" rx="0.5" fill="currentColor" opacity="0.5"/>
                         <rect x="19" y="19" width="3" height="3" rx="0.5" fill="currentColor" opacity="0.5"/>
                     </svg>
-                    <h3>Pre-silicon Security</h3>
-                    <p>Leakage assessment using pre-silicon models, scan-chain-based micro-architecture state monitoring, and early-stage vulnerability detection.</p>
+                    <h3>Pre-Silicon Models, Post-Silicon Validation</h3>
+                    <p>Leakage assessment using pre-silicon models, scan-chain-based micro-architecture state monitoring, and post-silicon validation of model predictions on TSMC test chips. <a href="pre-silicon-models-post-silicon-validation.html">Read more</a></p>
                 </div>
                 <div class="card">
                     <svg class="card-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" style="color:var(--global-theme-color)">
@@ -164,7 +189,7 @@
                         <circle cx="29" cy="29" r="2" stroke="currentColor" stroke-width="1" opacity="0.5"/>
                     </svg>
                     <h3>Post-Quantum Cryptography</h3>
-                    <p>First pre-silicon SCA methodology for ML-DSA-87 (FIPS 204): CPA with MTD=6 traces, template attacks with top-10 key recovery in 50 traces.</p>
+                    <p>Accelerator-protected PQC on CV32E40X with a CV-X-IF coprocessor (openPQC): ML-KEM and ML-DSA custom instructions, protected and unprotected. First pre-silicon SCA methodology for ML-DSA-87: CPA with MTD=6 traces. <a href="pqc-accelerator-cv32e40x-cvxif.html">Read more</a></p>
                 </div>
             </div>
         </section>
