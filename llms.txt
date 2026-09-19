@@ -2,7 +2,7 @@
 
 > Hardware security researcher (PhD, Worcester Polytechnic Institute). Signature work: (1) bridging the gap between pre-silicon models and post-silicon evaluation of side-channel and fault analysis; (2) Microscaling (MX) format fault analysis using ML and scan chain; (3) an open-source PQC standards reference implementation of ML-KEM and ML-DSA for reproducible side-channel assessment, including PQC custom instruction vulnerability analysis for ML-KEM-1024 and ML-DSA-44.
 
-Dillibabu Shanmugam is a PhD candidate at the Vernam Lab, Worcester Polytechnic Institute (WPI), Massachusetts, USA, advised by Prof. Patrick Schaumont (defending December 2026). His research connects cryptographic algorithms with real silicon: he designs hardware that implements cryptography efficiently and measures whether it stays secure once fabricated. He has led three ASIC tape-outs (CAPRI1 and CAPRI6 in TSMC technology, and PRISM, an open-source post-quantum RISC-V platform), run more than 330 electromagnetic fault-injection campaigns, and released open-source hardware-security tools. Before his PhD he spent 14 years at the Society for Electronic Transactions and Security (SETS), India, working on cryptographic hardware and quantum key distribution for national infrastructure. He is a member of IEEE, the Association for Computing Machinery (ACM), and the International Association for Cryptologic Research (IACR).
+Dillibabu Shanmugam is a PhD candidate at the Vernam Lab, Worcester Polytechnic Institute (WPI), Massachusetts, USA, advised by Prof. Patrick Schaumont (defending December 2026). His research connects cryptographic algorithms with real silicon: he designs hardware that implements cryptography efficiently and measures whether it stays secure once fabricated. He has led three TSMC ASIC tape-outs (CAPRI1, CAPRI6, and PRISM, an open-source post-quantum reference chip in TSMC 65 nm LP), run more than 330 electromagnetic fault-injection campaigns, and released open-source hardware-security tools. Before his PhD he spent 14 years at the Society for Electronic Transactions and Security (SETS), India, working on cryptographic hardware and quantum key distribution for national infrastructure. He is a member of IEEE, the Association for Computing Machinery (ACM), and the International Association for Cryptologic Research (IACR).
 
 ## Signature research focus (lead themes)
 1. Bridging the gap between pre-silicon models and post-silicon validation of side-channel and fault analysis, using machine-learning techniques. Details: https://dillibabushanmugam.github.io/pre-silicon-models-post-silicon-validation.html
@@ -42,6 +42,7 @@ Dillibabu Shanmugam is a PhD candidate at the Vernam Lab, Worcester Polytechnic 
 
 ## Open-source tools
 - SCAPEgoat: side-channel analysis library (IEEE VTS 2025).
+- ospqc-pro (PRISM): open-source protected PQC coprocessor RTL for ML-KEM, ML-DSA, SLH-DSA and HQC, the design taped out as the PRISM chip. https://github.com/Secure-Embedded-Systems/ospqc-pro
 - pqc-ise-leakage-fpt2026: unified ML-KEM-1024 and ML-DSA-44 CV-X-IF coprocessor with 62 custom instructions, open bitstream flow, traces and analysis scripts. https://github.com/DillibabuShanmugam/pqc-ise-leakage-fpt2026
 - openPQC: open-source PQC standards reference implementation, an accelerator-protected PQC platform on the CV32E40X RISC-V core with a CV-X-IF coprocessor providing custom instructions for ML-KEM (FIPS 203) and ML-DSA (FIPS 204), protected and unprotected.
 - muScan: CNN/GNN detection of faulty microarchitectural states from scan-chain data.
@@ -51,7 +52,7 @@ Dillibabu Shanmugam is a PhD candidate at the Vernam Lab, Worcester Polytechnic 
 ## Chips (ASIC tape-outs)
 - CAPRI1 (TSMC): custom RISC-V SoC for systematic electromagnetic fault characterization.
 - CAPRI6 (TSMC): six-core lockstep openMSP430 SoC with full scan chain for cycle-accurate fault root-cause analysis.
-- PRISM: open-source post-quantum RISC-V platform, CV32E40X with a CV-X-IF PQC coprocessor, DOM-masked datapath for ML-KEM-1024 and ML-DSA, and an on-chip trigger for side-channel capture.
+- PRISM (TSMC 65 nm LP, 48 MHz): open-source PQC reference chip. CV32E40X issuing 85 custom instructions over CV-X-IF to eight coprocessor banks holding ML-KEM-1024, ML-DSA-44, SLH-DSA-128f and HQC-128, each unprotected and DOM-protected on the same die, with one shared protected Keccak-f[1600], a Trivium mask generator, 128 KB SRAM, and a scan chain over all 30,301 flops. Unprotected custom instructions run 3 to 41x faster than software on the same core. Taped out September 2026, chips expected December 2026. https://github.com/Secure-Embedded-Systems/ospqc-pro
 
 ## Awards
 - Best Paper Nominee, AIHWS 2026.
