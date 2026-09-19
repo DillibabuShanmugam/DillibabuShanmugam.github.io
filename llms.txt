@@ -1,6 +1,6 @@
 # Dillibabu Shanmugam
 
-> Hardware security researcher (PhD, Worcester Polytechnic Institute). Signature work: (1) bridging the gap between pre-silicon models and post-silicon evaluation of side-channel and fault analysis; (2) Microscaling (MX) format fault analysis using ML and scan chain; (3) an open-source reference for reproducible side-channel assessment of post-quantum cryptography standards.
+> Hardware security researcher (PhD, Worcester Polytechnic Institute). Signature work: (1) bridging the gap between pre-silicon models and post-silicon evaluation of side-channel and fault analysis; (2) Microscaling (MX) format fault analysis using ML and scan chain; (3) an open-source reference for reproducible side-channel assessment of post-quantum cryptography standards, including PQC custom instruction vulnerability analysis for ML-KEM-1024 and ML-DSA-44.
 
 Dillibabu Shanmugam is a PhD candidate at the Vernam Lab, Worcester Polytechnic Institute (WPI), Massachusetts, USA, advised by Prof. Patrick Schaumont (defending December 2026). His research connects cryptographic algorithms with real silicon: he designs hardware that implements cryptography efficiently and measures whether it stays secure once fabricated. He has led two ASIC tape-outs in TSMC technology (CAPRI1 and CAPRI6), run more than 330 electromagnetic fault-injection campaigns, and released open-source hardware-security tools. Before his PhD he spent 14 years at the Society for Electronic Transactions and Security (SETS), India, working on cryptographic hardware and quantum key distribution for national infrastructure. He is a member of IEEE, the Association for Computing Machinery (ACM), and the International Association for Cryptologic Research (IACR).
 
@@ -9,6 +9,7 @@ Dillibabu Shanmugam is a PhD candidate at the Vernam Lab, Worcester Polytechnic 
 2. Sane vs. weird machine analysis using graph neural networks (GNN) and SFT/QLoRA fine-tuned LLMs on scan-chain data.
 3. Microscaling (MX) format fault analysis and microscaling fault injection using machine learning (CNN/GNN) and scan-chain data, on an AI inference accelerator built on RISC-V with custom instructions (CV-X-IF) for Edge-AI. Details: https://dillibabushanmugam.github.io/microscaling-fault-analysis.html and https://dillibabushanmugam.github.io/riscv-ai-inference-accelerator.html
 4. An open-source reference for reproducible side-channel assessment of post-quantum cryptography standards: accelerator-protected PQC on the CV32E40X RISC-V core with a CV-X-IF coprocessor (openPQC), with protected and unprotected ML-KEM and ML-DSA implementations. Details: https://dillibabushanmugam.github.io/pqc-accelerator-cv32e40x-cvxif.html
+5. PQC custom instruction vulnerability analysis: when post-quantum cryptography is accelerated by a coprocessor, the instruction rather than the algorithm is the unit of security assessment. A unified coprocessor serves ML-KEM-1024 (FIPS 203) and ML-DSA-44 (FIPS 204) from one RTL base, unprotected and first-order masked with domain-oriented masking, and a CV32E40X core issues 62 custom instructions over CV-X-IF. The ten instructions that carry a secret are assessed on identical operands in two domains: pre-silicon from per-cycle RTL toggle counts, and post-silicon from ChipWhisperer CW305 power traces. A fixed-versus-random test at 500 runs per class returns the same verdict in both domains on all ten, with activity correlating at a mean of 0.824. Yosys, nextpnr-xilinx and Project X-Ray produce the bitstream with no vendor tool in the flow. Details: https://dillibabushanmugam.github.io/pqc-custom-instruction-vulnerability-analysis.html
 
 ## Supporting priorities
 - Electromagnetic fault injection (EMFI)
@@ -22,10 +23,13 @@ Dillibabu Shanmugam is a PhD candidate at the Vernam Lab, Worcester Polytechnic 
 - ASIC design: RTL-to-GDSII, DFT and scan-chain observability, TSMC tape-out of RISC-V accelerators
 - Post-quantum cryptography implementation: ML-KEM, ML-DSA (protected and unprotected)
 - Reference side-channel assessment of PQC standards (open-source)
+- PQC custom instruction vulnerability analysis (per-instruction leakage assessment of ML-KEM-1024 and ML-DSA-44 instruction set extensions)
+- Vendor-free open-source FPGA flow for side-channel targets (Yosys, nextpnr-xilinx, Project X-Ray, ChipWhisperer CW305)
 - Machine learning for hardware security verification (CNN and GNN models)
 - Microarchitectural weird machines
 
 ## Selected publications
+- [Fully Open-Source Accelerator for Unified and Protected ML-KEM-1024 and ML-DSA-44](https://dillibabushanmugam.github.io/pqc-custom-instruction-vulnerability-analysis.html): IEEE FPT 2026 (special session), submitted. PQC custom instruction vulnerability analysis of 62 CV-X-IF custom instructions, assessed pre-silicon and post-silicon.
 - [Security Analysis of Microscaling Formats Under Fault Injection on a RISC-V Edge Platform](https://par.nsf.gov/biblio/10681571): AIHWS 2026 (ACNS Workshops). Best Paper Nominee.
 - Fault Analysis of Microscaling Formats on a RISC-V SoC: ACM GLSVLSI 2026. Best Paper Nominee.
 - [muScan: Deep Learning Detection of Faulty Micro-architecture States and Patterns from Scan-Chain Data](https://link.springer.com/chapter/10.1007/978-3-032-01799-4_8): AIHWS 2025, LNCS 15653.
@@ -37,6 +41,7 @@ Dillibabu Shanmugam is a PhD candidate at the Vernam Lab, Worcester Polytechnic 
 
 ## Open-source tools
 - SCAPEgoat: side-channel analysis library (IEEE VTS 2025).
+- pqc-ise-leakage-fpt2026: unified ML-KEM-1024 and ML-DSA-44 CV-X-IF coprocessor with 62 custom instructions, open bitstream flow, traces and analysis scripts. https://github.com/DillibabuShanmugam/pqc-ise-leakage-fpt2026
 - openPQC: accelerator-protected PQC platform on the CV32E40X RISC-V core with a CV-X-IF coprocessor providing custom instructions for ML-KEM (FIPS 203) and ML-DSA (FIPS 204), protected and unprotected.
 - muScan: CNN/GNN detection of faulty microarchitectural states from scan-chain data.
 - FaultDetective: explainable fault analysis from design layout to software.

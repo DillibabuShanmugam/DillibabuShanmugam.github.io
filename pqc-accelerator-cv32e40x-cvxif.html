@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Accelerator-Protected PQC: CV32E40X + CV-X-IF (openPQC) | Dillibabu Shanmugam</title>
     <meta name="description" content="openPQC: an accelerator-protected post-quantum cryptography platform built on the CV32E40X RISC-V core with a CV-X-IF coprocessor. Custom instructions accelerate ML-KEM (FIPS 203) and ML-DSA (FIPS 204), in protected and unprotected variants, as an open-source reference for reproducible side-channel assessment of PQC standards.">
-    <meta name="keywords" content="accelerator protected PQC, PQC hardware accelerator, CV32E40X, CV-X-IF, cvxif, PQC coprocessor, openPQC, post-quantum cryptography accelerator, ML-KEM accelerator, ML-DSA accelerator, FIPS 203, FIPS 204, RISC-V custom instructions, protected ML-KEM, masked ML-DSA, side-channel assessment, pre-silicon leakage, Dillibabu Shanmugam">
+    <meta name="keywords" content="accelerator protected PQC, PQC custom instruction vulnerability analysis, custom instruction leakage assessment, ML-KEM-1024, ML-DSA-44, PQC hardware accelerator, CV32E40X, CV-X-IF, cvxif, PQC coprocessor, openPQC, post-quantum cryptography accelerator, ML-KEM accelerator, ML-DSA accelerator, FIPS 203, FIPS 204, RISC-V custom instructions, protected ML-KEM, masked ML-DSA, side-channel assessment, pre-silicon leakage, Dillibabu Shanmugam">
     <meta name="author" content="Dillibabu Shanmugam">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://dillibabushanmugam.github.io/pqc-accelerator-cv32e40x-cvxif.html">
@@ -27,7 +27,7 @@
         "description": "openPQC is an open-source platform built on the CV32E40X RISC-V core with a coprocessor attached through the CV-X-IF interface. Custom instructions accelerate ML-KEM (FIPS 203) and ML-DSA (FIPS 204) in both protected and unprotected variants, providing a reproducible reference for side-channel assessment of post-quantum cryptography standards.",
         "url": "https://dillibabushanmugam.github.io/pqc-accelerator-cv32e40x-cvxif.html",
         "mainEntityOfPage": "https://dillibabushanmugam.github.io/pqc-accelerator-cv32e40x-cvxif.html",
-        "keywords": ["accelerator-protected PQC", "CV32E40X", "CV-X-IF", "openPQC", "ML-KEM", "ML-DSA", "FIPS 203", "FIPS 204", "RISC-V custom instructions", "side-channel assessment"],
+        "keywords": ["accelerator-protected PQC", "PQC custom instruction vulnerability analysis", "custom instruction leakage assessment", "CV32E40X", "CV-X-IF", "openPQC", "ML-KEM", "ML-KEM-1024", "ML-DSA", "ML-DSA-44", "FIPS 203", "FIPS 204", "RISC-V custom instructions", "domain-oriented masking", "side-channel assessment", "ChipWhisperer CW305", "open-source FPGA flow"],
         "author": {
             "@type": "Person",
             "name": "Dillibabu Shanmugam",
@@ -81,11 +81,22 @@
                 <p>Post-quantum cryptography is moving into products, but the implementations being deployed are hard to compare: every paper measures a different core, a different countermeasure, a different setup. <strong>openPQC</strong> addresses that with a single open platform: the <strong>CV32E40X RISC-V core</strong> extended through the <strong>CV-X-IF coprocessor interface</strong> with custom instructions that accelerate <strong>ML-KEM (FIPS 203)</strong> and <strong>ML-DSA (FIPS 204)</strong>.</p>
                 <p>The platform is <strong>accelerator-protected</strong>: side-channel countermeasures live inside the coprocessor, next to the arithmetic they protect, instead of being patched into software after the fact. Each algorithm is available in both <strong>protected and unprotected variants</strong> on the same core, so the cost and the benefit of a countermeasure can be measured directly, on identical hardware, with nothing else changing. The CV-X-IF interface keeps the CV32E40X core itself unmodified, which makes the accelerator portable and the comparison clean.</p>
                 <p>The goal is an <strong>open-source reference for reproducible side-channel assessment of PQC standards</strong>. Anyone evaluating an ML-KEM or ML-DSA implementation can start from a known platform with known leakage behavior rather than building a target from scratch. The platform connects to the <a href="pre-silicon-models-post-silicon-validation.html">pre-silicon to post-silicon</a> research line: leakage is assessed on pre-silicon models first, then validated on the physical implementation. Applied to ML-DSA-87, this top-down approach recovered key material with correlation power analysis at a minimum traces-to-disclosure of 6, and template attacks ranked the correct key in the top 10 within 50 traces.</p>
+                <p>Because the coprocessor exposes its arithmetic as an instruction set extension, the natural unit of security assessment is one custom instruction rather than one algorithm. That per-instruction view is developed in <a href="pqc-custom-instruction-vulnerability-analysis.html"><strong>PQC custom instruction vulnerability analysis</strong></a>, which takes a unified ML-KEM-1024 and ML-DSA-44 coprocessor of 62 custom instructions and assesses the ten that touch a secret, pre-silicon on RTL and post-silicon on a ChipWhisperer CW305, through a bitstream flow with no vendor tool in it.</p>
                 <p>openPQC is developed at the Vernam Lab, Worcester Polytechnic Institute, and released through the <a href="https://github.com/secure-Embedded-Systems/" target="_blank" rel="noopener">secure-Embedded-Systems</a> GitHub organization.</p>
             </div>
 
             <h2 style="margin-top:2em;">Publications</h2>
             <ul class="bib-list">
+                <li class="bib-row">
+                    <span class="bib-yr">2026</span>
+                    <div>
+                        <div class="bib-title"><a href="pqc-custom-instruction-vulnerability-analysis.html">Fully Open-Source Accelerator for Unified and Protected ML-KEM-1024 and ML-DSA-44</a></div>
+                        <div class="bib-authors"><span class="me">D. Shanmugam</span>, P. Schaumont</div>
+                        <span class="bib-venue">IEEE FPT 2026 (special session)</span>
+                        <div class="bib-links"><a href="papers/fpt2026_pqc_ise_leakage.pdf" target="_blank">PDF</a> <a href="https://github.com/DillibabuShanmugam/pqc-ise-leakage-fpt2026" target="_blank" rel="noopener">Code &amp; Traces</a></div>
+                    </div>
+                    <span class="bib-badge">Submitted</span>
+                </li>
                 <li class="bib-row">
                     <span class="bib-yr">2025</span>
                     <div>
@@ -124,6 +135,7 @@
                 <span class="kw kw--plain">RISC-V Custom Instructions</span>
                 <span class="kw kw--plain">Protected / Unprotected Variants</span>
                 <span class="kw kw--plain">Reproducible Side-Channel Assessment</span>
+                <span class="kw kw--plain">PQC Custom Instruction Vulnerability Analysis</span>
             </div>
         </section>
     </div>
