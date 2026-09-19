@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Microscaling (MX) Fault Analysis on RISC-V | Dillibabu Shanmugam</title>
+    <title>MX Fault Analysis: Microscaling Format Fault Injection on RISC-V | Dillibabu Shanmugam</title>
     <meta name="description" content="Microscaling fault injection and fault analysis of OCP MX formats (MXFP8, MXFP6, MXFP4, MXINT8) on a RISC-V edge platform. Shows how a fault in a shared block scale factor amplifies error across an entire tensor during AI inference. AIHWS 2026 and ACM GLSVLSI 2026, both Best Paper Nominees.">
-    <meta name="keywords" content="microscaling fault, microscaling fault injection, microscaling fault analysis, MX format security, OCP Microscaling, MXFP8, MXFP6, MXFP4, MXINT8, block scale factor fault, electromagnetic fault injection, EMFI, RISC-V edge platform, AI inference security, Edge-AI hardware security, scan chain, CNN GNN fault detection, Dillibabu Shanmugam">
+    <meta name="keywords" content="MX fault analysis, microscaling fault analysis, MX format fault injection, OCP microscaling security, block scale factor fault, shared scale factor amplification, MXFP4 security, MXINT8 fault, AI accelerator fault injection, microscaling fault, microscaling fault injection, microscaling fault analysis, MX format security, OCP Microscaling, MXFP8, MXFP6, MXFP4, MXINT8, block scale factor fault, electromagnetic fault injection, EMFI, RISC-V edge platform, AI inference security, Edge-AI hardware security, scan chain, CNN GNN fault detection, Dillibabu Shanmugam">
     <meta name="author" content="Dillibabu Shanmugam">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://dillibabushanmugam.github.io/microscaling-fault-analysis.html">
-    <meta property="og:title" content="Microscaling (MX) Fault Analysis on RISC-V | Dillibabu Shanmugam">
+    <meta property="og:title" content="MX Fault Analysis: Microscaling Format Fault Injection on RISC-V | Dillibabu Shanmugam">
     <meta property="og:description" content="Fault injection on OCP Microscaling (MX) formats on a RISC-V edge platform: a single fault in a shared block scale factor amplifies error across an entire tensor during AI inference.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://dillibabushanmugam.github.io/microscaling-fault-analysis.html">
     <meta property="og:site_name" content="Dillibabu Shanmugam">
     <meta property="og:image" content="https://dillibabushanmugam.github.io/photo/shanmugamdillibabu.jpg">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Microscaling (MX) Fault Analysis on RISC-V | Dillibabu Shanmugam">
+    <meta name="twitter:title" content="MX Fault Analysis: Microscaling Format Fault Injection on RISC-V | Dillibabu Shanmugam">
     <meta name="twitter:description" content="Fault injection on OCP Microscaling (MX) formats on a RISC-V edge platform: a single fault in a shared block scale factor amplifies error across an entire tensor during AI inference.">
     <meta name="twitter:image" content="https://dillibabushanmugam.github.io/photo/shanmugamdillibabu.jpg">
     <script type="application/ld+json">
@@ -43,6 +43,46 @@
                 "https://dblp.org/pid/150/9439.html"
             ]
         }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is MX fault analysis?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Microscaling (MX) formats, standardized by the Open Compute Project, are block-scaled number formats such as MXFP8, MXFP6, MXFP4 and MXINT8, in which a block of low-precision elements shares one scale factor. MX fault analysis asks what happens to those formats when the hardware computing them is attacked. It measures, on real silicon under electromagnetic fault injection, how each format family responds to an injected fault and how far the resulting numerical error spreads through an inference workload."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why does a fault in a shared block scale factor matter so much?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Because the scale factor is shared. A single fault that lands in an element corrupts one value, but a single fault that lands in the shared block scale factor corrupts every element in that block, and the error then propagates across the whole tensor. This amplification is the central finding of the work: formats that look equivalent on accuracy benchmarks are not equivalent in fault robustness."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How are the fault effects observed?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The platform is a RISC-V system-on-chip extended with a unified MX coprocessor over CV-X-IF custom instructions, with scan-chain observability into the microarchitectural state. That makes a fault visible at the exact cycle and register where it lands, so the effect can be traced from the physical injection down to the numerical error in the inference result. CNN and GNN models trained on the scan-chain data classify faulty microarchitectural states automatically."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why does this matter for edge AI hardware?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Safety-critical edge AI in automotive, medical and industrial systems is adopting MX formats for their memory and energy efficiency, and every major accelerator roadmap now includes them. This work gives designers measured evidence of which formats and which microarchitectural choices amplify a fault and which contain it, while those choices can still be changed rather than after they are frozen in silicon."
+                }
+            }
+        ]
     }
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -80,7 +120,7 @@
             <div class="intro">
                 <p>Microscaling (MX) formats, standardized by the Open Compute Project (OCP), are block-scaled number formats such as <strong>MXFP8, MXFP6, MXFP4, and MXINT8</strong>. They cut the memory and energy cost of AI inference by letting a block of low-precision elements share one scale factor. Every major AI accelerator roadmap now includes them. What had not been studied before this work is how they behave when the hardware computing them is under attack.</p>
                 <p>This research line delivers the first <strong>microscaling fault injection</strong> study on real hardware. Using electromagnetic fault injection (EMFI) against a RISC-V edge platform executing MX-format inference workloads, it characterizes how each format family responds to injected faults. The central finding is an amplification effect: a single fault that lands in a <strong>shared block scale factor</strong> does not corrupt one value, it corrupts every element in the block, and the error propagates across the entire tensor. Formats that are equivalent in accuracy benchmarks are far from equivalent in fault robustness.</p>
-                <p>The evaluation platform is a RISC-V system-on-chip extended with a unified MX coprocessor through custom instructions, with scan-chain observability into the microarchitectural state. This makes fault effects visible at the exact cycle and register where they land, so faulty behavior can be traced from the physical injection down to the numerical error in the inference result. Machine-learning models (CNN and GNN) trained on scan-chain data classify faulty microarchitectural states automatically. The same platform is described on the <a href="riscv-ai-inference-accelerator.html">AI inference accelerator</a> page.</p>
+                <p>The evaluation platform is a RISC-V system-on-chip extended with a unified MX coprocessor through custom instructions, with scan-chain observability into the microarchitectural state. This makes fault effects visible at the exact cycle and register where they land, so faulty behavior can be traced from the physical injection down to the numerical error in the inference result. Machine-learning models (CNN and GNN) trained on scan-chain data classify faulty microarchitectural states automatically, the same technique used in the <a href="pre-silicon-models-post-silicon-validation.html">pre-silicon to post-silicon</a> research line. The same platform is described on the <a href="riscv-ai-inference-accelerator.html">AI inference accelerator</a> page.</p>
                 <p>Why it matters: safety-critical edge AI (automotive, medical, industrial) is adopting MX formats for efficiency. This work gives hardware designers concrete, measured evidence of which formats and which microarchitectural choices amplify or contain faults, before those choices are frozen in silicon.</p>
             </div>
 

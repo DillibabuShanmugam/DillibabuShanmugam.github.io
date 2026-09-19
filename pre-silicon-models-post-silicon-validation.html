@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Pre-Silicon Models to Post-Silicon Validation | Dillibabu Shanmugam</title>
+    <title>Pre- and Post-Silicon Models for Fault Injection and Side-Channel Analysis | Dillibabu Shanmugam</title>
     <meta name="description" content="Bridging pre-silicon models and post-silicon validation of side-channel and fault security: pre-silicon leakage models (COSADE 2023), explainable layout-to-software fault analysis (FaultDetective, TCHES 2024), scan-chain deep learning (muScan), and silicon anchoring on TSMC test chips CAPRI1 and CAPRI6.">
-    <meta name="keywords" content="pre-silicon models, post-silicon validation, pre-silicon leakage assessment, post-silicon evaluation, pre-silicon security verification, side-channel leakage models, fault injection validation, FaultDetective, muScan, scan chain, transfer learning side-channel, CAPRI1, CAPRI6, TSMC test chip, EMFI, machine learning hardware security, Dillibabu Shanmugam">
+    <meta name="keywords" content="pre-and-post-silicon models for FI and SCA, pre-silicon models for fault injection, pre-silicon models for side-channel analysis, pre-silicon leakage assessment, post-silicon validation, shift-left hardware security, model versus measurement gap, transfer learning for side-channel analysis, scan-chain security sensor, pre-silicon models, post-silicon validation, pre-silicon leakage assessment, post-silicon evaluation, pre-silicon security verification, side-channel leakage models, fault injection validation, FaultDetective, muScan, scan chain, transfer learning side-channel, CAPRI1, CAPRI6, TSMC test chip, EMFI, machine learning hardware security, Dillibabu Shanmugam">
     <meta name="author" content="Dillibabu Shanmugam">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://dillibabushanmugam.github.io/pre-silicon-models-post-silicon-validation.html">
-    <meta property="og:title" content="Pre-Silicon Models to Post-Silicon Validation | Dillibabu Shanmugam">
+    <meta property="og:title" content="Pre- and Post-Silicon Models for Fault Injection and Side-Channel Analysis | Dillibabu Shanmugam">
     <meta property="og:description" content="Making pre-silicon security models predict post-silicon reality: leakage models, explainable fault analysis, scan-chain deep learning, and TSMC test chips built to validate them.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://dillibabushanmugam.github.io/pre-silicon-models-post-silicon-validation.html">
     <meta property="og:site_name" content="Dillibabu Shanmugam">
     <meta property="og:image" content="https://dillibabushanmugam.github.io/photo/shanmugamdillibabu.jpg">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Pre-Silicon Models to Post-Silicon Validation | Dillibabu Shanmugam">
+    <meta name="twitter:title" content="Pre- and Post-Silicon Models for Fault Injection and Side-Channel Analysis | Dillibabu Shanmugam">
     <meta name="twitter:description" content="Making pre-silicon security models predict post-silicon reality: leakage models, explainable fault analysis, scan-chain deep learning, and TSMC test chips built to validate them.">
     <meta name="twitter:image" content="https://dillibabushanmugam.github.io/photo/shanmugamdillibabu.jpg">
     <script type="application/ld+json">
@@ -43,6 +43,46 @@
                 "https://dblp.org/pid/150/9439.html"
             ]
         }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What are pre- and post-silicon models for fault injection and side-channel analysis?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A pre-silicon model estimates leakage or fault behavior from a design description, at RTL, gate level or layout, before the chip is fabricated. Post-silicon validation measures the same behavior on the fabricated part. The research question is whether the model tells the truth, so every pre-silicon prediction is checked against silicon measurements and the gap between the two is itself the object of study."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why assess leakage before silicon exists?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Security bugs found after tape-out cost the most and are fixed the latest. Assessing side-channel leakage and fault behavior on a pre-silicon model lets the design still change in response. The value of a pre-silicon verdict, though, depends entirely on whether it survives contact with measurement, which is why post-silicon validation is treated as a first-class problem rather than a confirmation step."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What results support the approach?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "On the side-channel side, pre-silicon leakage models (COSADE 2023) improve assessment before fabrication, and transfer learning carries knowledge from simulated traces to measured ones, cutting the physical traces needed for an attack by 2.8 times and evaluation time by 30 percent. Applied top-down to ML-DSA-87 on the openPQC platform, pre-silicon models predicted leakage later confirmed by correlation power analysis. On the fault side, FaultDetective (TCHES 2024) explains faults from design layout through microarchitecture to software, and muScan detects faulty microarchitectural states from scan-chain data at 92 percent accuracy."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What silicon backs up the models?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Three TSMC test chips, designed and taped out for this purpose. CAPRI1 is a RISC-V SoC for systematic electromagnetic fault characterization, CAPRI6 is a six-core lockstep SoC with a full scan chain for cycle-accurate fault root-cause analysis, and PRISM is an open-source post-quantum reference chip in TSMC 65 nm LP built as a pre- and post-silicon side-channel and fault platform. More than 330 electromagnetic fault-injection campaigns on RISC-V SoCs provide the post-silicon ground truth."
+                }
+            }
+        ]
     }
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -79,9 +119,9 @@
             <h1 class="section-title">Pre-Silicon Models to Post-Silicon Validation</h1>
             <div class="intro">
                 <p>Security bugs found after tape-out cost the most and are fixed the latest. The industry answer is shift-left: assess side-channel leakage and fault behavior on <strong>pre-silicon models</strong>, at RTL, gate level, or layout, before the chip exists. The open question is whether those models tell the truth. This research program treats <strong>post-silicon validation</strong> as a first-class problem: every pre-silicon prediction is checked against measurements on fabricated silicon, and the gap between model and measurement is itself the object of study.</p>
-                <p>On the side-channel side, <a href="https://doi.org/10.1007/978-3-031-29497-6_6" target="_blank" rel="noopener">pre-silicon leakage models</a> (COSADE 2023) improve leakage assessment before fabrication, and transfer learning carries knowledge from simulated traces to measured ones, cutting the number of physical traces needed for an attack by 2.8 times and evaluation time by 30 percent. The approach was applied top-down to ML-DSA-87 on the <a href="pqc-accelerator-cv32e40x-cvxif.html">openPQC platform</a>, where pre-silicon models predicted the leakage later confirmed by correlation power analysis on the implementation.</p>
-                <p>On the fault side, <a href="https://tches.iacr.org/index.php/TCHES/article/view/11804" target="_blank" rel="noopener">FaultDetective</a> (TCHES 2024) explains observed faults across the whole stack, from design layout through microarchitecture to software. muScan trains CNN and GNN models on scan-chain data to detect faulty microarchitectural states at 92 percent accuracy, turning the design-for-test infrastructure every chip already has into a security sensor. More than 330 electromagnetic fault-injection campaigns on RISC-V SoCs provide the post-silicon ground truth.</p>
-                <p>The silicon anchors are two TSMC test chips designed and taped out for exactly this purpose: <strong>CAPRI1</strong>, a RISC-V SoC for systematic electromagnetic fault characterization, and <strong>CAPRI6</strong>, a six-core lockstep SoC with a full scan chain for cycle-accurate fault root-cause analysis. Together they close the loop: models predict, silicon validates, and the validated models make the next design more secure before it is built.</p>
+                <p>On the side-channel side, <a href="https://doi.org/10.1007/978-3-031-29497-6_6" target="_blank" rel="noopener">pre-silicon leakage models</a> (COSADE 2023) improve leakage assessment before fabrication, and transfer learning carries knowledge from simulated traces to measured ones, cutting the number of physical traces needed for an attack by 2.8 times and evaluation time by 30 percent. The approach was applied top-down to ML-DSA-87 on the <a href="pqc-accelerator-cv32e40x-cvxif.html">openPQC platform</a>, where pre-silicon models predicted the leakage later confirmed by correlation power analysis on the implementation. The sharpest test of the idea is the <a href="pqc-custom-instruction-vulnerability-analysis.html">per-instruction assessment of a PQC coprocessor</a>, which runs the same ten custom instructions on identical operands in both domains: the verdicts agree on all ten, and the activity correlates at a mean of 0.824.</p>
+                <p>On the fault side, <a href="https://tches.iacr.org/index.php/TCHES/article/view/11804" target="_blank" rel="noopener">FaultDetective</a> (TCHES 2024) explains observed faults across the whole stack, from design layout through microarchitecture to software. muScan trains CNN and GNN models on scan-chain data to detect faulty microarchitectural states at 92 percent accuracy, turning the design-for-test infrastructure every chip already has into a security sensor. More than 330 electromagnetic fault-injection campaigns on RISC-V SoCs provide the post-silicon ground truth, including the campaigns behind the <a href="microscaling-fault-analysis.html">Microscaling format fault analysis</a>.</p>
+                <p>The silicon anchors are three TSMC test chips designed and taped out for exactly this purpose: <strong>CAPRI1</strong>, a RISC-V SoC for systematic electromagnetic fault characterization, <strong>CAPRI6</strong>, a six-core lockstep SoC with a full scan chain for cycle-accurate fault root-cause analysis, and <strong>PRISM</strong>, an open-source post-quantum reference chip in TSMC 65&nbsp;nm LP built expressly as a pre- and post-silicon side-channel and fault platform, with a scan chain over all 30,301 flops. Together they close the loop: models predict, silicon validates, and the validated models make the next design more secure before it is built.</p>
             </div>
 
             <h2 style="margin-top:2em;">Publications</h2>
@@ -128,7 +168,7 @@
                 <span class="kw">Explainable Fault Analysis</span>
                 <span class="kw">Scan-Chain Deep Learning</span>
                 <span class="kw kw--plain">Transfer Learning for SCA</span>
-                <span class="kw kw--plain">TSMC Test Chips (CAPRI1, CAPRI6)</span>
+                <span class="kw kw--plain">TSMC Test Chips (CAPRI1, CAPRI6, PRISM)</span>
                 <span class="kw kw--plain">EMFI Campaigns</span>
             </div>
         </section>
