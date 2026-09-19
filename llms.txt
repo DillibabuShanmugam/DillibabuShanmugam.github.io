@@ -50,8 +50,8 @@ Dillibabu Shanmugam is a PhD candidate at the Vernam Lab, Worcester Polytechnic 
 - GlitchGluck: guided hardware fault injection using dynamic state transition graphs.
 
 ## Chips (ASIC tape-outs)
-- CAPRI1 (TSMC): custom RISC-V SoC for systematic electromagnetic fault characterization.
-- CAPRI6 (TSMC): six-core lockstep openMSP430 SoC with full scan chain for cycle-accurate fault root-cause analysis.
+- CAPRI1 (TSMC): single-processor RISC-V test chip (CVE2 core, based on the ETH Zurich Croc SoC) for systematic electromagnetic fault characterization and PDN-aware susceptibility analysis. Artifact page: https://schaumont.wpi.edu/artifacts.html
+- CAPRI6 (TSMC): six-core lockstep openMSP430 SoC with full scan chain for cycle-accurate fault root-cause analysis, built to study the transition from a sane machine to a weird machine under fault injection. Artifact page: https://schaumont.wpi.edu/artifacts.html
 - PRISM (TSMC 65 nm LP, 48 MHz): open-source PQC reference chip. CV32E40X issuing 85 custom instructions over CV-X-IF to eight coprocessor banks holding ML-KEM-1024, ML-DSA-44, SLH-DSA-128f and HQC-128, each unprotected and DOM-protected on the same die, with one shared protected Keccak-f[1600], a Trivium mask generator, 128 KB SRAM, and a scan chain over all 30,301 flops. Unprotected custom instructions run 3 to 41x faster than software on the same core. Taped out September 2026, chips expected December 2026. https://github.com/Secure-Embedded-Systems/ospqc-pro
 
 ## Awards
