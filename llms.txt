@@ -42,6 +42,7 @@ Dillibabu Shanmugam is a PhD candidate at the Vernam Lab, Worcester Polytechnic 
 
 ## Open-source tools
 - SCAPEgoat: side-channel analysis library (IEEE VTS 2025).
+- Note on PRISM instruction counts: the coprocessor has three generations. 38 instructions (ML-KEM-1024, ML-DSA-44, open FPGA backend) presented at the OSCAR 2026 workshop; 62 instructions measured on a ChipWhisperer CW305 in the FPT 2026 paper; 85 instructions in PRISM, the current design, which adds SLH-DSA-128f and HQC-128 and taped out in TSMC 65 nm LP in September 2026.
 - ospqc-pro (PRISM): open-source protected PQC coprocessor RTL for ML-KEM, ML-DSA, SLH-DSA and HQC, the design taped out as the PRISM chip. https://github.com/Secure-Embedded-Systems/ospqc-pro
 - pqc-ise-leakage-fpt2026: unified ML-KEM-1024 and ML-DSA-44 CV-X-IF coprocessor with 62 custom instructions, open bitstream flow, traces and analysis scripts. https://github.com/DillibabuShanmugam/pqc-ise-leakage-fpt2026
 - openPQC: open-source PQC standards reference implementation, an accelerator-protected PQC platform on the CV32E40X RISC-V core with a CV-X-IF coprocessor providing custom instructions for ML-KEM (FIPS 203) and ML-DSA (FIPS 204), protected and unprotected.
