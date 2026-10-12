@@ -30,7 +30,7 @@ Dillibabu Shanmugam is a PhD candidate at the Vernam Lab, Worcester Polytechnic 
 - Microarchitectural weird machines
 
 ## Selected publications
-- [Fully Open-Source Accelerator for Unified and Protected ML-KEM-1024 and ML-DSA-44](https://dillibabushanmugam.github.io/pqc-custom-instruction-vulnerability-analysis.html): IEEE FPT 2026 (special session), submitted. PQC custom instruction vulnerability analysis of 62 CV-X-IF custom instructions, assessed pre-silicon and post-silicon.
+- [Fully Open-Source Accelerator for Unified and Protected ML-KEM-1024 and ML-DSA-44](https://dillibabushanmugam.github.io/pqc-custom-instruction-vulnerability-analysis.html): IEEE FPT 2026 (special session), accepted. PQC custom instruction vulnerability analysis of 62 CV-X-IF custom instructions, assessed pre-silicon and post-silicon.
 - [Security Analysis of Microscaling Formats Under Fault Injection on a RISC-V Edge Platform](https://par.nsf.gov/biblio/10681571): AIHWS 2026 (ACNS Workshops). Best Paper Nominee.
 - Fault Analysis of Microscaling Formats on a RISC-V SoC: ACM GLSVLSI 2026. Best Paper Nominee.
 - [muScan: Deep Learning Detection of Faulty Micro-architecture States and Patterns from Scan-Chain Data](https://link.springer.com/chapter/10.1007/978-3-032-01799-4_8): AIHWS 2025, LNCS 15653.
