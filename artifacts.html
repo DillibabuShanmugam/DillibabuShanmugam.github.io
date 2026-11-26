@@ -430,7 +430,7 @@
             <div class="art-group" id="dmm">
                 <h2>DDoS detection and mitigation module (DMM) on FPGA</h2>
                 <div class="intro">
-                    <p>The <strong>DMM</strong> sits inline on the network path, in front of the servers it protects. It learns what normal traffic looks like, flags windows of packets that deviate from it, and then passes only white-listed traffic. Detection uses a Naive Bayes classifier over packet header fields such as the TCP flags. Training runs offline in software, and detection runs online in hardware, which is designed to keep up with the line rate.</p>
+                    <p>The <strong>DMM</strong> sits inline on the network path, in front of the servers it protects. It learns what normal traffic looks like, flags windows of packets that deviate from it, and then passes only white-listed traffic. Detection uses a Naive Bayes classifier over packet header fields such as the TCP flags. Training runs offline in software, and detection runs online in hardware. The hardware finishes processing each packet before the next packet is captured.</p>
                     <p>Three hardware modules sit on the wire: traffic capture (TCM), detection (DM) and mitigation (MM). I designed the FPGA logic in Handel-C on Celoxica boards. A control unit on a PC configures the traffic streams, computes the statistics during learning, and loads the white list. The system covers services over TCP, UDP and ICMP and was tested on the DARPA dataset and on SETS traffic.</p>
                 </div>
                 <div class="art-two">
