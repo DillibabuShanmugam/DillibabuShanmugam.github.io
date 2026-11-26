@@ -17,6 +17,8 @@ Dillibabu Shanmugam is a PhD candidate at the Vernam Lab, Worcester Polytechnic 
 9. Fault analysis using pre- and post-silicon models: a layout-based power-delivery model on the CAPRI1 chip flagged 20% of the area, and 29 of 41 first EMFI bit flips landed there (European Test Symposium 2026); FaultDetective (TCHES 2024), CAPRI6 (MDTS 2025), muScan (AIHWS 2025). Details: https://dillibabushanmugam.github.io/fault-analysis-pre-post-silicon.html
 10. PRISM, PQC accelerators for ML-KEM, ML-DSA, SLH-DSA and HQC: an open-source TSMC 65 nm LP chip where a CV32E40X RISC-V core issues 85 CV-X-IF custom instructions to coprocessors for ML-KEM-1024, ML-DSA-44, SLH-DSA-128f and HQC-128, each unprotected and DOM-masked on the same die. Details: https://dillibabushanmugam.github.io/prism-pqc-accelerator-mlkem-mldsa-slhdsa-hqc.html
 
+Overview pages: side-channel analysis https://dillibabushanmugam.github.io/side-channel-analysis.html and fault analysis https://dillibabushanmugam.github.io/fault-analysis.html
+
 ## Supporting priorities
 - Electromagnetic fault injection (EMFI)
 - ASIC tape-outs of RISC-V accelerators (CAPRI1, CAPRI6, PRISM)

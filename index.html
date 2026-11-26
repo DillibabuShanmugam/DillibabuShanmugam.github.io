@@ -126,6 +126,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css">
     <link rel="stylesheet" href="assets/style.css">
+    <style>
+        .focus-head { font-size: 1.05rem; font-weight: 500; margin: 1.6em 0 0.7em; }
+        .focus-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 10px; }
+        .focus-tile { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border: 1px solid var(--global-card-border); border-radius: 8px; background: var(--global-card-bg-color); color: var(--global-text-color); font-size: 0.88rem; line-height: 1.3; text-decoration: none; }
+        .focus-tile i { color: var(--global-theme-color); font-size: 1.15rem; width: 1.4em; text-align: center; flex: none; }
+        a.focus-tile:hover { border-color: var(--global-theme-color); color: var(--global-theme-color); }
+        .focus-group { font-family: 'Roboto', sans-serif; font-size: 0.95rem; font-weight: 500; margin: 1.1em 0 0.5em; color: var(--global-text-color); }
+        .focus-group i { color: var(--global-theme-color); margin-right: 8px; }
+        .kw-details { margin-top: 1.4em; }
+        .kw-details summary { cursor: pointer; font-size: 0.88rem; color: var(--global-text-color-light); }
+    </style>
 </head>
 <body>
     <nav class="navbar">
@@ -167,24 +178,20 @@
 
             <section id="about" class="clearfix" style="padding-top:0;">
                 <div class="intro">
-                    <p>I am a PhD candidate at <a href="https://vernamlab.org/" target="_blank" rel="noopener">Vernam Lab</a>, <a href="https://www.wpi.edu" target="_blank" rel="noopener">Worcester Polytechnic Institute</a>, advised by Prof. Patrick Schaumont. My work spans side-channel analysis, fault injection, ASIC design, and post-quantum cryptography. The hardware behind this work is on the <a href="artifacts.html">artifacts page</a>: the CAPRI1, CAPRI6 and PRISM test chips, an FPGA key distillation engine for QKD, and a side-channel attack on Poly1305. I am a member of <a href="https://www.ieee.org/" target="_blank" rel="noopener">IEEE</a>, <a href="https://www.acm.org/" target="_blank" rel="noopener">ACM</a>, and <a href="https://www.iacr.org/" target="_blank" rel="noopener">IACR</a>.</p>
-                    <p><strong>Research focus:</strong></p>
-                    <ul>
-                        <li><strong>Pre-silicon models</strong> that predict <strong>post-silicon</strong> reality. <a href="pre-silicon-models-post-silicon-validation.html">More</a></li>
-                        <li><strong>Sane versus weird machine analysis</strong> on scan chains.</li>
-                        <li><strong>Microscaling (MX) format fault analysis</strong> for Edge-AI. <a href="microscaling-fault-analysis.html">More</a></li>
-                        <li><strong>Security for Physical AI</strong> hardware. <a href="physical-ai-hardware-security.html">More</a></li>
-                        <li><strong>Edge AI inference on RISC-V</strong> with custom instructions. <a href="riscv-ai-inference-accelerator.html">More</a></li>
-                        <li><strong>Cross-layer side-channel analysis</strong>, pre- and post-silicon. <a href="cross-layer-side-channel-analysis.html">More</a></li>
-                        <li><strong>Fault analysis</strong> using pre- and post-silicon models. <a href="fault-analysis-pre-post-silicon.html">More</a></li>
-                        <li><strong>Reproducible side-channel assessment of post-quantum standards:</strong>
-                            <ul style="margin-top:6px;margin-bottom:0;">
-                                <li><strong>Open-source PQC custom instruction vulnerability analysis</strong>. <a href="pqc-custom-instruction-vulnerability-analysis.html">More</a></li>
-                                <li><strong>Open-source PQC standards reference implementation</strong> (openPQC). <a href="pqc-accelerator-cv32e40x-cvxif.html">More</a></li>
-                                <li><strong>PRISM: PQC accelerators</strong> for ML-KEM, ML-DSA, SLH-DSA and HQC. <a href="prism-pqc-accelerator-mlkem-mldsa-slhdsa-hqc.html">More</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+                    <p>I am a PhD candidate at <a href="https://vernamlab.org/" target="_blank" rel="noopener">Vernam Lab</a>, <a href="https://www.wpi.edu" target="_blank" rel="noopener">Worcester Polytechnic Institute</a>, advised by Prof. Patrick Schaumont. I work on side-channel analysis, fault injection, ASIC design, and post-quantum cryptography.</p>
+                </div>
+
+                <div class="contact-icons">
+                    <a href="mailto:dshanmugam@wpi.edu" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="https://scholar.google.com/citations?user=IeeEZO3mmn8C&hl=en" target="_blank" rel="noopener" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>
+                    <a href="https://www.linkedin.com/in/dillibabushanmugam/" target="_blank" rel="noopener" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://github.com/secure-Embedded-Systems/" target="_blank" rel="noopener" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://dblp.org/pid/150/9439.html" target="_blank" rel="noopener" title="DBLP"><i class="ai ai-dblp"></i></a>
+                    <a href="https://dl.acm.org/profile/99658704967" target="_blank" rel="noopener" title="ACM Digital Library"><i class="ai ai-acm"></i></a>
+                    <a href="https://www.researchgate.net/profile/Dillibabu-Shanmugam" target="_blank" rel="noopener" title="ResearchGate"><i class="ai ai-researchgate"></i></a>
+                    <a href="https://orcid.org/0000-0003-3018-777X" target="_blank" rel="noopener" title="ORCID"><i class="ai ai-orcid"></i></a>
+                    <a href="https://www.webofscience.com/wos/author/record/LXV-1654-2024" target="_blank" rel="noopener" title="Web of Science"><i class="ai ai-clarivate"></i></a>
+                    <a href="artifacts.html" title="Artifacts: test chips and FPGA systems"><i class="fa-solid fa-microchip"></i></a>
                 </div>
 
                 <div class="stats-strip">
@@ -202,30 +209,17 @@
                     </div>
                 </div>
 
-                <div class="contact-icons">
-                    <a href="mailto:dshanmugam@wpi.edu" title="Email"><i class="fa-solid fa-envelope"></i></a>
-                    <a href="https://scholar.google.com/citations?user=IeeEZO3mmn8C&hl=en" target="_blank" rel="noopener" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>
-                    <a href="https://www.linkedin.com/in/dillibabushanmugam/" target="_blank" rel="noopener" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="https://github.com/secure-Embedded-Systems/" target="_blank" rel="noopener" title="GitHub"><i class="fa-brands fa-github"></i></a>
-                    <a href="https://dblp.org/pid/150/9439.html" target="_blank" rel="noopener" title="DBLP"><i class="ai ai-dblp"></i></a>
-                    <a href="https://dl.acm.org/profile/99658704967" target="_blank" rel="noopener" title="ACM Digital Library"><i class="ai ai-acm"></i></a>
-                    <a href="https://www.researchgate.net/profile/Dillibabu-Shanmugam" target="_blank" rel="noopener" title="ResearchGate"><i class="ai ai-researchgate"></i></a>
-                    <a href="https://orcid.org/0000-0003-3018-777X" target="_blank" rel="noopener" title="ORCID"><i class="ai ai-orcid"></i></a>
+                <h2 class="focus-head">Research focus</h2>
+                <div class="focus-grid">
+                    <a class="focus-tile" href="side-channel-analysis.html"><i class="fa-solid fa-wave-square"></i><span>Side-channel analysis</span></a>
+                    <a class="focus-tile" href="fault-analysis.html"><i class="fa-solid fa-bolt"></i><span>Fault analysis</span></a>
+                    <a class="focus-tile" href="pre-silicon-models-post-silicon-validation.html"><i class="fa-solid fa-scale-balanced"></i><span>Pre- and post-silicon models</span></a>
+                    <a class="focus-tile" href="artifacts.html"><i class="fa-solid fa-microchip"></i><span>Artifacts: chips and FPGA systems</span></a>
                 </div>
 
-                <div class="link-pills">
-                    <a href="https://scholar.google.com/citations?user=IeeEZO3mmn8C&hl=en" target="_blank" rel="noopener" class="pill">Google Scholar</a>
-                    <a href="https://www.linkedin.com/in/dillibabushanmugam/" target="_blank" rel="noopener" class="pill">LinkedIn</a>
-                    <a href="https://github.com/secure-Embedded-Systems/" target="_blank" rel="noopener" class="pill">GitHub</a>
-                    <a href="https://dblp.org/pid/150/9439.html" target="_blank" rel="noopener" class="pill">DBLP</a>
-                    <a href="https://dl.acm.org/profile/99658704967" target="_blank" rel="noopener" class="pill">ACM DL</a>
-                    <a href="https://www.researchgate.net/profile/Dillibabu-Shanmugam" target="_blank" rel="noopener" class="pill">ResearchGate</a>
-                    <a href="https://orcid.org/0000-0003-3018-777X" target="_blank" rel="noopener" class="pill">ORCID</a>
-                    <a href="https://www.webofscience.com/wos/author/record/LXV-1654-2024" target="_blank" rel="noopener" class="pill">Web of Science</a>
-                    <a href="artifacts.html" class="pill">Artifacts (CAPRI1, CAPRI6, PRISM, QKD FPGA)</a>
-                </div>
-
-                <div class="keywords">
+                <details class="kw-details">
+                    <summary>Keywords</summary>
+                    <div class="keywords">
                     <span class="kw">Edge-AI Security</span>
                     <span class="kw">Microscaling (MX) Format Analysis</span>
                     <span class="kw">Post-Quantum Cryptography</span>
@@ -255,6 +249,7 @@
                     <span class="kw kw--plain">Accelerator-Protected PQC (CV32E40X + CV-X-IF)</span>
                     <span class="kw kw--plain">Post-Silicon Validation</span>
                 </div>
+                </details>
             </section>
         </article>
     </div>

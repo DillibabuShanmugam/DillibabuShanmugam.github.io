@@ -17,6 +17,8 @@
   <url><loc>https://dillibabushanmugam.github.io/service.html</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
   <url><loc>https://dillibabushanmugam.github.io/experience.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
   <url><loc>https://dillibabushanmugam.github.io/education.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://dillibabushanmugam.github.io/side-channel-analysis.html</loc><lastmod>2026-11-26</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://dillibabushanmugam.github.io/fault-analysis.html</loc><lastmod>2026-11-26</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://dillibabushanmugam.github.io/artifacts.html</loc><lastmod>2026-11-26</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://dillibabushanmugam.github.io/tools.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>

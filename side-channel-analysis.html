@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Side-Channel Analysis | Dillibabu Shanmugam</title>
+    <meta name="description" content="Side-channel analysis research by Dillibabu Shanmugam: cross-layer leakage assessment, PQC custom instruction analysis, the openPQC reference implementation, and the PRISM PQC accelerator chip.">
+    <meta name="author" content="Dillibabu Shanmugam">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://dillibabushanmugam.github.io/side-channel-analysis.html">
+    <meta property="og:title" content="Side-Channel Analysis | Dillibabu Shanmugam">
+    <meta property="og:description" content="Side-channel analysis research by Dillibabu Shanmugam: cross-layer leakage assessment, PQC custom instruction analysis, the openPQC reference implementation, and the PRISM PQC accelerator chip.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://dillibabushanmugam.github.io/side-channel-analysis.html">
+    <meta property="og:site_name" content="Dillibabu Shanmugam">
+    <meta property="og:image" content="https://dillibabushanmugam.github.io/photo/shanmugamdillibabu.jpg">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Side-Channel Analysis | Dillibabu Shanmugam">
+    <meta name="twitter:description" content="Side-channel analysis research by Dillibabu Shanmugam: cross-layer leakage assessment, PQC custom instruction analysis, the openPQC reference implementation, and the PRISM PQC accelerator chip.">
+    <meta name="twitter:image" content="https://dillibabushanmugam.github.io/photo/shanmugamdillibabu.jpg">
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dillibabushanmugam.github.io/" },
+        { "@type": "ListItem", "position": 2, "name": "Research", "item": "https://dillibabushanmugam.github.io/research.html" },
+        { "@type": "ListItem", "position": 3, "name": "Side-Channel Analysis", "item": "https://dillibabushanmugam.github.io/side-channel-analysis.html" }
+    ]
+}
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css">
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-inner">
+            <a class="nav-brand" href="index.html">Dillibabu Shanmugam</a>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation"><i class="fa-solid fa-bars"></i></button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">about</a>
+                <a href="research.html" class="active">research</a>
+                <a href="publications.html">publications</a>
+                <a href="talks.html">talks</a>
+                <a href="awards.html">awards</a>
+                <a href="service.html">service</a>
+                <a href="experience.html">experience</a>
+                <a href="education.html">education</a>
+                <a href="tools.html">tools</a>
+                <button id="theme-toggle" title="Toggle light/dark"><i class="fa-solid fa-moon"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <progress id="progress" value="0" max="100"></progress>
+
+    <div class="container">
+        <section>
+            <h1 class="section-title">Side-Channel Analysis</h1>
+            <div class="intro">
+                <p>My side-channel work asks whether a design leaks its secrets through power, and whether that can be decided before the chip exists. It covers four topics.</p>
+            </div>
+            <div class="card-grid tools-grid">
+                <div class="card">
+                    <div class="tool-name"><i class="fa-solid fa-layer-group" style="margin-right:8px;"></i><a href="cross-layer-side-channel-analysis.html">Cross-layer side-channel analysis</a></div>
+                    <p>The same leakage test on pre-silicon models and on measured power traces, to check that the model verdict holds on hardware. <a href="cross-layer-side-channel-analysis.html">More</a></p>
+                </div>
+                <div class="card">
+                    <div class="tool-name"><i class="fa-solid fa-key" style="margin-right:8px;"></i><a href="pqc-custom-instruction-vulnerability-analysis.html">PQC custom instruction analysis</a></div>
+                    <p>Per-instruction leakage assessment of a unified ML-KEM-1024 and ML-DSA-44 accelerator with 62 custom instructions (IEEE FPT 2026). <a href="pqc-custom-instruction-vulnerability-analysis.html">More</a></p>
+                </div>
+                <div class="card">
+                    <div class="tool-name"><i class="fa-solid fa-lock-open" style="margin-right:8px;"></i><a href="pqc-accelerator-cv32e40x-cvxif.html">openPQC reference implementation</a></div>
+                    <p>Open-source ML-KEM and ML-DSA on a CV32E40X RISC-V core with a CV-X-IF coprocessor, protected and unprotected. <a href="pqc-accelerator-cv32e40x-cvxif.html">More</a></p>
+                </div>
+                <div class="card">
+                    <div class="tool-name"><i class="fa-solid fa-gem" style="margin-right:8px;"></i><a href="prism-pqc-accelerator-mlkem-mldsa-slhdsa-hqc.html">PRISM PQC accelerators</a></div>
+                    <p>ML-KEM, ML-DSA, SLH-DSA and HQC accelerators on one TSMC 65 nm RISC-V chip, unprotected and masked on the same die. <a href="prism-pqc-accelerator-mlkem-mldsa-slhdsa-hqc.html">More</a></p>
+                </div>
+            </div>
+
+            <h2 style="margin-top:2em;">Related pages</h2>
+            <ul>
+                <li><a href="fault-analysis.html">Fault analysis</a></li>
+                <li><a href="pre-silicon-models-post-silicon-validation.html">Pre- and post-silicon models</a></li>
+                <li><a href="artifacts.html">Artifacts: chips and FPGA systems</a></li>
+            </ul>
+        </section>
+    </div>
+
+<footer>
+        <div class="footer-inner">
+            <div class="footer-left">&copy; 2026 Dillibabu Shanmugam</div>
+            <div class="footer-right">
+                <a href="mailto:dshanmugam@wpi.edu">Email</a>
+                <a href="https://www.linkedin.com/in/dillibabushanmugam/" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://github.com/secure-Embedded-Systems/" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://scholar.google.com/citations?user=IeeEZO3mmn8C&hl=en" target="_blank" rel="noopener">Scholar</a>
+                <a href="https://dblp.org/pid/150/9439.html" target="_blank" rel="noopener">DBLP</a>
+                <a href="https://www.researchgate.net/profile/Dillibabu-Shanmugam" target="_blank" rel="noopener">ResearchGate</a>
+                <a href="https://orcid.org/0000-0003-3018-777X" target="_blank" rel="noopener">ORCID</a>
+                <a href="https://www.webofscience.com/wos/author/record/LXV-1654-2024" target="_blank" rel="noopener">Web of Science</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/main.js"></script>
+</body>
+</html>
