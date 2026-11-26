@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Physical AI Security: Fault Attacks on Edge AI Hardware and MX Formats | Dillibabu Shanmugam</title>
+    <meta name="description" content="Physical AI security research by Dillibabu Shanmugam: how fault injection breaks the chips that run AI on devices an attacker can touch. Microscaling (MX) format fault analysis on a RISC-V edge platform, EMFI on the CAPRI1 test chip, and scan-chain machine learning to find faulty states. GLSVLSI 2026 and AIHWS 2026 Best Paper nominees.">
+    <meta name="keywords" content="Physical AI security, Physical AI hardware security, security for Physical AI, edge AI security, edge AI hardware security, AI accelerator fault injection, AI accelerator reliability, fault attacks on AI hardware, microscaling fault injection, MX format fault analysis, OCP Microscaling, MXFP8, MXFP6, MXFP4, MXINT8, shared scale fault, silent data corruption AI, EMFI AI accelerator, RISC-V AI accelerator security, GPU fault injection, Dillibabu Shanmugam">
+    <meta name="author" content="Dillibabu Shanmugam">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://dillibabushanmugam.github.io/physical-ai-hardware-security.html">
+    <meta property="og:title" content="Physical AI Security: Fault Attacks on Edge AI Hardware and MX Formats | Dillibabu Shanmugam">
+    <meta property="og:description" content="How fault injection breaks the chips that run AI on physical devices: MX format fault analysis on RISC-V, EMFI on silicon, and scan-chain machine learning.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://dillibabushanmugam.github.io/physical-ai-hardware-security.html">
+    <meta property="og:site_name" content="Dillibabu Shanmugam">
+    <meta property="og:image" content="https://dillibabushanmugam.github.io/photo/shanmugamdillibabu.jpg">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Physical AI Security: Fault Attacks on Edge AI Hardware and MX Formats | Dillibabu Shanmugam">
+    <meta name="twitter:description" content="How fault injection breaks the chips that run AI on physical devices: MX format fault analysis on RISC-V, EMFI on silicon, and scan-chain machine learning.">
+    <meta name="twitter:image" content="https://dillibabushanmugam.github.io/photo/shanmugamdillibabu.jpg">
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Security for Physical AI: Fault Attacks on the Chips That Run AI on Devices",
+    "description": "Security of the chips that run AI on devices an attacker can physically reach: fault injection against Microscaling (MX) number formats on a RISC-V edge platform, measured in gate-level simulation and with electromagnetic fault injection on silicon, with scan-chain machine learning for triage.",
+    "url": "https://dillibabushanmugam.github.io/physical-ai-hardware-security.html",
+    "mainEntityOfPage": "https://dillibabushanmugam.github.io/physical-ai-hardware-security.html",
+    "keywords": [
+        "Physical AI security",
+        "edge AI security",
+        "AI accelerator fault injection",
+        "Microscaling formats",
+        "MX format fault analysis",
+        "EMFI",
+        "RISC-V"
+    ],
+    "author": {
+        "@type": "Person",
+        "name": "Dillibabu Shanmugam",
+        "url": "https://dillibabushanmugam.github.io/",
+        "affiliation": {
+            "@type": "Organization",
+            "name": "Worcester Polytechnic Institute",
+            "url": "https://www.wpi.edu"
+        },
+        "sameAs": [
+            "https://scholar.google.com/citations?user=IeeEZO3mmn8C",
+            "https://orcid.org/0000-0003-3018-777X",
+            "https://dblp.org/pid/150/9439.html"
+        ]
+    },
+    "dateModified": "2026-11-11"
+}
+    </script>
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "What does Physical AI security mean in this work?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "It means the security of the chips that run AI on devices an attacker can touch, such as edge and embedded systems. The threat is physical: electromagnetic pulses, voltage glitches and clock glitches that make the AI hardware compute a wrong result."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Why are Microscaling (MX) formats a fault target?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "OCP Microscaling formats store a block of low-precision values with one shared scale. A single fault in that shared scale corrupts every value in the block, so one physical fault becomes many numerical errors in the inference result."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Which MX format was most vulnerable?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "MXFP8-E4M3 was the most vulnerable format both in gate-level simulation and in electromagnetic fault injection on the CAPRI1 RISC-V test chip. On an FPGA, 2,040 undervoltage and clock-glitch tests separated faults that came from the processor from faults that came from a corrupted shared exponent."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What countermeasures are proposed?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Two logarithmic formats, LOG8-SUM and LOG8-MAX, plus redundant processors and protection of the shared exponent against silent data corruption."
+            }
+        }
+    ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://dillibabushanmugam.github.io/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Research",
+            "item": "https://dillibabushanmugam.github.io/research.html"
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Security for Physical AI Hardware",
+            "item": "https://dillibabushanmugam.github.io/physical-ai-hardware-security.html"
+        }
+    ]
+}
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css">
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-inner">
+            <a class="nav-brand" href="index.html">Dillibabu Shanmugam</a>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation"><i class="fa-solid fa-bars"></i></button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">about</a>
+                <a href="research.html" class="active">research</a>
+                <a href="publications.html">publications</a>
+                <a href="talks.html">talks</a>
+                <a href="awards.html">awards</a>
+                <a href="service.html">service</a>
+                <a href="experience.html">experience</a>
+                <a href="education.html">education</a>
+                <a href="tools.html">tools</a>
+                <button id="theme-toggle" title="Toggle light/dark"><i class="fa-solid fa-moon"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <progress id="progress" value="0" max="100"></progress>
+
+    <div class="container">
+        <section>
+            <h1 class="section-title">Security for Physical AI Hardware</h1>
+            <div class="intro">
+                <p>Physical AI puts neural networks into devices that sit in the open: cameras, sensors, controllers and other edge hardware. Anyone who can touch such a device can attack the chip that runs the model. My work on <strong>Physical AI security</strong> asks what happens to AI hardware under physical fault attacks such as electromagnetic pulses and voltage or clock glitches.</p>
+                <p>AI hardware often stores numbers in the OCP <strong>Microscaling (MX) formats</strong> (MXFP8, MXFP6, MXFP4, MXINT8), where a block of values shares one scale. That sharing saves memory and energy, but it also concentrates risk. One fault in the shared scale corrupts every value in the block. I compared the MX formats on a RISC-V SoC with an MX coprocessor whose internal state can be read out through a scan chain. <strong>MXFP8-E4M3 was the most vulnerable format</strong> both in gate-level simulation and in electromagnetic fault injection on the CAPRI1 test chip. Details are on the <a href="microscaling-fault-analysis.html">MX format fault analysis</a> page.</p>
+                <p>On an FPGA, 2,040 undervoltage and clock-glitch tests showed which wrong outputs came from the processor and which came from a corrupted shared exponent. From these results I proposed two log formats, LOG8-SUM and LOG8-MAX, and recommended redundant processors and exponent protection against silent data corruption. Both MX papers (ACM GLSVLSI 2026 and ACNS-AIHWS 2026) were Best Paper nominees.</p>
+                <p>To sort large amounts of fault data, I use <strong>&mu;Scan</strong>, which applies graph neural networks and a fine-tuned language model to scan-chain snapshots to tell normal processor states from faulty ones. I am now studying fault behavior on an open-source RISC-V GPU, where one fault can reach every thread at once. The hardware that runs these models is described on the <a href="riscv-ai-inference-accelerator.html">edge AI inference on RISC-V</a> page.</p>
+            </div>
+
+            <h2 style="margin-top:2em;">Publications</h2>
+            <ul class="bib-list">
+                <li class="bib-row">
+                    <span class="bib-yr">2026</span>
+                    <div>
+                        <div class="bib-title"><a href="https://par.nsf.gov/biblio/10681571" target="_blank" rel="noopener">Security Analysis of Microscaling Formats Under Fault Injection on a RISC-V Edge Platform</a></div>
+                        <div class="bib-authors"><span class="me">D. Shanmugam</span>, P. Schaumont</div>
+                        <span class="bib-venue">AIHWS 2026 (ACNS Workshops)</span>
+                        <div class="bib-links"><a href="https://par.nsf.gov/servlets/purl/10681571" target="_blank">PDF</a> <a href="slides/aihws2026_slides.pdf" target="_blank">Slides</a></div>
+                    </div>
+                    <span class="bib-badge">Best Paper Nominee</span>
+                </li>
+                <li class="bib-row">
+                    <span class="bib-yr">2026</span>
+                    <div>
+                        <div class="bib-title">Fault Analysis of Microscaling Formats on a RISC-V SoC</div>
+                        <div class="bib-authors"><span class="me">D. Shanmugam</span>, P. Schaumont</div>
+                        <span class="bib-venue">ACM GLSVLSI 2026</span>
+                        <div class="bib-links"><a href="papers/glsvlsi_2026.pdf" target="_blank">PDF</a> <a href="slides/glsvlsi2026_slides.pdf" target="_blank">Slides</a></div>
+                    </div>
+                    <span class="bib-badge">Best Paper Nominee</span>
+                </li>
+                <li class="bib-row">
+                    <span class="bib-yr">2025</span>
+                    <div>
+                        <div class="bib-title"><a href="https://link.springer.com/chapter/10.1007/978-3-032-01799-4_8" target="_blank" rel="noopener">&mu;Scan: Deep Learning Detection of Faulty Micro-architecture States and Patterns from Scan-Chain Data</a></div>
+                        <div class="bib-authors"><span class="me">D. Shanmugam</span>, Z. Liu, A. Malnicof, P. Schaumont</div>
+                        <span class="bib-venue">AIHWS 2025 (ACNS Workshops)</span>
+                        <div class="bib-links"><a href="papers/uscan_aihws2025.pdf" target="_blank">PDF</a></div>
+                    </div>
+                </li>
+            </ul>
+
+            <h2 style="margin-top:2em;">Related pages</h2>
+            <ul>
+                <li><a href="microscaling-fault-analysis.html">MX format fault analysis</a></li>
+                <li><a href="riscv-ai-inference-accelerator.html">Edge AI inference accelerator on RISC-V</a></li>
+                <li><a href="fault-analysis-pre-post-silicon.html">Fault analysis using pre- and post-silicon models</a></li>
+            </ul>
+
+            <div class="keywords">
+                <span class="kw">Physical AI Security</span>
+                <span class="kw">Edge AI Security</span>
+                <span class="kw">MX Format Fault Analysis</span>
+                <span class="kw">AI Accelerator Fault Injection</span>
+                <span class="kw">Silent Data Corruption</span>
+                <span class="kw kw--plain">EMFI</span>
+                <span class="kw kw--plain">Clock and Voltage Glitching</span>
+                <span class="kw kw--plain">Scan-Chain Machine Learning</span>
+                <span class="kw kw--plain">RISC-V</span>
+            </div>
+        </section>
+    </div>
+
+<footer>
+        <div class="footer-inner">
+            <div class="footer-left">&copy; 2026 Dillibabu Shanmugam</div>
+            <div class="footer-right">
+                <a href="mailto:dshanmugam@wpi.edu">Email</a>
+                <a href="https://www.linkedin.com/in/dillibabushanmugam/" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://github.com/secure-Embedded-Systems/" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://scholar.google.com/citations?user=IeeEZO3mmn8C&hl=en" target="_blank" rel="noopener">Scholar</a>
+                <a href="https://dblp.org/pid/150/9439.html" target="_blank" rel="noopener">DBLP</a>
+                <a href="https://www.researchgate.net/profile/Dillibabu-Shanmugam" target="_blank" rel="noopener">ResearchGate</a>
+                <a href="https://orcid.org/0000-0003-3018-777X" target="_blank" rel="noopener">ORCID</a>
+                <a href="https://www.webofscience.com/wos/author/record/LXV-1654-2024" target="_blank" rel="noopener">Web of Science</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/main.js"></script>
+</body>
+</html>

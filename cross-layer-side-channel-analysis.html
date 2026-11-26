@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Cross-Layer Side-Channel Analysis with Pre- and Post-Silicon Models | Dillibabu Shanmugam</title>
+    <meta name="description" content="Cross-layer side-channel analysis by Dillibabu Shanmugam: the same leakage test run on pre-silicon models (RTL activity, simulated traces) and on post-silicon power measurements, to check that the model verdict holds on hardware. Per-instruction TVLA of an ML-KEM-1024 and ML-DSA-44 accelerator agrees on all 10 secret-touching instructions (IEEE FPT 2026); pre-silicon leakage models (COSADE 2023); ML-DSA-87 top-down assessment.">
+    <meta name="keywords" content="cross-layer side-channel analysis, cross-layer leakage assessment, pre-silicon side-channel analysis, post-silicon side-channel analysis, pre- and post-silicon side-channel leakage assessment, pre-silicon leakage models, RTL leakage assessment, TVLA, fixed-versus-random test, correlation power analysis, CPA, power analysis, ChipWhisperer CW305, PQC side-channel, ML-KEM-1024, ML-DSA-44, ML-DSA-87, custom instruction leakage, transfer learning side-channel, SCAPEgoat, Dillibabu Shanmugam">
+    <meta name="author" content="Dillibabu Shanmugam">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://dillibabushanmugam.github.io/cross-layer-side-channel-analysis.html">
+    <meta property="og:title" content="Cross-Layer Side-Channel Analysis with Pre- and Post-Silicon Models | Dillibabu Shanmugam">
+    <meta property="og:description" content="The same side-channel test on pre-silicon models and on measured power traces: per-instruction TVLA of a PQC accelerator, pre-silicon leakage models, and transfer learning from simulation to measurement.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://dillibabushanmugam.github.io/cross-layer-side-channel-analysis.html">
+    <meta property="og:site_name" content="Dillibabu Shanmugam">
+    <meta property="og:image" content="https://dillibabushanmugam.github.io/photo/shanmugamdillibabu.jpg">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Cross-Layer Side-Channel Analysis with Pre- and Post-Silicon Models | Dillibabu Shanmugam">
+    <meta name="twitter:description" content="The same side-channel test on pre-silicon models and on measured power traces: per-instruction TVLA of a PQC accelerator, pre-silicon leakage models, and transfer learning from simulation to measurement.">
+    <meta name="twitter:image" content="https://dillibabushanmugam.github.io/photo/shanmugamdillibabu.jpg">
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Cross-Layer Side-Channel Analysis Using Pre-Silicon and Post-Silicon Models",
+    "description": "Side-channel leakage assessed across abstraction layers: pre-silicon models from RTL activity and simulated traces, checked against post-silicon power measurements on the same design and the same inputs.",
+    "url": "https://dillibabushanmugam.github.io/cross-layer-side-channel-analysis.html",
+    "mainEntityOfPage": "https://dillibabushanmugam.github.io/cross-layer-side-channel-analysis.html",
+    "keywords": [
+        "cross-layer side-channel analysis",
+        "pre-silicon leakage assessment",
+        "post-silicon validation",
+        "TVLA",
+        "CPA",
+        "ML-KEM",
+        "ML-DSA"
+    ],
+    "author": {
+        "@type": "Person",
+        "name": "Dillibabu Shanmugam",
+        "url": "https://dillibabushanmugam.github.io/",
+        "affiliation": {
+            "@type": "Organization",
+            "name": "Worcester Polytechnic Institute",
+            "url": "https://www.wpi.edu"
+        },
+        "sameAs": [
+            "https://scholar.google.com/citations?user=IeeEZO3mmn8C",
+            "https://orcid.org/0000-0003-3018-777X",
+            "https://dblp.org/pid/150/9439.html"
+        ]
+    },
+    "dateModified": "2026-11-11"
+}
+    </script>
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "What is cross-layer side-channel analysis?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "It runs the same leakage test at more than one layer of a design, for example on register-transfer-level activity before the chip exists and on measured power traces after it is built, and compares the verdicts. If they agree, the pre-silicon model can be trusted to find leaks early."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Do the pre-silicon and post-silicon verdicts agree?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "For a unified ML-KEM-1024 and ML-DSA-44 accelerator with 62 custom instructions, the ten instructions that touch secret data were tested on identical inputs in RTL simulation and with power measurements on a ChipWhisperer CW305 board. A fixed-versus-random test at 500 runs per class gave the same verdict for all ten, and the two activity profiles correlated at a mean of 0.824 (IEEE FPT 2026)."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How does machine learning help?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Transfer learning carries knowledge from simulated traces to measured traces. It cut the physical traces needed for an attack by 2.8 times and evaluation time by 30 percent."
+            }
+        }
+    ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://dillibabushanmugam.github.io/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Research",
+            "item": "https://dillibabushanmugam.github.io/research.html"
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Cross-Layer Side-Channel Analysis, Pre- and Post-Silicon",
+            "item": "https://dillibabushanmugam.github.io/cross-layer-side-channel-analysis.html"
+        }
+    ]
+}
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css">
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-inner">
+            <a class="nav-brand" href="index.html">Dillibabu Shanmugam</a>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation"><i class="fa-solid fa-bars"></i></button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">about</a>
+                <a href="research.html" class="active">research</a>
+                <a href="publications.html">publications</a>
+                <a href="talks.html">talks</a>
+                <a href="awards.html">awards</a>
+                <a href="service.html">service</a>
+                <a href="experience.html">experience</a>
+                <a href="education.html">education</a>
+                <a href="tools.html">tools</a>
+                <button id="theme-toggle" title="Toggle light/dark"><i class="fa-solid fa-moon"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <progress id="progress" value="0" max="100"></progress>
+
+    <div class="container">
+        <section>
+            <h1 class="section-title">Cross-Layer Side-Channel Analysis, Pre- and Post-Silicon</h1>
+            <div class="intro">
+                <p>A side-channel leak can be found at several layers of a design: in the RTL, in the gate netlist, in the layout, or in power measured on the finished device. Each layer is cheaper to test than the one after it, but only the last one is the truth. <strong>Cross-layer side-channel analysis</strong> runs the same test on <strong>pre-silicon models</strong> and on <strong>post-silicon measurements</strong>, then checks whether the verdicts agree.</p>
+                <p>The clearest result is the <a href="pqc-custom-instruction-vulnerability-analysis.html">per-instruction assessment</a> of a unified ML-KEM-1024 and ML-DSA-44 accelerator with 62 custom instructions (IEEE FPT 2026). I tested the ten instructions that touch secret data twice, with the same inputs: once from per-cycle RTL toggle counts and once from power traces on a ChipWhisperer CW305 FPGA board. A fixed-versus-random TVLA test at 500 runs per class gave <strong>the same verdict for all ten</strong>, and the two activity profiles correlated at a mean of 0.824. The bitstream is built with open-source tools only (Yosys, nextpnr-xilinx, Project X-Ray).</p>
+                <p>Earlier work set up the method. <a href="https://doi.org/10.1007/978-3-031-29497-6_6" target="_blank" rel="noopener">Pre-silicon leakage models</a> (COSADE 2023) improve leakage assessment before fabrication, and transfer learning from simulated to measured traces cut the physical traces needed for an attack by 2.8 times and evaluation time by 30 percent. For ML-DSA-87, a top-down assessment on pre-silicon models located the leaking operations and recovered a subkey with correlation power analysis on simulated traces. I also contributed to <a href="https://eprint.iacr.org/2025/499" target="_blank" rel="noopener">SCAPEgoat</a>, an open side-channel analysis library (IEEE VTS 2025).</p>
+                <p>This page covers the side-channel half of a wider program on <a href="pre-silicon-models-post-silicon-validation.html">pre-silicon models and post-silicon validation</a>. The fault half is on the <a href="fault-analysis-pre-post-silicon.html">pre- and post-silicon fault analysis</a> page.</p>
+            </div>
+
+            <h2 style="margin-top:2em;">Publications</h2>
+            <ul class="bib-list">
+                <li class="bib-row">
+                    <span class="bib-yr">2026</span>
+                    <div>
+                        <div class="bib-title"><a href="pqc-custom-instruction-vulnerability-analysis.html" target="_blank" rel="noopener">Fully Open-Source Accelerator for Unified and Protected ML-KEM-1024 and ML-DSA-44</a></div>
+                        <div class="bib-authors"><span class="me">D. Shanmugam</span>, P. Schaumont</div>
+                        <span class="bib-venue">IEEE FPT 2026 (special session)</span>
+                        <div class="bib-links"><a href="papers/fpt2026_pqc_ise_leakage.pdf" target="_blank">PDF</a> <a href="https://github.com/DillibabuShanmugam/pqc-ise-leakage-fpt2026" target="_blank" rel="noopener">Code &amp; Traces</a></div>
+                    </div>
+                    <span class="bib-badge">Accepted</span>
+                </li>
+                <li class="bib-row">
+                    <span class="bib-yr">2025</span>
+                    <div>
+                        <div class="bib-title">ML-DSA-87: Offensive Top-Down Side-Channel Leakage Assessment Using Pre-Silicon Models</div>
+                        <div class="bib-authors"><span class="me">D. Shanmugam</span>, P. Schaumont</div>
+                        <span class="bib-venue">Preprint</span>
+                        <div class="bib-links"><a href="papers/mldsa87_2025.pdf" target="_blank">PDF</a></div>
+                    </div>
+                </li>
+                <li class="bib-row">
+                    <span class="bib-yr">2025</span>
+                    <div>
+                        <div class="bib-title"><a href="https://eprint.iacr.org/2025/499" target="_blank" rel="noopener">SCAPEgoat: Side-channel Analysis Library</a></div>
+                        <div class="bib-authors">D. Mehta, T. Marcantino, M. Hashemi, S. Karkache, <span class="me">D. Shanmugam</span>, P. Schaumont, F. Ganji</div>
+                        <span class="bib-venue">IEEE VTS 2025</span>
+                    </div>
+                </li>
+                <li class="bib-row">
+                    <span class="bib-yr">2023</span>
+                    <div>
+                        <div class="bib-title"><a href="https://doi.org/10.1007/978-3-031-29497-6_6" target="_blank" rel="noopener">Improving Side-channel Leakage Assessment Using Pre-silicon Leakage Models</a></div>
+                        <div class="bib-authors"><span class="me">D. Shanmugam</span>, P. Schaumont</div>
+                        <span class="bib-venue">COSADE 2023</span>
+                        <div class="bib-links"><a href="papers/cosade2023.pdf" target="_blank">PDF</a></div>
+                    </div>
+                </li>
+            </ul>
+
+            <h2 style="margin-top:2em;">Related pages</h2>
+            <ul>
+                <li><a href="pre-silicon-models-post-silicon-validation.html">Pre-silicon models and post-silicon validation</a></li>
+                <li><a href="pqc-custom-instruction-vulnerability-analysis.html">PQC custom instruction vulnerability analysis</a></li>
+                <li><a href="pqc-accelerator-cv32e40x-cvxif.html">Open-source PQC accelerator (openPQC)</a></li>
+                <li><a href="fault-analysis-pre-post-silicon.html">Fault analysis using pre- and post-silicon models</a></li>
+            </ul>
+
+            <div class="keywords">
+                <span class="kw">Cross-Layer Side-Channel Analysis</span>
+                <span class="kw">Pre-Silicon Leakage Assessment</span>
+                <span class="kw">Post-Silicon Validation</span>
+                <span class="kw">TVLA</span>
+                <span class="kw">Correlation Power Analysis</span>
+                <span class="kw kw--plain">ML-KEM-1024</span>
+                <span class="kw kw--plain">ML-DSA-44 / ML-DSA-87</span>
+                <span class="kw kw--plain">ChipWhisperer CW305</span>
+                <span class="kw kw--plain">Open-Source FPGA Flow</span>
+            </div>
+        </section>
+    </div>
+
+<footer>
+        <div class="footer-inner">
+            <div class="footer-left">&copy; 2026 Dillibabu Shanmugam</div>
+            <div class="footer-right">
+                <a href="mailto:dshanmugam@wpi.edu">Email</a>
+                <a href="https://www.linkedin.com/in/dillibabushanmugam/" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://github.com/secure-Embedded-Systems/" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://scholar.google.com/citations?user=IeeEZO3mmn8C&hl=en" target="_blank" rel="noopener">Scholar</a>
+                <a href="https://dblp.org/pid/150/9439.html" target="_blank" rel="noopener">DBLP</a>
+                <a href="https://www.researchgate.net/profile/Dillibabu-Shanmugam" target="_blank" rel="noopener">ResearchGate</a>
+                <a href="https://orcid.org/0000-0003-3018-777X" target="_blank" rel="noopener">ORCID</a>
+                <a href="https://www.webofscience.com/wos/author/record/LXV-1654-2024" target="_blank" rel="noopener">Web of Science</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/main.js"></script>
+</body>
+</html>

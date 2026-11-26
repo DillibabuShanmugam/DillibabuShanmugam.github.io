@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>PRISM: PQC Accelerators for ML-KEM, ML-DSA, SLH-DSA and HQC on RISC-V | Dillibabu Shanmugam</title>
+    <meta name="description" content="PRISM is an open-source post-quantum cryptography (PQC) accelerator chip in TSMC 65 nm LP: a CV32E40X RISC-V core issues 85 custom instructions over CV-X-IF to coprocessors for ML-KEM-1024, ML-DSA-44, SLH-DSA-128f and HQC-128, each unprotected and DOM-masked on the same die. Unprotected instructions run 3 to 41 times faster than software. Taped out September 2026.">
+    <meta name="keywords" content="PRISM PQC chip, PQC accelerator, PQC accelerators, post-quantum cryptography accelerator, ML-KEM accelerator, ML-DSA accelerator, SLH-DSA accelerator, HQC accelerator, ML-KEM-1024, ML-DSA-44, SLH-DSA-128f, HQC-128, FIPS 203, FIPS 204, FIPS 205, Kyber accelerator, Dilithium accelerator, SPHINCS+ accelerator, masked PQC hardware, DOM masking, Keccak-f[1600] accelerator, RISC-V PQC accelerator, CV32E40X, CV-X-IF, RISC-V custom instructions, open-source PQC hardware, PQC ASIC, TSMC 65 nm, PQC side-channel assessment, ospqc-pro, Dillibabu Shanmugam">
+    <meta name="author" content="Dillibabu Shanmugam">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://dillibabushanmugam.github.io/prism-pqc-accelerator-mlkem-mldsa-slhdsa-hqc.html">
+    <meta property="og:title" content="PRISM: PQC Accelerators for ML-KEM, ML-DSA, SLH-DSA and HQC on RISC-V | Dillibabu Shanmugam">
+    <meta property="og:description" content="Open-source PQC accelerator chip in TSMC 65 nm: ML-KEM, ML-DSA, SLH-DSA and HQC on one RISC-V SoC, unprotected and masked on the same die, with a scan chain over all 30,301 flops.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://dillibabushanmugam.github.io/prism-pqc-accelerator-mlkem-mldsa-slhdsa-hqc.html">
+    <meta property="og:site_name" content="Dillibabu Shanmugam">
+    <meta property="og:image" content="https://dillibabushanmugam.github.io/photo/shanmugamdillibabu.jpg">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="PRISM: PQC Accelerators for ML-KEM, ML-DSA, SLH-DSA and HQC on RISC-V | Dillibabu Shanmugam">
+    <meta name="twitter:description" content="Open-source PQC accelerator chip in TSMC 65 nm: ML-KEM, ML-DSA, SLH-DSA and HQC on one RISC-V SoC, unprotected and masked on the same die, with a scan chain over all 30,301 flops.">
+    <meta name="twitter:image" content="https://dillibabushanmugam.github.io/photo/shanmugamdillibabu.jpg">
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "PRISM: Open-Source PQC Accelerator Chip for ML-KEM, ML-DSA, SLH-DSA and HQC",
+    "description": "PRISM is an open-source PQC reference chip in TSMC 65 nm LP. A CV32E40X RISC-V core issues 85 custom instructions over CV-X-IF to eight coprocessor banks holding ML-KEM-1024, ML-DSA-44, SLH-DSA-128f and HQC-128, each unprotected and DOM-protected on the same die, sharing one protected Keccak-f[1600], with a Trivium mask generator, 128 KB SRAM and a scan chain over all 30,301 flops.",
+    "url": "https://dillibabushanmugam.github.io/prism-pqc-accelerator-mlkem-mldsa-slhdsa-hqc.html",
+    "mainEntityOfPage": "https://dillibabushanmugam.github.io/prism-pqc-accelerator-mlkem-mldsa-slhdsa-hqc.html",
+    "keywords": [
+        "PQC accelerator",
+        "ML-KEM",
+        "ML-DSA",
+        "SLH-DSA",
+        "HQC",
+        "RISC-V custom instructions",
+        "masked hardware",
+        "TSMC 65 nm"
+    ],
+    "author": {
+        "@type": "Person",
+        "name": "Dillibabu Shanmugam",
+        "url": "https://dillibabushanmugam.github.io/",
+        "affiliation": {
+            "@type": "Organization",
+            "name": "Worcester Polytechnic Institute",
+            "url": "https://www.wpi.edu"
+        },
+        "sameAs": [
+            "https://scholar.google.com/citations?user=IeeEZO3mmn8C",
+            "https://orcid.org/0000-0003-3018-777X",
+            "https://dblp.org/pid/150/9439.html"
+        ]
+    },
+    "dateModified": "2026-11-11"
+}
+    </script>
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "What is PRISM?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "PRISM is an open-source post-quantum cryptography reference chip in TSMC 65 nm LP, running at 48 MHz. A CV32E40X RISC-V core issues 85 custom instructions over the CV-X-IF interface to coprocessors for ML-KEM-1024, ML-DSA-44, SLH-DSA-128f and HQC-128."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Why does PRISM hold protected and unprotected versions of each algorithm?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Each algorithm is on the die twice: once unprotected and once protected with domain-oriented masking (DOM). Having both on the same chip, with the same layout conditions and the same measurement setup, lets an evaluator compare leakage between the two versions directly."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How fast are the PRISM accelerators?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The unprotected custom instructions run 3 to 41 times faster than software on the same RISC-V core."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Is PRISM open source?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. The coprocessor RTL, ospqc-pro, is public on GitHub. PRISM taped out in September 2026 and the chips are expected in December 2026, so silicon side-channel results are still ahead; published assessments so far are pre-silicon and FPGA."
+            }
+        }
+    ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://dillibabushanmugam.github.io/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Research",
+            "item": "https://dillibabushanmugam.github.io/research.html"
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "PRISM: PQC Accelerators for ML-KEM, ML-DSA, SLH-DSA and HQC",
+            "item": "https://dillibabushanmugam.github.io/prism-pqc-accelerator-mlkem-mldsa-slhdsa-hqc.html"
+        }
+    ]
+}
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css">
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-inner">
+            <a class="nav-brand" href="index.html">Dillibabu Shanmugam</a>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation"><i class="fa-solid fa-bars"></i></button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">about</a>
+                <a href="research.html" class="active">research</a>
+                <a href="publications.html">publications</a>
+                <a href="talks.html">talks</a>
+                <a href="awards.html">awards</a>
+                <a href="service.html">service</a>
+                <a href="experience.html">experience</a>
+                <a href="education.html">education</a>
+                <a href="tools.html">tools</a>
+                <button id="theme-toggle" title="Toggle light/dark"><i class="fa-solid fa-moon"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <progress id="progress" value="0" max="100"></progress>
+
+    <div class="container">
+        <section>
+            <h1 class="section-title">PRISM: PQC Accelerators for ML-KEM, ML-DSA, SLH-DSA and HQC</h1>
+            <div class="intro">
+                <p><strong>PRISM</strong> is an open-source chip that runs four post-quantum cryptography (PQC) standards in hardware: <strong>ML-KEM-1024</strong> (FIPS 203), <strong>ML-DSA-44</strong> (FIPS 204), <strong>SLH-DSA-128f</strong> (FIPS 205) and <strong>HQC-128</strong>. It is built in <strong>TSMC 65&nbsp;nm LP</strong> and runs at 48&nbsp;MHz. I led the design from RTL to final layout, and it taped out in September 2026.</p>
+                <p>A CV32E40X RISC-V core sends <strong>85 custom instructions</strong> over the CV-X-IF coprocessor interface to eight coprocessor banks. Each algorithm is on the die twice: once unprotected and once protected with domain-oriented masking (DOM). To save area, the algorithms share one protected Keccak-f[1600] unit, and a Trivium generator supplies the masks. The chip also has 128&nbsp;KB of SRAM. The unprotected custom instructions run <strong>3 to 41 times faster than software</strong> on the same core.</p>
+                <p>PRISM was built to be measured. A scan chain covers all <strong>30,301 flops</strong>, so the full internal state can be read out after a fault or during a leakage test. Because the protected and unprotected versions share one die, an evaluator can compare them with the same setup, without building a new target. The chips are expected in December 2026, so the silicon side-channel and fault evaluation is still ahead. The assessments published so far are pre-silicon and FPGA.</p>
+                <p>PRISM is the third generation of the coprocessor. The first carried 38 instructions for ML-KEM-1024 and ML-DSA-44 (OSCAR 2026). The second, the <a href="pqc-custom-instruction-vulnerability-analysis.html">FPT 2026 accelerator</a>, carried 62 and was assessed per instruction on a ChipWhisperer CW305. Background on the platform is on the <a href="pqc-accelerator-cv32e40x-cvxif.html">openPQC accelerator</a> page. The RTL is public as <a href="https://github.com/Secure-Embedded-Systems/ospqc-pro" target="_blank" rel="noopener">ospqc-pro</a>.</p>
+            </div>
+
+            <h2 style="margin-top:2em;">Publications</h2>
+            <ul class="bib-list">
+                <li class="bib-row">
+                    <span class="bib-yr">2026</span>
+                    <div>
+                        <div class="bib-title">PRISM: An Open-Source Reference Chip for Reproducible Side-Channel Assessment of Post-Quantum Standards</div>
+                        <div class="bib-authors"><span class="me">D. Shanmugam</span>, P. Schaumont</div>
+                        <span class="bib-venue">CSME 2026 Annual Review, poster</span>
+                        <div class="bib-links"><a href="papers/prism_csme2026_poster.pdf" target="_blank">Poster</a> <a href="slides/prism_csme2026_slides.pdf" target="_blank">Slides</a> <a href="https://github.com/Secure-Embedded-Systems/ospqc-pro" target="_blank" rel="noopener">Code</a></div>
+                    </div>
+                </li>
+                <li class="bib-row">
+                    <span class="bib-yr">2026</span>
+                    <div>
+                        <div class="bib-title"><a href="pqc-custom-instruction-vulnerability-analysis.html" target="_blank" rel="noopener">Fully Open-Source Accelerator for Unified and Protected ML-KEM-1024 and ML-DSA-44</a></div>
+                        <div class="bib-authors"><span class="me">D. Shanmugam</span>, P. Schaumont</div>
+                        <span class="bib-venue">IEEE FPT 2026 (special session)</span>
+                        <div class="bib-links"><a href="papers/fpt2026_pqc_ise_leakage.pdf" target="_blank">PDF</a> <a href="https://github.com/DillibabuShanmugam/pqc-ise-leakage-fpt2026" target="_blank" rel="noopener">Code &amp; Traces</a></div>
+                    </div>
+                    <span class="bib-badge">Accepted</span>
+                </li>
+            </ul>
+
+            <h2 style="margin-top:2em;">Related pages</h2>
+            <ul>
+                <li><a href="pqc-accelerator-cv32e40x-cvxif.html">Open-source PQC accelerator (openPQC)</a></li>
+                <li><a href="pqc-custom-instruction-vulnerability-analysis.html">PQC custom instruction vulnerability analysis</a></li>
+                <li><a href="cross-layer-side-channel-analysis.html">Cross-layer side-channel analysis</a></li>
+                <li><a href="https://github.com/Secure-Embedded-Systems/ospqc-pro">ospqc-pro RTL on GitHub</a></li>
+            </ul>
+
+            <div class="keywords">
+                <span class="kw">PQC Accelerators</span>
+                <span class="kw">ML-KEM-1024</span>
+                <span class="kw">ML-DSA-44</span>
+                <span class="kw">SLH-DSA-128f</span>
+                <span class="kw">HQC-128</span>
+                <span class="kw kw--plain">DOM Masking</span>
+                <span class="kw kw--plain">RISC-V CV-X-IF</span>
+                <span class="kw kw--plain">TSMC 65 nm Tape-out</span>
+                <span class="kw kw--plain">Scan Chain (30,301 flops)</span>
+            </div>
+        </section>
+    </div>
+
+<footer>
+        <div class="footer-inner">
+            <div class="footer-left">&copy; 2026 Dillibabu Shanmugam</div>
+            <div class="footer-right">
+                <a href="mailto:dshanmugam@wpi.edu">Email</a>
+                <a href="https://www.linkedin.com/in/dillibabushanmugam/" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://github.com/secure-Embedded-Systems/" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://scholar.google.com/citations?user=IeeEZO3mmn8C&hl=en" target="_blank" rel="noopener">Scholar</a>
+                <a href="https://dblp.org/pid/150/9439.html" target="_blank" rel="noopener">DBLP</a>
+                <a href="https://www.researchgate.net/profile/Dillibabu-Shanmugam" target="_blank" rel="noopener">ResearchGate</a>
+                <a href="https://orcid.org/0000-0003-3018-777X" target="_blank" rel="noopener">ORCID</a>
+                <a href="https://www.webofscience.com/wos/author/record/LXV-1654-2024" target="_blank" rel="noopener">Web of Science</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/main.js"></script>
+</body>
+</html>
