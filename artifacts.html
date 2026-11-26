@@ -4,27 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Artifacts: Test Chips and FPGA Systems | Dillibabu Shanmugam</title>
-    <meta name="description" content="Hardware artifacts by Dillibabu Shanmugam: three ASIC test chips (CAPRI1, CAPRI6, PRISM), an FPGA key distillation engine for quantum key distribution linked over Aurora, and a side-channel attack on Poly1305-AES authentication, with die images, bench photos and board diagrams.">
-    <meta name="keywords" content="CAPRI1, CAPRI6, PRISM, ASIC test chip, die photo, TSMC 180 nm, TSMC 65 nm, QKD key distillation engine, KDE, Kintex-7 KC705, Aurora protocol, Poly1305-AES side-channel attack, man-in-the-middle, hardware security artifacts, Dillibabu Shanmugam">
+    <meta name="description" content="Hardware artifacts by Dillibabu Shanmugam: three ASIC test chips (CAPRI1, CAPRI6, PRISM), an FPGA key distillation engine for quantum key distribution linked over Aurora, a side-channel and man-in-the-middle attack on Poly1305-AES authentication, and an FPGA DDoS detection and mitigation module (DMM), with die images, bench photos and block diagrams.">
+    <meta name="keywords" content="CAPRI1, CAPRI6, PRISM, ASIC test chip, die photo, TSMC 180 nm, TSMC 65 nm, RISC-V test chip, QKD key distillation engine, KDE, QKD post-processing FPGA, Kintex-7 KC705, Aurora protocol, MicroBlaze, LDPC error correction, privacy amplification, Poly1305-AES side-channel attack, man-in-the-middle FPGA, transparent interceptor, Celoxica FPGA, DDoS detection and mitigation FPGA, DMM, Naive Bayes DDoS detection, network security hardware, hardware security artifacts, Dillibabu Shanmugam">
     <meta name="author" content="Dillibabu Shanmugam">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://dillibabushanmugam.github.io/artifacts.html">
     <meta property="og:title" content="Artifacts: Test Chips and FPGA Systems | Dillibabu Shanmugam">
-    <meta property="og:description" content="Three ASIC test chips (CAPRI1, CAPRI6, PRISM), an FPGA key distillation engine for QKD linked over Aurora, and a side-channel attack on Poly1305-AES, with die images, bench photos and board diagrams.">
+    <meta property="og:description" content="Three ASIC test chips (CAPRI1, CAPRI6, PRISM), an FPGA key distillation engine for QKD over Aurora, a side-channel attack on Poly1305-AES, and an FPGA DDoS detection and mitigation module, with die images, bench photos and block diagrams.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://dillibabushanmugam.github.io/artifacts.html">
     <meta property="og:site_name" content="Dillibabu Shanmugam">
     <meta property="og:image" content="https://dillibabushanmugam.github.io/photo/artifacts/capri6_die.png">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Artifacts: Test Chips and FPGA Systems | Dillibabu Shanmugam">
-    <meta name="twitter:description" content="Three ASIC test chips (CAPRI1, CAPRI6, PRISM), an FPGA key distillation engine for QKD linked over Aurora, and a side-channel attack on Poly1305-AES, with die images, bench photos and board diagrams.">
+    <meta name="twitter:description" content="Three ASIC test chips (CAPRI1, CAPRI6, PRISM), an FPGA key distillation engine for QKD over Aurora, a side-channel attack on Poly1305-AES, and an FPGA DDoS detection and mitigation module, with die images, bench photos and block diagrams.">
     <meta name="twitter:image" content="https://dillibabushanmugam.github.io/photo/artifacts/capri6_die.png">
     <script type="application/ld+json">
 {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     "name": "Artifacts: Test Chips and FPGA Systems",
-    "description": "Hardware built by Dillibabu Shanmugam: the CAPRI1, CAPRI6 and PRISM test chips, an FPGA key distillation engine for quantum key distribution, and the bench for a side-channel attack on Poly1305-AES authentication.",
+    "description": "Hardware built by Dillibabu Shanmugam: the CAPRI1, CAPRI6 and PRISM test chips, an FPGA key distillation engine for quantum key distribution, the bench for a side-channel attack on Poly1305-AES authentication, and an FPGA DDoS detection and mitigation module.",
     "url": "https://dillibabushanmugam.github.io/artifacts.html",
     "mainEntityOfPage": "https://dillibabushanmugam.github.io/artifacts.html",
     "author": {
@@ -48,6 +48,91 @@
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dillibabushanmugam.github.io/" },
         { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://dillibabushanmugam.github.io/tools.html" },
         { "@type": "ListItem", "position": 3, "name": "Artifacts", "item": "https://dillibabushanmugam.github.io/artifacts.html" }
+    ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Hardware artifacts by Dillibabu Shanmugam",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "CAPRI1 RISC-V test chip (TSMC 180 nm)",
+            "url": "https://dillibabushanmugam.github.io/artifacts.html#asic"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "CAPRI6 six-core openMSP430 test chip (TSMC 180 nm)",
+            "url": "https://dillibabushanmugam.github.io/artifacts.html#asic"
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "PRISM PQC reference chip (TSMC 65 nm LP)",
+            "url": "https://dillibabushanmugam.github.io/artifacts.html#asic"
+        },
+        {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Key distillation engine for QKD on Kintex-7 FPGA with Aurora",
+            "url": "https://dillibabushanmugam.github.io/artifacts.html#qkd-kde"
+        },
+        {
+            "@type": "ListItem",
+            "position": 5,
+            "name": "Side-channel and man-in-the-middle attack on Poly1305-AES authentication",
+            "url": "https://dillibabushanmugam.github.io/artifacts.html#poly1305"
+        },
+        {
+            "@type": "ListItem",
+            "position": 6,
+            "name": "DDoS detection and mitigation module (DMM) on FPGA",
+            "url": "https://dillibabushanmugam.github.io/artifacts.html#dmm"
+        }
+    ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Which chips has Dillibabu Shanmugam taped out?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Three test chips: CAPRI1, a RISC-V chip in TSMC 180 nm for electromagnetic fault characterization; CAPRI6, six openMSP430 cores in lockstep with a full scan chain in TSMC 180 nm; and PRISM, an open-source post-quantum cryptography reference chip in TSMC 65 nm LP."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What is the key distillation engine for QKD?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "It is the classical post-processing of a quantum key distribution link on FPGA: authentication, sifting, parameter estimation, LDPC error correction and privacy amplification as IP cores under a MicroBlaze processor on Kintex-7 KC705 boards, with the Alice and Bob boards linked over optical fibre using the Aurora protocol."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How does the attack on Poly1305-AES authentication work?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Power analysis on the FPGA that computes the tag recovers the hash key r. A Celoxica FPGA board on the LAN, a transparent box with no IP address, then intercepts a message, removes the hash part of the tag, and sends on a different message with a valid tag. Deriving a fresh r for every authentication with a Toeplitz-matrix universal hash removes the fixed key."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What is the DMM?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The DDoS detection and mitigation module is an inline FPGA system with traffic capture, detection and mitigation modules. A Naive Bayes classifier trained offline flags abnormal windows of packets in hardware, and the mitigation module then passes only white-listed traffic."
+            }
+        }
     ]
 }
     </script>
@@ -127,7 +212,7 @@
         <section id="artifacts">
             <h1 class="section-title">Artifacts</h1>
             <div class="intro">
-                <p>Hardware I designed, built and measured: three ASIC test chips from my PhD at WPI, and two FPGA systems.</p>
+                <p>Hardware I designed, built and measured: three ASIC test chips from my PhD at WPI, and three FPGA systems.</p>
             </div>
 
             <div class="art-group" id="asic">
@@ -340,6 +425,57 @@
                     </figure>
                 </div>
                 <p style="margin-top:1em;font-size:0.9rem;">Related: <a href="https://doi.org/10.1504/ijics.2022.125276" target="_blank" rel="noopener">Robust Message Authentication in the Context of Quantum Key Distribution</a> (IJICS 2022)</p>
+            </div>
+
+            <div class="art-group" id="dmm">
+                <h2>DDoS detection and mitigation module (DMM) on FPGA</h2>
+                <div class="intro">
+                    <p>The <strong>DMM</strong> sits inline on the network path, in front of the servers it protects. It learns what normal traffic looks like, flags windows of packets that deviate from it, and then passes only white-listed traffic. Detection uses a Naive Bayes classifier over packet header fields such as the TCP flags. Training runs offline in software, and detection runs online in hardware at line speed.</p>
+                    <p>Three hardware modules sit on the wire: traffic capture (TCM), detection (DM) and mitigation (MM). A control unit on a PC configures the traffic streams, computes the statistics during learning, and loads the white list. The system covers services over TCP, UDP and ICMP and was tested on the DARPA dataset and on SETS traffic.</p>
+                </div>
+                <div class="art-two">
+                    <figure class="art-fig">
+                        <div class="diagram">
+                            <svg viewBox="0 0 880 400" role="img" aria-label="Block diagram of the DMM: incoming Ethernet packets pass two taps and the mitigation module; the traffic capture and detection modules on FPGA report to a control unit on a PC, which sends the attack flag and white list to the mitigation module">
+                                <text class="sm" x="445" y="22">incoming Ethernet packets, left to right</text>
+                                <text class="hd" x="42" y="80">Internet</text>
+                                <text class="hd" x="842" y="80">Servers</text>
+                                <rect class="bx" x="100" y="46" width="160" height="60" rx="6"/>
+                                <text class="hd" x="180" y="72">Ethernet TAP 1</text><text class="sm" x="180" y="90">copies the traffic</text>
+                                <rect class="bx" x="330" y="46" width="160" height="60" rx="6"/>
+                                <text class="hd" x="410" y="72">Ethernet TAP 2</text><text class="sm" x="410" y="90">copies the traffic</text>
+                                <rect class="board" x="590" y="40" width="200" height="72" rx="6"/>
+                                <text class="hd" x="690" y="66">Mitigation module (MM)</text>
+                                <text class="sm" x="690" y="84">FPGA, inline</text><text class="sm" x="690" y="99">passes white-listed traffic</text>
+                                <path class="ln" style="stroke-width:2.4" marker-end="url(#ah)" d="M74 76H96"/>
+                                <path class="ln" style="stroke-width:2.4" marker-end="url(#ah)" d="M260 76H326"/>
+                                <path class="ln" style="stroke-width:2.4" marker-end="url(#ah)" d="M490 76H586"/>
+                                <path class="ln" style="stroke-width:2.4" marker-end="url(#ah)" d="M790 76H810"/>
+                                <path class="ln" marker-end="url(#ah)" d="M180 106V166"/>
+                                <path class="ln" marker-end="url(#ah)" d="M410 106V166"/>
+                                <rect class="board" x="80" y="170" width="200" height="66" rx="6"/>
+                                <text class="hd" x="180" y="196">Traffic capture module (TCM)</text>
+                                <text class="sm" x="180" y="214">FPGA: capture and statistics</text>
+                                <rect class="board" x="310" y="170" width="200" height="66" rx="6"/>
+                                <text class="hd" x="410" y="196">Detection module (DM)</text>
+                                <text class="sm" x="410" y="214">FPGA: Naive Bayes classifier</text>
+                                <rect class="gold" x="80" y="302" width="710" height="84" rx="6"/>
+                                <text class="hd" x="435" y="326">Control unit (PC software)</text>
+                                <text class="sm" x="200" y="350">Learning</text><text class="sm" x="200" y="366">analyse traffic, compute statistics</text>
+                                <text class="sm" x="435" y="350">Configuration</text><text class="sm" x="435" y="366">set up the traffic streams</text>
+                                <text class="sm" x="670" y="350">White list</text><text class="sm" x="670" y="366">load the allowed sources</text>
+                                <path class="lnlk" marker-start="url(#ahb)" marker-end="url(#ahb)" d="M180 240V298"/>
+                                <text class="lk-t" x="110" y="266">USB / PCIe</text><text class="sm" x="110" y="282">configuration, statistics</text>
+                                <path class="lnlk" marker-start="url(#ahb)" marker-end="url(#ahb)" d="M410 240V298"/>
+                                <text class="lk-t" x="486" y="266">USB / PCIe</text><text class="sm" x="486" y="282">probabilities, attack flag</text>
+                                <path class="lnhot" marker-end="url(#ahh)" d="M690 302V116"/>
+                                <text class="hot-t" x="770" y="200">attack flag</text><text class="sm" x="770" y="216">and white list</text>
+                            </svg>
+                        </div>
+                        <figcaption><strong>Block diagram.</strong> Black is the packet path, blue the control links to the PC, red the attack flag that switches the mitigation module on.</figcaption>
+                    </figure>
+                </div>
+                <p style="margin-top:1em;font-size:0.9rem;">Related: <a href="https://doi.org/10.1109/CCST.2019.8888402" target="_blank" rel="noopener">Denial of Service Detection System on Various Platforms</a> (IEEE ICCST 2019) &middot; <a href="talks.html">Efficient Packet Capturing for DDoS on FPGA, QUT</a></p>
             </div>
 
             <h2 style="margin-top:2.2em;">Related pages</h2>
